@@ -972,6 +972,14 @@ class MyFlixApplication extends _reactDefault.default.Component {
 const container = document.getElementsByClassName('app-container')[0];
 // Tells React to render your app in the root DOM element
 _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication), container);
+_reactDomDefault.default.render(/*#__PURE__*/ _jsxRuntime.jsx("h1", {
+    __source: {
+        fileName: "src/index.jsx",
+        lineNumber: 25
+    },
+    __self: undefined,
+    children: "Hello World"
+}), document.getElementById('root'));
 
   $parcel$ReactRefreshHelpers$b058.postlude(module);
 } finally {
