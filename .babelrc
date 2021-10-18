@@ -1,0 +1,29 @@
+module.export = {
+    ...
+    "module": {
+      "rules": [
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        ....
+      },
+      ...
+    },
+    ...
+  }
+
+  module.export = {
+    ...
+    "module": {
+      "rules": [
+        {
+          test: /\.(png|jp(e*)g|svg|gif)$/,
+          use: ['file-loader'],
+        },
+        ....
+      },
+      ...
+    },
+    ...
+  }
