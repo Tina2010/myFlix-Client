@@ -1,6 +1,11 @@
-$color: rgba(131, 105, 66, 0.973);
+$bright-textcolor: rgb(211 191 160 / 97%);
+$dark-backgroundblue: #303f52;
 
-.my-flix {
-    color: $color;
-    background-color: aqua;
+body {
+    background-color: $dark-backgroundblue;
+    font-family: sans-serif;
+}
+  
+.main-view {
+    color: $bright-textcolor;
 }
