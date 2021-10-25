@@ -1,21 +1,48 @@
 import React from 'react';
+import axios from 'axios';
 
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegiView } from '../user-registration-view/user-registration-view';
+
+import './main-view.scss';
 
 class MainView extends React.Component {
 
     constructor(){
         super();
         this.state = {
-          movies: [
-            { _id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: 'https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg'},
-            { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg'},
-            { _id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Gladiator_%282000_film_poster%29.png'}
-          ],
-          selectedMovie: null
+          movies: [],
+          selectedMovie: null,
+          user: null,
+          register: null
         };
-      }
+    }
+
+    componentDidMount(){
+      axios.get('https://obscure-castle-33842.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+
+    onRegister(register) {
+      this.setState({
+        register
+      });
+    }
+  
+    onLoggedIn(user) {
+      this.setState({
+        user
+      });
+    }
 
       setSelectedMovie(newSelectedMovie) {
         this.setState({
@@ -23,14 +50,29 @@ class MainView extends React.Component {
         });
       }
     
-      render() {
-        const { movies, selectedMovie } = this.state;
-    
-    
-        if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
-    
-        return (
-          <div className="main-view">
+
+      /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
+
+  onLoggedIn(user) {
+    this.setState({
+      user
+    });
+  }
+
+    render() {
+      const { movies, selectedMovie, user, register } = this.state;
+      /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
+      if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
+
+      if (!register) return <RegiView onRegister={register => this.onRegister(register)} />
+
+      // Before the movies have been loaded
+      if (movies.length === 0) return <div className="main-view" />;
+
+      return (
+      <div className="main-view">
+        {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
             {selectedMovie
               ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
               : movies.map(movie => (

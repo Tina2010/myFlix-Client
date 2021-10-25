@@ -1,0 +1,12 @@
+.movie-card {
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.movie-card:hover {
+    text-shadow: 5px 5px 5px black;
+}
+
+.movie-card:active {
+    color:rgba(211, 190, 160, 0.411);
+}
