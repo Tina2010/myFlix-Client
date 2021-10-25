@@ -1,9 +1,61 @@
 body {
   background-color: #303f52;
   font-family: sans-serif;
+  color: rgba(211, 191, 160, 0.97);
+  margin: 30px;
+}
+.movie-card {
+  padding-bottom: 10px;
+  font-size: 20px;
 }
 
-.main-view {
-  color: rgba(211, 191, 160, 0.97);
+.movie-card:hover {
+  text-shadow: 5px 5px 5px black;
 }
+
+.movie-card:active {
+  color: rgba(211, 190, 160, 0.411);
+}
+.movie-view {
+  display: grid;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.movie-view button {
+  max-width: fit-content;
+}
+
+.movie-view div {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+form {
+  display: grid;
+  grid-auto-columns: min-content;
+  justify-content: center;
+}
+
+label {
+  padding-bottom: 10px;
+}
+.info {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.registration {
+  display: grid;
+  grid-auto-columns: min-content;
+  justify-content: center;
+  font-weight: bold;
+}
+
+label {
+  padding-bottom: 10px;
+}
+
 /*# sourceMappingURL=index.1f6edfee.css.map */
