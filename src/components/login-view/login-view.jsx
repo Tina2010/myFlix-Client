@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
+import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
 
 import './login-view.scss';
 
@@ -16,17 +19,25 @@ export function LoginView(props) {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <div className="login-view">
+      <Stack gap={2} className="col-sm-5 col-md-5 mx-auto">
+        <h2 style={{ 'textAlign': "center"}}>Login</h2>
+        <Form>
+          <Form.Group controlId="formUsername">
+            <Form.Label className="mt-3">Username:</Form.Label>
+            <Form.Control className="mb-3" type="text" onChange={e => setUsername(e.target.value)} />
+          </Form.Group>
+
+          <Form.Group controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control className="mb-3" type="password" onChange={e => setPassword(e.target.value)} />
+          </Form.Group>
+          <Button variant="outline-light" type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      </Stack>
+    </div>
   );
 }
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 import './movie-view.scss';
 
@@ -9,27 +12,31 @@ export class MovieView extends React.Component {
     
         return (
           <div className="movie-view">
-            <div className="movie-poster">
-              {/* <img src={movie.ImagePath} /> */}
-              <span className="label">Post: (Will be included, when I implemented the post methode to update movies.)</span>
-            </div>
-            <div className="movie-title">
-              <span className="label">Title: </span>
-              <span className="value">{movie.Title}</span>
-            </div>
-            <div className="movie-genre">
-              <span className="label">Genre: (Will come with the next update, when I implement routes.)</span>
-              {/* <Link to={`/genres/${movie.genre.name}`}>{movie.genre.name}</Link> */}
-            </div>
-            <div className="movie-director">
-              <span className="label">Director: (Will come with the next update, when I implement routes.)</span>
-              {/* <Link to={`/directors/${movie.director.name}`}>{movie.director.name}</Link> */}
-            </div>
-            <div className="movie-description">
-              <span className="label">Description: </span>
-              <span className="value">{movie.Description}</span>
-            </div>
-            <button onClick={() => { onBackClick(null); }}>Back</button>
+            <Row>
+              <Col>
+                <Row className="movie-title">
+                  <Col className="value pb-5" style={{fontSize:"40px"}}>{movie.Title}</Col>
+                </Row>
+                <Row className="movie-genre">
+                  <Col className="label" md={2}>Genre: </Col>
+                  <Col className="value">(Will come with the next update, when I implement routes.)</Col>
+                  {/* <Link to={`/genres/${movie.genre.name}`}>{movie.genre.name}</Link> */}
+                  <Col className="value">{movie.ImagePath}</Col>
+                </Row>
+                <Row className="movie-director">
+                  <Col className="label"md={2}>Director: </Col>
+                  <Col className="value">(Will come with the next update, when I implement routes.)</Col>
+                  {/* <Link to={`/directors/${movie.director.name}`}>{movie.director.name}</Link> */}
+                </Row>
+                <Row className="movie-description">
+                  <Col className="label pt-5"md={2}>Description: </Col>
+                </Row>
+                <Row className="movie-description">
+                  <Col className="value">{movie.Description}</Col>
+                </Row>
+                <Button className="mt-3" variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
+              </Col>
+            </Row>
            </div>
            
         );
@@ -40,7 +47,7 @@ MovieView.prototype = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Descripton: PropTypes.string,
-    ImageURL: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
     Genre: PropTypes.array,
     Director: PropTypes.array
   }).isRequired,

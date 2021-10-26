@@ -1,12 +1,7 @@
-.movie-card {
-    padding-bottom: 10px;
-    font-size: 20px;
+$bright-textcolor: rgb(211 191 160 / 97%);
+$dark-backgroundblue: #303f52;
+
+.movieCardBody{
+    background-color:$dark-backgroundblue;
 }
 
-.movie-card:hover {
-    text-shadow: 5px 5px 5px black;
-}
-
-.movie-card:active {
-    color:rgba(211, 190, 160, 0.411);
-}
