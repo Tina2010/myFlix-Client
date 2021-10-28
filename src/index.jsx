@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import MainView from './components/main-view/main-view';
 import Container from 'react-bootstrap/Container';
 
@@ -10,7 +13,7 @@ import './index.scss';
 class MyFlixApplication extends React.Component {
   render() {
     return (
-      <Container>
+      <Container className="p-0 m-0" style={{'maxWidth':'100%'}}>
         <MainView />
       </Container>
     );
