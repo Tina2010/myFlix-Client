@@ -1,29 +1,91 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+
+import './director-view.scss';
 
 export class DirectorView extends React.Component {
-    render() {
-        const { director, onBackClick } = this.props;
-    
-        return (
-          <div className="director-view">
-            <div className="director-name">
-              <span className="label">Name: </span>
-              <span className="value">{director.Name}</span>
-            </div>
-            <div className="director-bio">
-              <span className="label">Bio: </span>
-              <span className="value">{director.Bio}</span>
-            </div>
-            <button onClick={() => { onBackClick(null); }}>Back</button>
-           </div>
-           
-        );
-      }
-}
 
-DirectorView.prototype = {
-    director: PropTypes.shape({
-    Name: PropTypes.string.isRequired,
-    Bio: PropTypes.string
-})};
+    constructor(props) {
+      super();
+       this.state = {
+        FavoriteMovies: [], 
+      };
+    }
+  
+    componentDidMount() {
+      let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+          this.setState({
+            user: localStorage.getItem('user')
+          });
+          this.getDirector(accessToken);
+        }
+    }
+  
+    getDirector(token) {
+      axios
+        .get(`https://obscure-castle-33842.herokuapp.com/directors/${Name}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          this.setState({
+            Diretor: response.data.Director,
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  
+    render() {
+      const { Director } = this.state;
+      const { directors } = this.props;
+  
+      return (
+        <Container className="mt-5">  
+          <Card>
+            <Row>
+              <Col xs={12}>
+                <h4>Director</h4>
+              </Col>
+            </Row>
+  
+            <Row>
+              <Col>
+                <Card.Body>
+                  <Row className="director-body ">
+                  {Director.length > 0 &&
+                      directors.map((director) => {
+                        if (
+                          director._id ===
+                          Directors.find((dir) => dir === movie.Director)
+                        ) {
+                          return (
+                              <Card>
+                                <Row
+                                className="director-item card-content"
+                                style={{ width: "16rem" }}
+                                key={Director.Name}>
+                                </Row>
+                                <Row
+                                className="director-item card-content"
+                                style={{ width: "16rem" }}
+                                key={Director.Bio}>
+                                </Row>
+                              </Card>
+                          );
+                          }
+                        }
+                      )
+                      }
+                  </Row>
+                </Card.Body>
+              </Col>
+            </Row>
+          </Card>
+        </Container>
+      );
+    }
+  }
