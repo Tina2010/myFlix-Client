@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
+import Link from 'react-router-dom/Link';
 
 import './login-view.scss';
 
@@ -12,14 +14,23 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username + "successfully logged in!");
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    axios.post('http://obscure-castle-33842.herokuapp.com/login/', {
+      Username: username,
+      Password: password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+      console.log(username + "successfully logged in!");
+    })
+    .catch(e => {
+      console.log('No such user found.');
+      alert('Username and or Password are wrong.\nPlease check both values.');
+    })
   };
 
   return (
-    <div className="login-view">
+    <div className="login-view mt-5">
       <Stack gap={2} className="col-sm-5 col-md-5 mx-auto">
         <h2 style={{ 'textAlign': "center"}}>Login</h2>
         <Form>
@@ -36,6 +47,11 @@ export function LoginView(props) {
             Submit
           </Button>
         </Form>
+        <p className="mt-5">
+          New here? Feel free to &nbsp;
+          <Link to="/register" className="btn btn-warning">register</Link>
+          &nbsp; today!
+        </p>
       </Stack>
     </div>
   );
