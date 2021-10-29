@@ -10,7 +10,8 @@ export class DirectorView extends React.Component {
     constructor(props) {
       super();
        this.state = {
-        FavoriteMovies: [], 
+         movie: this.state,
+         Director: [], 
       };
     }
   
@@ -24,9 +25,13 @@ export class DirectorView extends React.Component {
         }
     }
   
+    
+
     getDirector(token) {
+      const movie = this.state;
+      const Director = movie.Director;
       axios
-        .get(`https://obscure-castle-33842.herokuapp.com/directors/${Name}`, {
+        .get(`https://obscure-castle-33842.herokuapp.com/directors/${Director._id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -89,3 +94,10 @@ export class DirectorView extends React.Component {
       );
     }
   }
+
+  DirectorView.prototype = {
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string
+    }).isRequired
+  };

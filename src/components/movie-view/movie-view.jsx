@@ -23,8 +23,8 @@ export class MovieView extends React.Component {
                 <Row className="movie-genre">
                   <Col className="label" md={2}>Genre: </Col>
                   <Col className="value">
-                  <Link to={`/genres/${movie.Genre.Name}`}>
-                    <Button variant="link">{movie.Genre.Name}</Button>
+                  <Link to={`/genres/${movie.Genre}`}>
+                    <Button variant="link">{movie.Genre}</Button>
                   </Link>
                   </Col>
                   <Col className="value">{movie.ImagePath}</Col>
@@ -32,8 +32,8 @@ export class MovieView extends React.Component {
                 <Row className="movie-director">
                   <Col className="label"md={2}>Director: </Col>
                   <Col className="value">
-                  <Link to={`/directors/${movie.Director.Name}`}>
-                    <Button variant="link">{movie.Director.Name}</Button>
+                  <Link to={`/directors/${movie.Director}`}>
+                    <Button variant="link">{movie.Director}</Button>
                   </Link>
                   </Col>
                 </Row>
