@@ -140,7 +140,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"nEs01":[function(require,module,exports) {
+})({"emU3S":[function(require,module,exports) {
 var Refresh = require('react-refresh/runtime');
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {
@@ -151,11 +151,11 @@ window.$RefreshSig$ = function() {
     };
 };
 
-},{"react-refresh/runtime":"5XKCG"}],"5XKCG":[function(require,module,exports) {
+},{"react-refresh/runtime":"aeH4U"}],"aeH4U":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-refresh-runtime.development.js');
 
-},{"./cjs/react-refresh-runtime.development.js":"deKrN"}],"deKrN":[function(require,module,exports) {
+},{"./cjs/react-refresh-runtime.development.js":"8alcJ"}],"8alcJ":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -618,7 +618,7 @@ module.exports = require('./cjs/react-refresh-runtime.development.js');
     exports.setSignature = setSignature;
 })();
 
-},{}],"l1AHa":[function(require,module,exports) {
+},{}],"90ZSn":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
@@ -954,27 +954,41 @@ var _mainView = require("./components/main-view/main-view");
 var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
+var _reduxDevtoolsExtension = require("redux-devtools-extension");
+var _redux = require("redux");
+var _reactRedux = require("react-redux");
+var _reducers = require("./reducers/reducers");
+var _reducersDefault = parcelHelpers.interopDefault(_reducers);
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
+const store = _redux.createStore(_reducersDefault.default, _reduxDevtoolsExtension.devToolsEnhancer());
 // Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
-            className: "p-0 m-0",
-            style: {
-                'maxWidth': '100%'
-            },
+        return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRedux.Provider, {
+            store: store,
             __source: {
                 fileName: "src/index.jsx",
-                lineNumber: 16
+                lineNumber: 23
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
+                className: "p-0 m-0",
+                style: {
+                    'maxWidth': '100%'
+                },
                 __source: {
                     fileName: "src/index.jsx",
-                    lineNumber: 17
+                    lineNumber: 24
                 },
-                __self: this
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
+                    __source: {
+                        fileName: "src/index.jsx",
+                        lineNumber: 25
+                    },
+                    __self: this
+                })
             })
         }));
     }
@@ -989,7 +1003,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-dom":"afyCw","./index.scss":"hlAnh","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG","./components/main-view/main-view":"rCT5r","react-bootstrap/Container":"gFkXb","bootstrap/dist/css/bootstrap.min.css":"5dhe6"}],"6Ds2u":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-dom":"afyCw","./index.scss":"hlAnh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","./components/main-view/main-view":"rCT5r","react-bootstrap/Container":"gFkXb","bootstrap/dist/css/bootstrap.min.css":"5dhe6","redux-devtools-extension":"fbbZr","redux":"ifMRI","react-redux":"lT3ms","./reducers/reducers":"dSmu3"}],"6Ds2u":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -22747,7 +22761,7 @@ module.exports = require('./cjs/scheduler-tracing.development.js');
     exports.unstable_wrap = unstable_wrap;
 })();
 
-},{}],"hlAnh":[function() {},{}],"9OhsC":[function(require,module,exports) {
+},{}],"hlAnh":[function() {},{}],"ciiiV":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -22777,7 +22791,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"czqXG":[function(require,module,exports) {
+},{}],"9pz13":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
@@ -22897,7 +22911,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"5XKCG"}],"rCT5r":[function(require,module,exports) {
+},{"react-refresh/runtime":"aeH4U"}],"rCT5r":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e3c2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22911,9 +22925,11 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRedux = require("react-redux");
 var _reactRouterDom = require("react-router-dom");
 var _loginView = require("../login-view/login-view");
-var _movieCard = require("../movie-card/movie-card");
+var _movieList = require("../movie-list/movie-list");
+var _movieListDefault = parcelHelpers.interopDefault(_movieList);
 var _movieView = require("../movie-view/movie-view");
 var _userRegistrationView = require("../user-registration-view/user-registration-view");
 var _genreView = require("../genre-view/genre-view");
@@ -22925,16 +22941,12 @@ var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
 var _mainViewScss = require("./main-view.scss");
+var _actions = require("../../actions/actions");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
-            movies: [],
-            user: null,
-            Username: '',
-            Password: '',
-            Email: '',
-            Birthday: ''
+            user: null
         };
     }
     componentDidMount() {
@@ -22961,11 +22973,7 @@ class MainView extends _reactDefault.default.Component {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            console.log('response', response);
-            // Assign the result to the state
-            this.setState({
-                movies: response.data
-            });
+            this.props.setMovies(response.data);
         }).catch(function(error) {
             console.log(error);
         });
@@ -22978,18 +22986,19 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , user  } = this.state;
+        const { user  } = this.state;
+        const { movies  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 89
+                lineNumber: 81
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_navbarView.NavBarView, {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 90
+                        lineNumber: 82
                     },
                     __self: this
                 }),
@@ -22997,7 +23006,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "mt-5 main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 91
+                        lineNumber: 83
                     },
                     __self: this,
                     children: [
@@ -23016,17 +23025,13 @@ class MainView extends _reactDefault.default.Component {
                                 if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     className: "main-view"
                                 }));
-                                return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                        md: 4,
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                                            movie: m
-                                        })
-                                    }, m._id)
-                                );
+                                return(/*#__PURE__*/ _jsxRuntime.jsx(_movieListDefault.default, {
+                                    movies: movies
+                                }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 92
+                                lineNumber: 84
                             },
                             __self: this
                         }),
@@ -23043,7 +23048,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 104
+                                lineNumber: 92
                             },
                             __self: this
                         }),
@@ -23070,7 +23075,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 110
+                                lineNumber: 98
                             },
                             __self: this
                         }),
@@ -23099,7 +23104,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 121
+                                lineNumber: 109
                             },
                             __self: this
                         }),
@@ -23129,7 +23134,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 132
+                                lineNumber: 121
                             },
                             __self: this
                         }),
@@ -23158,7 +23163,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 145
+                                lineNumber: 134
                             },
                             __self: this
                         })
@@ -23168,128 +23173,259 @@ class MainView extends _reactDefault.default.Component {
         }));
     }
 }
-exports.default = MainView;
+let mapStateToProps = (state)=>{
+    return {
+        movies: state.movies
+    };
+};
+exports.default = _reactRedux.connect(mapStateToProps, {
+    setMovies: _actions.setMovies
+})(MainView);
 
   $parcel$ReactRefreshHelpers$e3c2.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","../movie-card/movie-card":"04zIX","../movie-view/movie-view":"8S478","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG","axios":"1IeuP","../login-view/login-view":"7IGV8","../user-registration-view/user-registration-view":"3wgSm","./main-view.scss":"hRkrD","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp","react-router-dom":"etVME","../genre-view/genre-view":"eGJ1e","../director-view/director-view":"47DIu","../profile-view/profile-view":"aZt7f","../navbar-view/navbar-view":"5Jwf5"}],"04zIX":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6989 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","../movie-view/movie-view":"8S478","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","axios":"1IeuP","../login-view/login-view":"7IGV8","../user-registration-view/user-registration-view":"3wgSm","./main-view.scss":"hRkrD","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp","react-router-dom":"etVME","../genre-view/genre-view":"eGJ1e","../director-view/director-view":"47DIu","../profile-view/profile-view":"aZt7f","../navbar-view/navbar-view":"5Jwf5","../../actions/actions":"6dgbZ","../movie-list/movie-list":"c7uwF","react-redux":"lT3ms"}],"8S478":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4e70 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6989.prelude(module);
+$parcel$ReactRefreshHelpers$4e70.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
 );
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _card = require("react-bootstrap/Card");
-var _cardDefault = parcelHelpers.interopDefault(_card);
-var _reactRouterDom = require("react-router-dom");
-var _movieCardScss = require("./movie-card.scss");
-class MovieCard extends _reactDefault.default.Component {
+var _link = require("react-router-dom/Link");
+var _linkDefault = parcelHelpers.interopDefault(_link);
+var _movieViewScss = require("./movie-view.scss");
+class MovieView extends _reactDefault.default.Component {
     render() {
-        const { movie  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
-            className: "m-5",
-            style: {
-                height: '300px'
-            },
+        const { movie , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "movie-view",
             __source: {
-                fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 16
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 17
             },
             __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
-                    src: movie.ImagePath,
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                className: "mt-5 pt-5",
+                __source: {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 18
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
                     __source: {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 17
-                    },
-                    __self: this
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.ImgOverlay, {
-                    className: "movieCardBody p-0",
-                    style: {
-                        overflow: "overlay"
-                    },
-                    __source: {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 18
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 19
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
-                        className: "bt-5",
-                        __source: {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 20
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                            className: "movie-title",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 20
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                className: "value pb-5",
+                                style: {
+                                    fontSize: "40px"
+                                },
                                 __source: {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    fileName: "src/components/movie-view/movie-view.jsx",
                                     lineNumber: 21
                                 },
                                 __self: this,
                                 children: movie.Title
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
-                                __source: {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 22
-                                },
-                                __self: this,
-                                children: movie.Description
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                to: `/movies/${movie._id}`,
-                                __source: {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 23
-                                },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                    variant: "outline-light",
+                            })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
+                            className: "movie-genre",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 23
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    className: "label",
+                                    md: 2,
                                     __source: {
-                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        fileName: "src/components/movie-view/movie-view.jsx",
                                         lineNumber: 24
                                     },
                                     __self: this,
-                                    children: "Open"
+                                    children: "Genre: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 25
+                                    },
+                                    __self: this,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_linkDefault.default, {
+                                        to: `/genres/${movie.Genre}`,
+                                        __source: {
+                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                            lineNumber: 26
+                                        },
+                                        __self: this,
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                            variant: "link",
+                                            __source: {
+                                                fileName: "src/components/movie-view/movie-view.jsx",
+                                                lineNumber: 27
+                                            },
+                                            __self: this,
+                                            children: movie.Genre
+                                        })
+                                    })
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 30
+                                    },
+                                    __self: this,
+                                    children: movie.ImagePath
                                 })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
+                            className: "movie-director",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 32
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    className: "label",
+                                    md: 2,
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 33
+                                    },
+                                    __self: this,
+                                    children: "Director: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 34
+                                    },
+                                    __self: this,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_linkDefault.default, {
+                                        to: `/directors/${movie.Director}`,
+                                        __source: {
+                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                            lineNumber: 35
+                                        },
+                                        __self: this,
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                            variant: "link",
+                                            __source: {
+                                                fileName: "src/components/movie-view/movie-view.jsx",
+                                                lineNumber: 36
+                                            },
+                                            __self: this,
+                                            children: movie.Director
+                                        })
+                                    })
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                            className: "movie-description",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 40
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                className: "label pt-5",
+                                md: 2,
+                                __source: {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 41
+                                },
+                                __self: this,
+                                children: "Description: "
                             })
-                        ]
-                    })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                            className: "movie-description",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 43
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                className: "value",
+                                __source: {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 44
+                                },
+                                __self: this,
+                                children: movie.Description
+                            })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                            className: "mt-3",
+                            variant: "outline-light",
+                            onClick: ()=>{
+                                onBackClick(null);
+                            },
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 46
+                            },
+                            __self: this,
+                            children: "Back"
+                        })
+                    ]
                 })
-            ]
+            })
         }));
     }
 }
-MovieCard.prototype = {
+MovieView.prototype = {
     movie: _propTypesDefault.default.shape({
-        Title: _propTypesDefault.default.string.isRequired
+        Title: _propTypesDefault.default.string.isRequired,
+        Descripton: _propTypesDefault.default.string,
+        ImagePath: _propTypesDefault.default.string.isRequired,
+        Genre: _propTypesDefault.default.array,
+        Director: _propTypesDefault.default.array
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
 
-  $parcel$ReactRefreshHelpers$6989.postlude(module);
+  $parcel$ReactRefreshHelpers$4e70.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG","prop-types":"2bysO","./movie-card.scss":"8rKa8","react-bootstrap/Button":"64Pgd","react-bootstrap/Card":"jeXXJ","react-router-dom":"etVME"}],"2bysO":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","./movie-view.scss":"lHyjt","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp","react-bootstrap/Button":"64Pgd","react-router-dom/Link":"gLUzy"}],"2bysO":[function(require,module,exports) {
 var ReactIs = require('react-is');
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
@@ -23968,39 +24104,46 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":"bQ0BL"}],"8rKa8":[function() {},{}],"64Pgd":[function(require,module,exports) {
+},{"./lib/ReactPropTypesSecret":"bQ0BL"}],"lHyjt":[function() {},{}],"eR7YE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
-var _button = require("@restart/ui/Button");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const defaultProps = {
-    variant: 'primary',
-    active: false,
-    disabled: false
-};
-const Button = /*#__PURE__*/ _react.forwardRef(({ as , bsPrefix , variant , size , active , className , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'btn');
-    const [buttonProps, { tagName  }] = _button.useButtonProps({
-        tagName: as,
-        ...props
+const DEVICE_SIZES = [
+    'xxl',
+    'xl',
+    'lg',
+    'md',
+    'sm',
+    'xs'
+];
+const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div' , ...props }, ref)=>{
+    const decoratedBsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'row');
+    const sizePrefix = `${decoratedBsPrefix}-cols`;
+    const classes = [];
+    DEVICE_SIZES.forEach((brkPoint)=>{
+        const propValue = props[brkPoint];
+        delete props[brkPoint];
+        let cols;
+        if (propValue != null && typeof propValue === 'object') ({ cols  } = propValue);
+        else cols = propValue;
+        const infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
+        if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
     });
-    const Component = tagName;
     return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ...props,
-        ...buttonProps,
         ref: ref,
-        className: _classnamesDefault.default(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && props.disabled && 'disabled')
+        ...props,
+        className: _classnamesDefault.default(className, decoratedBsPrefix, ...classes)
     }));
 });
-Button.displayName = 'Button';
-Button.defaultProps = defaultProps;
-exports.default = Button;
+Row.displayName = 'Row';
+exports.default = Row;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Button":"3AURZ","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"2cVcN":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2cVcN":[function(require,module,exports) {
 (function() {
     var hasOwn = {
     }.hasOwnProperty;
@@ -24034,7 +24177,159 @@ exports.default = Button;
     else window.classNames = classNames;
 })();
 
-},{}],"3AURZ":[function(require,module,exports) {
+},{}],"oG7Uz":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix
+);
+parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL
+);
+parcelHelpers.export(exports, "createBootstrapComponent", ()=>createBootstrapComponent
+);
+parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer
+);
+var _react = require("react");
+var _jsxRuntime = require("react/jsx-runtime");
+const ThemeContext = /*#__PURE__*/ _react.createContext({
+    prefixes: {
+    }
+});
+const { Consumer , Provider  } = ThemeContext;
+function ThemeProvider({ prefixes ={
+} , dir , children  }) {
+    const contextValue = _react.useMemo(()=>({
+            prefixes: {
+                ...prefixes
+            },
+            dir
+        })
+    , [
+        prefixes,
+        dir
+    ]);
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Provider, {
+        value: contextValue,
+        children: children
+    }));
+}
+function useBootstrapPrefix(prefix, defaultPrefix) {
+    const { prefixes  } = _react.useContext(ThemeContext);
+    return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+function useIsRTL() {
+    const { dir  } = _react.useContext(ThemeContext);
+    return dir === 'rtl';
+}
+function createBootstrapComponent(Component, opts) {
+    if (typeof opts === 'string') opts = {
+        prefix: opts
+    };
+    const isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
+    const { prefix , forwardRefAs =isClassy ? 'ref' : 'innerRef'  } = opts;
+    const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
+        props[forwardRefAs] = ref;
+        const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
+        return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+            ...props,
+            bsPrefix: bsPrefix
+        }));
+    });
+    Wrapped.displayName = `Bootstrap(${Component.displayName || Component.name})`;
+    return Wrapped;
+}
+exports.default = ThemeProvider;
+
+},{"react":"4mchR","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kxhZp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useCol", ()=>useCol
+);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+const DEVICE_SIZES = [
+    'xxl',
+    'xl',
+    'lg',
+    'md',
+    'sm',
+    'xs'
+];
+function useCol({ as , bsPrefix , className , ...props }) {
+    bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
+    const spans = [];
+    const classes = [];
+    DEVICE_SIZES.forEach((brkPoint)=>{
+        const propValue = props[brkPoint];
+        delete props[brkPoint];
+        let span;
+        let offset;
+        let order;
+        if (typeof propValue === 'object' && propValue != null) ({ span , offset , order  } = propValue);
+        else span = propValue;
+        const infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
+        if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
+        if (order != null) classes.push(`order${infix}-${order}`);
+        if (offset != null) classes.push(`offset${infix}-${offset}`);
+    });
+    return [
+        {
+            ...props,
+            className: _classnamesDefault.default(className, ...spans, ...classes)
+        },
+        {
+            as,
+            bsPrefix,
+            spans
+        }
+    ];
+}
+const Col = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+    const [{ className , ...colProps }, { as: Component = 'div' , bsPrefix , spans  }] = useCol(props);
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ...colProps,
+        ref: ref,
+        className: _classnamesDefault.default(className, !spans.length && bsPrefix)
+    }));
+});
+Col.displayName = 'Col';
+exports.default = Col;
+
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"64Pgd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _button = require("@restart/ui/Button");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+const defaultProps = {
+    variant: 'primary',
+    active: false,
+    disabled: false
+};
+const Button = /*#__PURE__*/ _react.forwardRef(({ as , bsPrefix , variant , size , active , className , ...props }, ref)=>{
+    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'btn');
+    const [buttonProps, { tagName  }] = _button.useButtonProps({
+        tagName: as,
+        ...props
+    });
+    const Component = tagName;
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ...props,
+        ...buttonProps,
+        ref: ref,
+        className: _classnamesDefault.default(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && props.disabled && 'disabled')
+    }));
+});
+Button.displayName = 'Button';
+Button.defaultProps = defaultProps;
+exports.default = Button;
+
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Button":"3AURZ","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3AURZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "isTrivialHref", ()=>isTrivialHref
@@ -24124,386 +24419,176 @@ const Button = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
 Button.displayName = 'Button';
 exports.default = Button;
 
-},{"react":"4mchR","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"oG7Uz":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix
-);
-parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL
-);
-parcelHelpers.export(exports, "createBootstrapComponent", ()=>createBootstrapComponent
-);
-parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer
-);
-var _react = require("react");
-var _jsxRuntime = require("react/jsx-runtime");
-const ThemeContext = /*#__PURE__*/ _react.createContext({
-    prefixes: {
-    }
-});
-const { Consumer , Provider  } = ThemeContext;
-function ThemeProvider({ prefixes ={
-} , dir , children  }) {
-    const contextValue = _react.useMemo(()=>({
-            prefixes: {
-                ...prefixes
-            },
-            dir
-        })
-    , [
-        prefixes,
-        dir
-    ]);
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Provider, {
-        value: contextValue,
-        children: children
-    }));
-}
-function useBootstrapPrefix(prefix, defaultPrefix) {
-    const { prefixes  } = _react.useContext(ThemeContext);
-    return prefix || prefixes[defaultPrefix] || defaultPrefix;
-}
-function useIsRTL() {
-    const { dir  } = _react.useContext(ThemeContext);
-    return dir === 'rtl';
-}
-function createBootstrapComponent(Component, opts) {
-    if (typeof opts === 'string') opts = {
-        prefix: opts
-    };
-    const isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
-    const { prefix , forwardRefAs =isClassy ? 'ref' : 'innerRef'  } = opts;
-    const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
-        props[forwardRefAs] = ref;
-        const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
-        return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-            ...props,
-            bsPrefix: bsPrefix
-        }));
-    });
-    Wrapped.displayName = `Bootstrap(${Component.displayName || Component.name})`;
-    return Wrapped;
-}
-exports.default = ThemeProvider;
+},{"react":"4mchR","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gLUzy":[function(require,module,exports) {
+"use strict";
+require("./warnAboutDeprecatedCJSRequire")("Link");
+module.exports = require("./index.js").Link;
 
-},{"react":"4mchR","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jeXXJ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _createWithBsPrefix = require("./createWithBsPrefix");
-var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
-var _divWithClassName = require("./divWithClassName");
-var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
-var _cardImg = require("./CardImg");
-var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
-var _cardHeader = require("./CardHeader");
-var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
-var _jsxRuntime = require("react/jsx-runtime");
-const DivStyledAsH5 = _divWithClassNameDefault.default('h5');
-const DivStyledAsH6 = _divWithClassNameDefault.default('h6');
-const CardBody = _createWithBsPrefixDefault.default('card-body');
-const CardTitle = _createWithBsPrefixDefault.default('card-title', {
-    Component: DivStyledAsH5
-});
-const CardSubtitle = _createWithBsPrefixDefault.default('card-subtitle', {
-    Component: DivStyledAsH6
-});
-const CardLink = _createWithBsPrefixDefault.default('card-link', {
-    Component: 'a'
-});
-const CardText = _createWithBsPrefixDefault.default('card-text', {
-    Component: 'p'
-});
-const CardFooter = _createWithBsPrefixDefault.default('card-footer');
-const CardImgOverlay = _createWithBsPrefixDefault.default('card-img-overlay');
-const defaultProps = {
-    body: false
+},{"./warnAboutDeprecatedCJSRequire":"5Cyfy","./index.js":"16kZP"}],"5Cyfy":[function(require,module,exports) {
+/* eslint-disable prefer-arrow-callback, no-empty */ "use strict";
+var printWarning = function() {
 };
-const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , bg , text , border , body , children , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div' , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card');
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ref: ref,
-        ...props,
-        className: _classnamesDefault.default(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
-        children: body ? /*#__PURE__*/ _jsxRuntime.jsx(CardBody, {
-            children: children
-        }) : children
-    }));
-});
-Card.displayName = 'Card';
-Card.defaultProps = defaultProps;
-exports.default = Object.assign(Card, {
-    Img: _cardImgDefault.default,
-    Title: CardTitle,
-    Subtitle: CardSubtitle,
-    Body: CardBody,
-    Link: CardLink,
-    Text: CardText,
-    Header: _cardHeaderDefault.default,
-    Footer: CardFooter,
-    ImgOverlay: CardImgOverlay
-});
-
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./createWithBsPrefix":"8IH8I","./divWithClassName":"28Yge","./CardImg":"2QSkt","./CardHeader":"6Iz81","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8IH8I":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _camelize = require("dom-helpers/camelize");
-var _camelizeDefault = parcelHelpers.interopDefault(_camelize);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-const pascalCase = (str)=>str[0].toUpperCase() + _camelizeDefault.default(str).slice(1)
-;
-function createWithBsPrefix(prefix, { displayName =pascalCase(prefix) , Component , defaultProps  } = {
-}) {
-    const BsComponent = /*#__PURE__*/ _react.forwardRef(({ className , bsPrefix , as: Tag = Component || 'div' , ...props }, ref)=>{
-        const resolvedPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, prefix);
-        return(/*#__PURE__*/ _jsxRuntime.jsx(Tag, {
-            ref: ref,
-            className: _classnamesDefault.default(className, resolvedPrefix),
-            ...props
-        }));
-    });
-    BsComponent.defaultProps = defaultProps;
-    BsComponent.displayName = displayName;
-    return BsComponent;
-}
-exports.default = createWithBsPrefix;
-
-},{"classnames":"2cVcN","dom-helpers/camelize":"i1bzh","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"i1bzh":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var rHyphen = /-(.)/g;
-function camelize(string) {
-    return string.replace(rHyphen, function(_, chr) {
-        return chr.toUpperCase();
-    });
-}
-exports.default = camelize;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"28Yge":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _jsxRuntime = require("react/jsx-runtime");
-exports.default = (className)=>/*#__PURE__*/ _react.forwardRef((p, ref)=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            ...p,
-            ref: ref,
-            className: _classnamesDefault.default(p.className, className)
-        })
-    )
-;
-
-},{"react":"4mchR","classnames":"2cVcN","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"2QSkt":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-const CardImg = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , variant , as: Component = 'img' , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-img');
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ref: ref,
-        className: _classnamesDefault.default(variant ? `${prefix}-${variant}` : prefix, className),
-        ...props
-    }));
-});
-CardImg.displayName = 'CardImg';
-exports.default = CardImg;
-
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6Iz81":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _cardHeaderContext = require("./CardHeaderContext");
-var _cardHeaderContextDefault = parcelHelpers.interopDefault(_cardHeaderContext);
-var _jsxRuntime = require("react/jsx-runtime");
-const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div' , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-header');
-    const contextValue = _react.useMemo(()=>({
-            cardHeaderBsPrefix: prefix
-        })
-    , [
-        prefix
+printWarning = function(format, subs) {
+    var index = 0;
+    var message = "Warning: " + (subs.length > 0 ? format.replace(/%s/g, function() {
+        return subs[index++];
+    }) : format);
+    if (typeof console !== "undefined") console.error(message);
+    try {
+        // --- Welcome to debugging React Router ---
+        // This error was thrown as a convenience so that you can use the
+        // stack trace to find the callsite that triggered this warning.
+        throw new Error(message);
+    } catch (e) {
+    }
+};
+module.exports = function(member) {
+    printWarning("Please use `require(\"react-router-dom\").%s` instead of `require(\"react-router-dom/%s\")`. Support for the latter will be removed in the next major release.", [
+        member,
+        member
     ]);
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_cardHeaderContextDefault.default.Provider, {
-        value: contextValue,
-        children: /*#__PURE__*/ _jsxRuntime.jsx(Component, {
-            ref: ref,
-            ...props,
-            className: _classnamesDefault.default(className, prefix)
-        })
-    }));
-});
-CardHeader.displayName = 'CardHeader';
-exports.default = CardHeader;
+};
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./CardHeaderContext":"lEhgp","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lEhgp":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-const context = /*#__PURE__*/ _react.createContext(null);
-context.displayName = 'CardHeaderContext';
-exports.default = context;
+},{}],"16kZP":[function(require,module,exports) {
+"use strict";
+module.exports = require("./cjs/react-router-dom.js");
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"etVME":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MemoryRouter", ()=>_reactRouter.MemoryRouter
-);
-parcelHelpers.export(exports, "Prompt", ()=>_reactRouter.Prompt
-);
-parcelHelpers.export(exports, "Redirect", ()=>_reactRouter.Redirect
-);
-parcelHelpers.export(exports, "Route", ()=>_reactRouter.Route
-);
-parcelHelpers.export(exports, "Router", ()=>_reactRouter.Router
-);
-parcelHelpers.export(exports, "StaticRouter", ()=>_reactRouter.StaticRouter
-);
-parcelHelpers.export(exports, "Switch", ()=>_reactRouter.Switch
-);
-parcelHelpers.export(exports, "generatePath", ()=>_reactRouter.generatePath
-);
-parcelHelpers.export(exports, "matchPath", ()=>_reactRouter.matchPath
-);
-parcelHelpers.export(exports, "useHistory", ()=>_reactRouter.useHistory
-);
-parcelHelpers.export(exports, "useLocation", ()=>_reactRouter.useLocation
-);
-parcelHelpers.export(exports, "useParams", ()=>_reactRouter.useParams
-);
-parcelHelpers.export(exports, "useRouteMatch", ()=>_reactRouter.useRouteMatch
-);
-parcelHelpers.export(exports, "withRouter", ()=>_reactRouter.withRouter
-);
-parcelHelpers.export(exports, "BrowserRouter", ()=>BrowserRouter
-);
-parcelHelpers.export(exports, "HashRouter", ()=>HashRouter
-);
-parcelHelpers.export(exports, "Link", ()=>Link
-);
-parcelHelpers.export(exports, "NavLink", ()=>NavLink
-);
-var _reactRouter = require("react-router");
-var _inheritsLoose = require("@babel/runtime/helpers/esm/inheritsLoose");
-var _inheritsLooseDefault = parcelHelpers.interopDefault(_inheritsLoose);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _history = require("history");
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _tinyWarning = require("tiny-warning");
-var _tinyWarningDefault = parcelHelpers.interopDefault(_tinyWarning);
-var _extends = require("@babel/runtime/helpers/esm/extends");
-var _extendsDefault = parcelHelpers.interopDefault(_extends);
-var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-var _tinyInvariant = require("tiny-invariant");
-var _tinyInvariantDefault = parcelHelpers.interopDefault(_tinyInvariant);
+},{"./cjs/react-router-dom.js":"56rgY"}],"56rgY":[function(require,module,exports) {
+'use strict';
+function _interopDefault(ex) {
+    return ex && typeof ex === 'object' && 'default' in ex ? ex['default'] : ex;
+}
+var reactRouter = require('react-router');
+var React = _interopDefault(require('react'));
+var history = require('history');
+var PropTypes = _interopDefault(require('prop-types'));
+var warning = _interopDefault(require('tiny-warning'));
+var invariant = _interopDefault(require('tiny-invariant'));
+function _extends() {
+    _extends = Object.assign || function(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+        }
+        return target;
+    };
+    return _extends.apply(this, arguments);
+}
+function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    _setPrototypeOf(subClass, superClass);
+}
+function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+    };
+    return _setPrototypeOf(o, p);
+}
+function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {
+    };
+    var target = {
+    };
+    var sourceKeys = Object.keys(source);
+    var key, i;
+    for(i = 0; i < sourceKeys.length; i++){
+        key = sourceKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        target[key] = source[key];
+    }
+    return target;
+}
 /**
  * The public API for a <Router> that uses HTML5 history.
  */ var BrowserRouter = /*#__PURE__*/ function(_React$Component) {
-    _inheritsLooseDefault.default(BrowserRouter, _React$Component);
+    _inheritsLoose(BrowserRouter, _React$Component);
     function BrowserRouter() {
         var _this;
         for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
         _this = _React$Component.call.apply(_React$Component, [
             this
         ].concat(args)) || this;
-        _this.history = _history.createBrowserHistory(_this.props);
+        _this.history = history.createBrowserHistory(_this.props);
         return _this;
     }
     var _proto = BrowserRouter.prototype;
     _proto.render = function render() {
-        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.Router, {
+        return(/*#__PURE__*/ React.createElement(reactRouter.Router, {
             history: this.history,
             children: this.props.children
         }));
     };
     return BrowserRouter;
-}(_reactDefault.default.Component);
+}(React.Component);
 BrowserRouter.propTypes = {
-    basename: _propTypesDefault.default.string,
-    children: _propTypesDefault.default.node,
-    forceRefresh: _propTypesDefault.default.bool,
-    getUserConfirmation: _propTypesDefault.default.func,
-    keyLength: _propTypesDefault.default.number
+    basename: PropTypes.string,
+    children: PropTypes.node,
+    forceRefresh: PropTypes.bool,
+    getUserConfirmation: PropTypes.func,
+    keyLength: PropTypes.number
 };
 BrowserRouter.prototype.componentDidMount = function() {
-    _tinyWarningDefault.default(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.");
+    warning(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.");
 };
 /**
  * The public API for a <Router> that uses window.location.hash.
  */ var HashRouter = /*#__PURE__*/ function(_React$Component) {
-    _inheritsLooseDefault.default(HashRouter, _React$Component);
+    _inheritsLoose(HashRouter, _React$Component);
     function HashRouter() {
         var _this;
         for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
         _this = _React$Component.call.apply(_React$Component, [
             this
         ].concat(args)) || this;
-        _this.history = _history.createHashHistory(_this.props);
+        _this.history = history.createHashHistory(_this.props);
         return _this;
     }
     var _proto = HashRouter.prototype;
     _proto.render = function render() {
-        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.Router, {
+        return(/*#__PURE__*/ React.createElement(reactRouter.Router, {
             history: this.history,
             children: this.props.children
         }));
     };
     return HashRouter;
-}(_reactDefault.default.Component);
+}(React.Component);
 HashRouter.propTypes = {
-    basename: _propTypesDefault.default.string,
-    children: _propTypesDefault.default.node,
-    getUserConfirmation: _propTypesDefault.default.func,
-    hashType: _propTypesDefault.default.oneOf([
+    basename: PropTypes.string,
+    children: PropTypes.node,
+    getUserConfirmation: PropTypes.func,
+    hashType: PropTypes.oneOf([
         "hashbang",
         "noslash",
         "slash"
     ])
 };
 HashRouter.prototype.componentDidMount = function() {
-    _tinyWarningDefault.default(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { HashRouter as Router }`.");
+    warning(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { HashRouter as Router }`.");
 };
 var resolveToLocation = function resolveToLocation(to, currentLocation) {
     return typeof to === "function" ? to(currentLocation) : to;
 };
 var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
-    return typeof to === "string" ? _history.createLocation(to, null, null, currentLocation) : to;
+    return typeof to === "string" ? history.createLocation(to, null, null, currentLocation) : to;
 };
 var forwardRefShim = function forwardRefShim(C) {
     return C;
 };
-var forwardRef = _reactDefault.default.forwardRef;
+var forwardRef = React.forwardRef;
 if (typeof forwardRef === "undefined") forwardRef = forwardRefShim;
 function isModifiedEvent(event) {
     return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
 var LinkAnchor = forwardRef(function(_ref, forwardedRef) {
-    var innerRef = _ref.innerRef, navigate = _ref.navigate, _onClick = _ref.onClick, rest = _objectWithoutPropertiesLooseDefault.default(_ref, [
+    var innerRef = _ref.innerRef, navigate = _ref.navigate, _onClick = _ref.onClick, rest = _objectWithoutPropertiesLoose(_ref, [
         "innerRef",
         "navigate",
         "onClick"
     ]);
     var target = rest.target;
-    var props = _extendsDefault.default({
+    var props = _extends({
     }, rest, {
         onClick: function onClick(event) {
             try {
@@ -24521,62 +24606,62 @@ var LinkAnchor = forwardRef(function(_ref, forwardedRef) {
     }); // React 15 compat
     if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
     else props.ref = innerRef;
-    /* eslint-disable-next-line jsx-a11y/anchor-has-content */ return(/*#__PURE__*/ _reactDefault.default.createElement("a", props));
+    /* eslint-disable-next-line jsx-a11y/anchor-has-content */ return(/*#__PURE__*/ React.createElement("a", props));
 });
 LinkAnchor.displayName = "LinkAnchor";
 /**
  * The public API for rendering a history-aware <a>.
  */ var Link = forwardRef(function(_ref2, forwardedRef) {
-    var _ref2$component = _ref2.component, component = _ref2$component === void 0 ? LinkAnchor : _ref2$component, replace = _ref2.replace, to = _ref2.to, innerRef = _ref2.innerRef, rest = _objectWithoutPropertiesLooseDefault.default(_ref2, [
+    var _ref2$component = _ref2.component, component = _ref2$component === void 0 ? LinkAnchor : _ref2$component, replace = _ref2.replace, to = _ref2.to, innerRef = _ref2.innerRef, rest = _objectWithoutPropertiesLoose(_ref2, [
         "component",
         "replace",
         "to",
         "innerRef"
     ]);
-    return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
-        !context && _tinyInvariantDefault.default(false, "You should not use <Link> outside a <Router>");
-        var history = context.history;
+    return(/*#__PURE__*/ React.createElement(reactRouter.__RouterContext.Consumer, null, function(context) {
+        !context && invariant(false, "You should not use <Link> outside a <Router>");
+        var history$1 = context.history;
         var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
-        var href = location ? history.createHref(location) : "";
-        var props = _extendsDefault.default({
+        var href = location ? history$1.createHref(location) : "";
+        var props = _extends({
         }, rest, {
             href: href,
             navigate: function navigate() {
                 var location = resolveToLocation(to, context.location);
-                var isDuplicateNavigation = _history.createPath(context.location) === _history.createPath(normalizeToLocation(location));
-                var method = replace || isDuplicateNavigation ? history.replace : history.push;
+                var isDuplicateNavigation = history.createPath(context.location) === history.createPath(normalizeToLocation(location));
+                var method = replace || isDuplicateNavigation ? history$1.replace : history$1.push;
                 method(location);
             }
         }); // React 15 compat
         if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
         else props.innerRef = innerRef;
-        return(/*#__PURE__*/ _reactDefault.default.createElement(component, props));
+        return(/*#__PURE__*/ React.createElement(component, props));
     }));
 });
-var toType = _propTypesDefault.default.oneOfType([
-    _propTypesDefault.default.string,
-    _propTypesDefault.default.object,
-    _propTypesDefault.default.func
+var toType = PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.func
 ]);
-var refType = _propTypesDefault.default.oneOfType([
-    _propTypesDefault.default.string,
-    _propTypesDefault.default.func,
-    _propTypesDefault.default.shape({
-        current: _propTypesDefault.default.any
+var refType = PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.shape({
+        current: PropTypes.any
     })
 ]);
 Link.displayName = "Link";
 Link.propTypes = {
     innerRef: refType,
-    onClick: _propTypesDefault.default.func,
-    replace: _propTypesDefault.default.bool,
-    target: _propTypesDefault.default.string,
+    onClick: PropTypes.func,
+    replace: PropTypes.bool,
+    target: PropTypes.string,
     to: toType.isRequired
 };
 var forwardRefShim$1 = function forwardRefShim(C) {
     return C;
 };
-var forwardRef$1 = _reactDefault.default.forwardRef;
+var forwardRef$1 = React.forwardRef;
 if (typeof forwardRef$1 === "undefined") forwardRef$1 = forwardRefShim$1;
 function joinClassnames() {
     for(var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++)classnames[_key] = arguments[_key];
@@ -24587,7 +24672,7 @@ function joinClassnames() {
 /**
  * A <Link> wrapper that knows if it's "active" or not.
  */ var NavLink = forwardRef$1(function(_ref, forwardedRef) {
-    var _ref$ariaCurrent = _ref["aria-current"], ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent, _ref$activeClassName = _ref.activeClassName, activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName, activeStyle = _ref.activeStyle, classNameProp = _ref.className, exact = _ref.exact, isActiveProp = _ref.isActive, locationProp = _ref.location, sensitive = _ref.sensitive, strict = _ref.strict, styleProp = _ref.style, to = _ref.to, innerRef = _ref.innerRef, rest = _objectWithoutPropertiesLooseDefault.default(_ref, [
+    var _ref$ariaCurrent = _ref["aria-current"], ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent, _ref$activeClassName = _ref.activeClassName, activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName, activeStyle = _ref.activeStyle, classNameProp = _ref.className, exact = _ref.exact, isActiveProp = _ref.isActive, locationProp = _ref.location, sensitive = _ref.sensitive, strict = _ref.strict, styleProp = _ref.style, to = _ref.to, innerRef = _ref.innerRef, rest = _objectWithoutPropertiesLoose(_ref, [
         "aria-current",
         "activeClassName",
         "activeStyle",
@@ -24601,13 +24686,13 @@ function joinClassnames() {
         "to",
         "innerRef"
     ]);
-    return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
-        !context && _tinyInvariantDefault.default(false, "You should not use <NavLink> outside a <Router>");
+    return(/*#__PURE__*/ React.createElement(reactRouter.__RouterContext.Consumer, null, function(context) {
+        !context && invariant(false, "You should not use <NavLink> outside a <Router>");
         var currentLocation = locationProp || context.location;
         var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
         var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
         var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
-        var match = escapedPath ? _reactRouter.matchPath(currentLocation.pathname, {
+        var match = escapedPath ? reactRouter.matchPath(currentLocation.pathname, {
             path: escapedPath,
             exact: exact,
             sensitive: sensitive,
@@ -24618,10 +24703,10 @@ function joinClassnames() {
         var style = typeof styleProp === "function" ? styleProp(isActive) : styleProp;
         if (isActive) {
             className = joinClassnames(className, activeClassName);
-            style = _extendsDefault.default({
+            style = _extends({
             }, style, activeStyle);
         }
-        var props = _extendsDefault.default({
+        var props = _extends({
             "aria-current": isActive && ariaCurrent || null,
             className: className,
             style: style,
@@ -24629,11 +24714,11 @@ function joinClassnames() {
         }, rest); // React 15 compat
         if (forwardRefShim$1 !== forwardRef$1) props.ref = forwardedRef || innerRef;
         else props.innerRef = innerRef;
-        return(/*#__PURE__*/ _reactDefault.default.createElement(Link, props));
+        return(/*#__PURE__*/ React.createElement(Link, props));
     }));
 });
 NavLink.displayName = "NavLink";
-var ariaCurrentType = _propTypesDefault.default.oneOf([
+var ariaCurrentType = PropTypes.oneOf([
     "page",
     "step",
     "location",
@@ -24642,27 +24727,115 @@ var ariaCurrentType = _propTypesDefault.default.oneOf([
     "true",
     "false"
 ]);
-NavLink.propTypes = _extendsDefault.default({
+NavLink.propTypes = _extends({
 }, Link.propTypes, {
     "aria-current": ariaCurrentType,
-    activeClassName: _propTypesDefault.default.string,
-    activeStyle: _propTypesDefault.default.object,
-    className: _propTypesDefault.default.oneOfType([
-        _propTypesDefault.default.string,
-        _propTypesDefault.default.func
+    activeClassName: PropTypes.string,
+    activeStyle: PropTypes.object,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.func
     ]),
-    exact: _propTypesDefault.default.bool,
-    isActive: _propTypesDefault.default.func,
-    location: _propTypesDefault.default.object,
-    sensitive: _propTypesDefault.default.bool,
-    strict: _propTypesDefault.default.bool,
-    style: _propTypesDefault.default.oneOfType([
-        _propTypesDefault.default.object,
-        _propTypesDefault.default.func
+    exact: PropTypes.bool,
+    isActive: PropTypes.func,
+    location: PropTypes.object,
+    sensitive: PropTypes.bool,
+    strict: PropTypes.bool,
+    style: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.func
     ])
 });
+Object.defineProperty(exports, 'MemoryRouter', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.MemoryRouter;
+    }
+});
+Object.defineProperty(exports, 'Prompt', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.Prompt;
+    }
+});
+Object.defineProperty(exports, 'Redirect', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.Redirect;
+    }
+});
+Object.defineProperty(exports, 'Route', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.Route;
+    }
+});
+Object.defineProperty(exports, 'Router', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.Router;
+    }
+});
+Object.defineProperty(exports, 'StaticRouter', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.StaticRouter;
+    }
+});
+Object.defineProperty(exports, 'Switch', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.Switch;
+    }
+});
+Object.defineProperty(exports, 'generatePath', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.generatePath;
+    }
+});
+Object.defineProperty(exports, 'matchPath', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.matchPath;
+    }
+});
+Object.defineProperty(exports, 'useHistory', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.useHistory;
+    }
+});
+Object.defineProperty(exports, 'useLocation', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.useLocation;
+    }
+});
+Object.defineProperty(exports, 'useParams', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.useParams;
+    }
+});
+Object.defineProperty(exports, 'useRouteMatch', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.useRouteMatch;
+    }
+});
+Object.defineProperty(exports, 'withRouter', {
+    enumerable: true,
+    get: function() {
+        return reactRouter.withRouter;
+    }
+});
+exports.BrowserRouter = BrowserRouter;
+exports.HashRouter = HashRouter;
+exports.Link = Link;
+exports.NavLink = NavLink;
 
-},{"react-router":"az1m7","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","history":"7Kc8n","prop-types":"2bysO","tiny-warning":"eDUdC","@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","tiny-invariant":"9t1GA","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"az1m7":[function(require,module,exports) {
+},{"react-router":"az1m7","react":"4mchR","history":"7Kc8n","prop-types":"2bysO","tiny-warning":"eDUdC","tiny-invariant":"9t1GA"}],"az1m7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>MemoryRouter
@@ -25281,7 +25454,7 @@ if (typeof window !== "undefined") {
     global[key] = "esm";
 }
 
-},{"@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","prop-types":"2bysO","history":"7Kc8n","tiny-warning":"eDUdC","mini-create-react-context":"dGlTt","tiny-invariant":"9t1GA","@babel/runtime/helpers/esm/extends":"5inYT","path-to-regexp":"5Ehp7","react-is":"5KyfE","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","hoist-non-react-statics":"6NILB","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6cZja":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","prop-types":"2bysO","history":"7Kc8n","tiny-warning":"eDUdC","mini-create-react-context":"dGlTt","tiny-invariant":"9t1GA","@babel/runtime/helpers/esm/extends":"5inYT","path-to-regexp":"5Ehp7","react-is":"5KyfE","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","hoist-non-react-statics":"6NILB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6cZja":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _setPrototypeOfJs = require("./setPrototypeOf.js");
@@ -25293,7 +25466,7 @@ function _inheritsLoose(subClass, superClass) {
 }
 exports.default = _inheritsLoose;
 
-},{"./setPrototypeOf.js":"fhfrK","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fhfrK":[function(require,module,exports) {
+},{"./setPrototypeOf.js":"fhfrK","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fhfrK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _setPrototypeOf(o, p) {
@@ -25305,7 +25478,7 @@ function _setPrototypeOf(o, p) {
 }
 exports.default = _setPrototypeOf;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7Kc8n":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Kc8n":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createBrowserHistory", ()=>createBrowserHistory
@@ -26035,7 +26208,7 @@ function clamp(n, lowerBound, upperBound) {
     return history;
 }
 
-},{"@babel/runtime/helpers/esm/extends":"5inYT","resolve-pathname":"k5Rju","value-equal":"bjuoN","tiny-warning":"eDUdC","tiny-invariant":"9t1GA","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5inYT":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"5inYT","resolve-pathname":"k5Rju","value-equal":"bjuoN","tiny-warning":"eDUdC","tiny-invariant":"9t1GA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5inYT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _extends() {
@@ -26050,7 +26223,7 @@ function _extends() {
 }
 exports.default = _extends;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"k5Rju":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"k5Rju":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function isAbsolute(pathname) {
@@ -26102,7 +26275,7 @@ function resolvePathname(to, from) {
 }
 exports.default = resolvePathname;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"bjuoN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bjuoN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function valueOf(obj) {
@@ -26129,7 +26302,7 @@ function valueEqual(a, b) {
 }
 exports.default = valueEqual;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"eDUdC":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eDUdC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var isProduction = false;
@@ -26146,7 +26319,7 @@ function warning(condition, message) {
 }
 exports.default = warning;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"9t1GA":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9t1GA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var isProduction = false;
@@ -26158,7 +26331,7 @@ function invariant(condition, message) {
 }
 exports.default = invariant;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"dGlTt":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dGlTt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -26292,7 +26465,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
 var index = _reactDefault.default.createContext || createReactContext;
 exports.default = index;
 
-},{"react":"4mchR","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","prop-types":"2bysO","tiny-warning":"eDUdC","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5Ehp7":[function(require,module,exports) {
+},{"react":"4mchR","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","prop-types":"2bysO","tiny-warning":"eDUdC","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5Ehp7":[function(require,module,exports) {
 var isarray = require('isarray');
 /**
  * Expose `pathToRegexp`.
@@ -26624,7 +26797,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 }
 exports.default = _objectWithoutPropertiesLoose;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6NILB":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6NILB":[function(require,module,exports) {
 'use strict';
 var reactIs = require('react-is');
 /**
@@ -26710,341 +26883,7 @@ function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
 }
 module.exports = hoistNonReactStatics;
 
-},{"react-is":"5KyfE"}],"8S478":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4e70 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4e70.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieView", ()=>MovieView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _row = require("react-bootstrap/Row");
-var _rowDefault = parcelHelpers.interopDefault(_row);
-var _col = require("react-bootstrap/Col");
-var _colDefault = parcelHelpers.interopDefault(_col);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _reactRouterDom = require("react-router-dom");
-var _movieViewScss = require("./movie-view.scss");
-class MovieView extends _reactDefault.default.Component {
-    render() {
-        const { movie , onBackClick  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "movie-view",
-            __source: {
-                fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 17
-            },
-            __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-                className: "mt-5 pt-5",
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 18
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 19
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-                            className: "movie-title",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 20
-                            },
-                            __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                className: "value pb-5",
-                                style: {
-                                    fontSize: "40px"
-                                },
-                                __source: {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 21
-                                },
-                                __self: this,
-                                children: movie.Title
-                            })
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-                            className: "movie-genre",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 23
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                    className: "label",
-                                    md: 2,
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 24
-                                    },
-                                    __self: this,
-                                    children: "Genre: "
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                    className: "value",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 25
-                                    },
-                                    __self: this,
-                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        to: `/genres/${movie.Genre}`,
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 26
-                                        },
-                                        __self: this,
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                            variant: "link",
-                                            __source: {
-                                                fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 27
-                                            },
-                                            __self: this,
-                                            children: movie.Genre
-                                        })
-                                    })
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                    className: "value",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 30
-                                    },
-                                    __self: this,
-                                    children: movie.ImagePath
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-                            className: "movie-director",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 32
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                    className: "label",
-                                    md: 2,
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 33
-                                    },
-                                    __self: this,
-                                    children: "Director: "
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                    className: "value",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 34
-                                    },
-                                    __self: this,
-                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        to: `/directors/${movie.Director}`,
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 35
-                                        },
-                                        __self: this,
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                            variant: "link",
-                                            __source: {
-                                                fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 36
-                                            },
-                                            __self: this,
-                                            children: movie.Director
-                                        })
-                                    })
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-                            className: "movie-description",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 40
-                            },
-                            __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                className: "label pt-5",
-                                md: 2,
-                                __source: {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 41
-                                },
-                                __self: this,
-                                children: "Description: "
-                            })
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-                            className: "movie-description",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 43
-                            },
-                            __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                className: "value",
-                                __source: {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 44
-                                },
-                                __self: this,
-                                children: movie.Description
-                            })
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                            className: "mt-3",
-                            variant: "outline-light",
-                            onClick: ()=>{
-                                onBackClick(null);
-                            },
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 46
-                            },
-                            __self: this,
-                            children: "Back"
-                        })
-                    ]
-                })
-            })
-        }));
-    }
-}
-MovieView.prototype = {
-    movie: _propTypesDefault.default.shape({
-        Title: _propTypesDefault.default.string.isRequired,
-        Descripton: _propTypesDefault.default.string,
-        ImagePath: _propTypesDefault.default.string.isRequired,
-        Genre: _propTypesDefault.default.array,
-        Director: _propTypesDefault.default.array
-    }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
-};
-
-  $parcel$ReactRefreshHelpers$4e70.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG","prop-types":"2bysO","./movie-view.scss":"lHyjt","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp","react-bootstrap/Button":"64Pgd","react-router-dom":"etVME"}],"lHyjt":[function() {},{}],"eR7YE":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-const DEVICE_SIZES = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
-const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div' , ...props }, ref)=>{
-    const decoratedBsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'row');
-    const sizePrefix = `${decoratedBsPrefix}-cols`;
-    const classes = [];
-    DEVICE_SIZES.forEach((brkPoint)=>{
-        const propValue = props[brkPoint];
-        delete props[brkPoint];
-        let cols;
-        if (propValue != null && typeof propValue === 'object') ({ cols  } = propValue);
-        else cols = propValue;
-        const infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
-        if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
-    });
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ref: ref,
-        ...props,
-        className: _classnamesDefault.default(className, decoratedBsPrefix, ...classes)
-    }));
-});
-Row.displayName = 'Row';
-exports.default = Row;
-
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kxhZp":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "useCol", ()=>useCol
-);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-const DEVICE_SIZES = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
-function useCol({ as , bsPrefix , className , ...props }) {
-    bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
-    const spans = [];
-    const classes = [];
-    DEVICE_SIZES.forEach((brkPoint)=>{
-        const propValue = props[brkPoint];
-        delete props[brkPoint];
-        let span;
-        let offset;
-        let order;
-        if (typeof propValue === 'object' && propValue != null) ({ span , offset , order  } = propValue);
-        else span = propValue;
-        const infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
-        if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
-        if (order != null) classes.push(`order${infix}-${order}`);
-        if (offset != null) classes.push(`offset${infix}-${offset}`);
-    });
-    return [
-        {
-            ...props,
-            className: _classnamesDefault.default(className, ...spans, ...classes)
-        },
-        {
-            as,
-            bsPrefix,
-            spans
-        }
-    ];
-}
-const Col = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
-    const [{ className , ...colProps }, { as: Component = 'div' , bsPrefix , spans  }] = useCol(props);
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ...colProps,
-        ref: ref,
-        className: _classnamesDefault.default(className, !spans.length && bsPrefix)
-    }));
-});
-Col.displayName = 'Col';
-exports.default = Col;
-
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"1IeuP":[function(require,module,exports) {
+},{"react-is":"5KyfE"}],"1IeuP":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"ePOwX"}],"ePOwX":[function(require,module,exports) {
@@ -27754,7 +27593,7 @@ utils.forEach([
 });
 module.exports = defaults;
 
-},{"process":"ht28n","./utils":"60BxC","./helpers/normalizeHeaderName":"gXQ9Q","./core/enhanceError":"cZtoX","./adapters/xhr":"1BOMK","./adapters/http":"1BOMK"}],"ht28n":[function(require,module,exports) {
+},{"process":"lDnB8","./utils":"60BxC","./helpers/normalizeHeaderName":"gXQ9Q","./core/enhanceError":"cZtoX","./adapters/xhr":"1BOMK","./adapters/http":"1BOMK"}],"lDnB8":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {
 };
@@ -28797,7 +28636,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG","prop-types":"2bysO","./login-view.scss":"hONex","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","react-bootstrap/Stack":"jyr8Z","axios":"1IeuP","react-router-dom/Link":"gLUzy"}],"hONex":[function() {},{}],"PeiIB":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","./login-view.scss":"hONex","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","react-bootstrap/Stack":"jyr8Z","axios":"1IeuP","react-router-dom/Link":"gLUzy"}],"hONex":[function() {},{}],"PeiIB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -28863,7 +28702,7 @@ exports.default = Object.assign(Form, {
     FloatingLabel: _floatingLabelDefault.default
 });
 
-},{"classnames":"2cVcN","prop-types":"2bysO","react":"4mchR","./FormCheck":"k9egm","./FormControl":"3iZ43","./FormFloating":"2z0Ti","./FormGroup":"6eZW8","./FormLabel":"4E1MN","./FormRange":"g1L56","./FormSelect":"cLBuq","./FormText":"gsCyO","./Switch":"U0RUx","./FloatingLabel":"1Xz1h","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"k9egm":[function(require,module,exports) {
+},{"classnames":"2cVcN","prop-types":"2bysO","react":"4mchR","./FormCheck":"k9egm","./FormControl":"3iZ43","./FormFloating":"2z0Ti","./FormGroup":"6eZW8","./FormLabel":"4E1MN","./FormRange":"g1L56","./FormSelect":"cLBuq","./FormText":"gsCyO","./Switch":"U0RUx","./FloatingLabel":"1Xz1h","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"k9egm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -28929,7 +28768,7 @@ exports.default = Object.assign(FormCheck, {
     Label: _formCheckLabelDefault.default
 });
 
-},{"classnames":"2cVcN","react":"4mchR","./Feedback":"3l6gp","./FormCheckInput":"fNTQv","./FormCheckLabel":"lyWnd","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3l6gp":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./Feedback":"3l6gp","./FormCheckInput":"fNTQv","./FormCheckLabel":"lyWnd","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3l6gp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -28957,7 +28796,7 @@ Feedback.displayName = 'Feedback';
 Feedback.propTypes = propTypes;
 exports.default = Feedback;
 
-},{"classnames":"2cVcN","react":"4mchR","prop-types":"2bysO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fNTQv":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","prop-types":"2bysO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fNTQv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -28982,7 +28821,7 @@ as: Component = 'input' , ...props }, ref)=>{
 FormCheckInput.displayName = 'FormCheckInput';
 exports.default = FormCheckInput;
 
-},{"classnames":"2cVcN","react":"4mchR","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"axYdK":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"axYdK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react"); // TODO
@@ -28990,7 +28829,7 @@ const FormContext = /*#__PURE__*/ _react.createContext({
 });
 exports.default = FormContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lyWnd":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lyWnd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29013,7 +28852,7 @@ const FormCheckLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className ,
 FormCheckLabel.displayName = 'FormCheckLabel';
 exports.default = FormCheckLabel;
 
-},{"classnames":"2cVcN","react":"4mchR","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3iZ43":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3iZ43":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29055,7 +28894,7 @@ exports.default = Object.assign(FormControl, {
     Feedback: _feedbackDefault.default
 });
 
-},{"classnames":"2cVcN","react":"4mchR","warning":"4vouU","./Feedback":"3l6gp","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4vouU":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","warning":"4vouU","./Feedback":"3l6gp","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4vouU":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -29107,7 +28946,46 @@ var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('form-floating');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6eZW8":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8IH8I":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _camelize = require("dom-helpers/camelize");
+var _camelizeDefault = parcelHelpers.interopDefault(_camelize);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+const pascalCase = (str)=>str[0].toUpperCase() + _camelizeDefault.default(str).slice(1)
+;
+function createWithBsPrefix(prefix, { displayName =pascalCase(prefix) , Component , defaultProps  } = {
+}) {
+    const BsComponent = /*#__PURE__*/ _react.forwardRef(({ className , bsPrefix , as: Tag = Component || 'div' , ...props }, ref)=>{
+        const resolvedPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, prefix);
+        return(/*#__PURE__*/ _jsxRuntime.jsx(Tag, {
+            ref: ref,
+            className: _classnamesDefault.default(className, resolvedPrefix),
+            ...props
+        }));
+    });
+    BsComponent.defaultProps = defaultProps;
+    BsComponent.displayName = displayName;
+    return BsComponent;
+}
+exports.default = createWithBsPrefix;
+
+},{"classnames":"2cVcN","dom-helpers/camelize":"i1bzh","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"i1bzh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var rHyphen = /-(.)/g;
+function camelize(string) {
+    return string.replace(rHyphen, function(_, chr) {
+        return chr.toUpperCase();
+    });
+}
+exports.default = camelize;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6eZW8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -29133,7 +29011,7 @@ as: Component = 'div' , ...props }, ref)=>{
 FormGroup.displayName = 'FormGroup';
 exports.default = FormGroup;
 
-},{"react":"4mchR","./FormContext":"axYdK","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4E1MN":[function(require,module,exports) {
+},{"react":"4mchR","./FormContext":"axYdK","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4E1MN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29179,7 +29057,7 @@ FormLabel.displayName = 'FormLabel';
 FormLabel.defaultProps = defaultProps;
 exports.default = FormLabel;
 
-},{"classnames":"2cVcN","react":"4mchR","warning":"4vouU","./Col":"kxhZp","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"g1L56":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","warning":"4vouU","./Col":"kxhZp","./FormContext":"axYdK","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g1L56":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29203,7 +29081,7 @@ const FormRange = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , id ,
 FormRange.displayName = 'FormRange';
 exports.default = FormRange;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./FormContext":"axYdK","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cLBuq":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./FormContext":"axYdK","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cLBuq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29227,7 +29105,7 @@ const FormSelect = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , size , htmlSize
 FormSelect.displayName = 'FormSelect';
 exports.default = FormSelect;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./FormContext":"axYdK","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gsCyO":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./FormContext":"axYdK","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gsCyO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29246,7 +29124,7 @@ const FormText = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , as: C
 FormText.displayName = 'FormText';
 exports.default = FormText;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"U0RUx":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"U0RUx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -29265,7 +29143,7 @@ exports.default = Object.assign(Switch, {
     Label: _formCheckDefault.default.Label
 });
 
-},{"react":"4mchR","./FormCheck":"k9egm","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"1Xz1h":[function(require,module,exports) {
+},{"react":"4mchR","./FormCheck":"k9egm","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1Xz1h":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29294,7 +29172,7 @@ const FloatingLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , 
 FloatingLabel.displayName = 'FloatingLabel';
 exports.default = FloatingLabel;
 
-},{"classnames":"2cVcN","react":"4mchR","./FormGroup":"6eZW8","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jyr8Z":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./FormGroup":"6eZW8","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jyr8Z":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29317,7 +29195,7 @@ const Stack = /*#__PURE__*/ _react.forwardRef(({ as: Component = 'div' , bsPrefi
 Stack.displayName = 'Stack';
 exports.default = Stack;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./createUtilityClasses":"cvS42","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cvS42":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./createUtilityClasses":"cvS42","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cvS42":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "responsivePropType", ()=>responsivePropType
@@ -29365,423 +29243,7 @@ function createUtilityClassName(utilityValues) {
 }
 exports.default = createUtilityClassName;
 
-},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gLUzy":[function(require,module,exports) {
-"use strict";
-require("./warnAboutDeprecatedCJSRequire")("Link");
-module.exports = require("./index.js").Link;
-
-},{"./warnAboutDeprecatedCJSRequire":"5Cyfy","./index.js":"16kZP"}],"5Cyfy":[function(require,module,exports) {
-/* eslint-disable prefer-arrow-callback, no-empty */ "use strict";
-var printWarning = function() {
-};
-printWarning = function(format, subs) {
-    var index = 0;
-    var message = "Warning: " + (subs.length > 0 ? format.replace(/%s/g, function() {
-        return subs[index++];
-    }) : format);
-    if (typeof console !== "undefined") console.error(message);
-    try {
-        // --- Welcome to debugging React Router ---
-        // This error was thrown as a convenience so that you can use the
-        // stack trace to find the callsite that triggered this warning.
-        throw new Error(message);
-    } catch (e) {
-    }
-};
-module.exports = function(member) {
-    printWarning("Please use `require(\"react-router-dom\").%s` instead of `require(\"react-router-dom/%s\")`. Support for the latter will be removed in the next major release.", [
-        member,
-        member
-    ]);
-};
-
-},{}],"16kZP":[function(require,module,exports) {
-"use strict";
-module.exports = require("./cjs/react-router-dom.js");
-
-},{"./cjs/react-router-dom.js":"56rgY"}],"56rgY":[function(require,module,exports) {
-'use strict';
-function _interopDefault(ex) {
-    return ex && typeof ex === 'object' && 'default' in ex ? ex['default'] : ex;
-}
-var reactRouter = require('react-router');
-var React = _interopDefault(require('react'));
-var history = require('history');
-var PropTypes = _interopDefault(require('prop-types'));
-var warning = _interopDefault(require('tiny-warning'));
-var invariant = _interopDefault(require('tiny-invariant'));
-function _extends() {
-    _extends = Object.assign || function(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-        }
-        return target;
-    };
-    return _extends.apply(this, arguments);
-}
-function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    _setPrototypeOf(subClass, superClass);
-}
-function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-        o.__proto__ = p;
-        return o;
-    };
-    return _setPrototypeOf(o, p);
-}
-function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {
-    };
-    var target = {
-    };
-    var sourceKeys = Object.keys(source);
-    var key, i;
-    for(i = 0; i < sourceKeys.length; i++){
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-    }
-    return target;
-}
-/**
- * The public API for a <Router> that uses HTML5 history.
- */ var BrowserRouter = /*#__PURE__*/ function(_React$Component) {
-    _inheritsLoose(BrowserRouter, _React$Component);
-    function BrowserRouter() {
-        var _this;
-        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
-        _this = _React$Component.call.apply(_React$Component, [
-            this
-        ].concat(args)) || this;
-        _this.history = history.createBrowserHistory(_this.props);
-        return _this;
-    }
-    var _proto = BrowserRouter.prototype;
-    _proto.render = function render() {
-        return(/*#__PURE__*/ React.createElement(reactRouter.Router, {
-            history: this.history,
-            children: this.props.children
-        }));
-    };
-    return BrowserRouter;
-}(React.Component);
-BrowserRouter.propTypes = {
-    basename: PropTypes.string,
-    children: PropTypes.node,
-    forceRefresh: PropTypes.bool,
-    getUserConfirmation: PropTypes.func,
-    keyLength: PropTypes.number
-};
-BrowserRouter.prototype.componentDidMount = function() {
-    warning(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.");
-};
-/**
- * The public API for a <Router> that uses window.location.hash.
- */ var HashRouter = /*#__PURE__*/ function(_React$Component) {
-    _inheritsLoose(HashRouter, _React$Component);
-    function HashRouter() {
-        var _this;
-        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
-        _this = _React$Component.call.apply(_React$Component, [
-            this
-        ].concat(args)) || this;
-        _this.history = history.createHashHistory(_this.props);
-        return _this;
-    }
-    var _proto = HashRouter.prototype;
-    _proto.render = function render() {
-        return(/*#__PURE__*/ React.createElement(reactRouter.Router, {
-            history: this.history,
-            children: this.props.children
-        }));
-    };
-    return HashRouter;
-}(React.Component);
-HashRouter.propTypes = {
-    basename: PropTypes.string,
-    children: PropTypes.node,
-    getUserConfirmation: PropTypes.func,
-    hashType: PropTypes.oneOf([
-        "hashbang",
-        "noslash",
-        "slash"
-    ])
-};
-HashRouter.prototype.componentDidMount = function() {
-    warning(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { HashRouter as Router }`.");
-};
-var resolveToLocation = function resolveToLocation(to, currentLocation) {
-    return typeof to === "function" ? to(currentLocation) : to;
-};
-var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
-    return typeof to === "string" ? history.createLocation(to, null, null, currentLocation) : to;
-};
-var forwardRefShim = function forwardRefShim(C) {
-    return C;
-};
-var forwardRef = React.forwardRef;
-if (typeof forwardRef === "undefined") forwardRef = forwardRefShim;
-function isModifiedEvent(event) {
-    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-}
-var LinkAnchor = forwardRef(function(_ref, forwardedRef) {
-    var innerRef = _ref.innerRef, navigate = _ref.navigate, _onClick = _ref.onClick, rest = _objectWithoutPropertiesLoose(_ref, [
-        "innerRef",
-        "navigate",
-        "onClick"
-    ]);
-    var target = rest.target;
-    var props = _extends({
-    }, rest, {
-        onClick: function onClick(event) {
-            try {
-                if (_onClick) _onClick(event);
-            } catch (ex) {
-                event.preventDefault();
-                throw ex;
-            }
-            if (!event.defaultPrevented && event.button === 0 && (!target || target === "_self") && !isModifiedEvent(event) // ignore clicks with modifier keys
-            ) {
-                event.preventDefault();
-                navigate();
-            }
-        }
-    }); // React 15 compat
-    if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
-    else props.ref = innerRef;
-    /* eslint-disable-next-line jsx-a11y/anchor-has-content */ return(/*#__PURE__*/ React.createElement("a", props));
-});
-LinkAnchor.displayName = "LinkAnchor";
-/**
- * The public API for rendering a history-aware <a>.
- */ var Link = forwardRef(function(_ref2, forwardedRef) {
-    var _ref2$component = _ref2.component, component = _ref2$component === void 0 ? LinkAnchor : _ref2$component, replace = _ref2.replace, to = _ref2.to, innerRef = _ref2.innerRef, rest = _objectWithoutPropertiesLoose(_ref2, [
-        "component",
-        "replace",
-        "to",
-        "innerRef"
-    ]);
-    return(/*#__PURE__*/ React.createElement(reactRouter.__RouterContext.Consumer, null, function(context) {
-        !context && invariant(false, "You should not use <Link> outside a <Router>");
-        var history$1 = context.history;
-        var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
-        var href = location ? history$1.createHref(location) : "";
-        var props = _extends({
-        }, rest, {
-            href: href,
-            navigate: function navigate() {
-                var location = resolveToLocation(to, context.location);
-                var isDuplicateNavigation = history.createPath(context.location) === history.createPath(normalizeToLocation(location));
-                var method = replace || isDuplicateNavigation ? history$1.replace : history$1.push;
-                method(location);
-            }
-        }); // React 15 compat
-        if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
-        else props.innerRef = innerRef;
-        return(/*#__PURE__*/ React.createElement(component, props));
-    }));
-});
-var toType = PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.func
-]);
-var refType = PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.shape({
-        current: PropTypes.any
-    })
-]);
-Link.displayName = "Link";
-Link.propTypes = {
-    innerRef: refType,
-    onClick: PropTypes.func,
-    replace: PropTypes.bool,
-    target: PropTypes.string,
-    to: toType.isRequired
-};
-var forwardRefShim$1 = function forwardRefShim(C) {
-    return C;
-};
-var forwardRef$1 = React.forwardRef;
-if (typeof forwardRef$1 === "undefined") forwardRef$1 = forwardRefShim$1;
-function joinClassnames() {
-    for(var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++)classnames[_key] = arguments[_key];
-    return classnames.filter(function(i) {
-        return i;
-    }).join(" ");
-}
-/**
- * A <Link> wrapper that knows if it's "active" or not.
- */ var NavLink = forwardRef$1(function(_ref, forwardedRef) {
-    var _ref$ariaCurrent = _ref["aria-current"], ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent, _ref$activeClassName = _ref.activeClassName, activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName, activeStyle = _ref.activeStyle, classNameProp = _ref.className, exact = _ref.exact, isActiveProp = _ref.isActive, locationProp = _ref.location, sensitive = _ref.sensitive, strict = _ref.strict, styleProp = _ref.style, to = _ref.to, innerRef = _ref.innerRef, rest = _objectWithoutPropertiesLoose(_ref, [
-        "aria-current",
-        "activeClassName",
-        "activeStyle",
-        "className",
-        "exact",
-        "isActive",
-        "location",
-        "sensitive",
-        "strict",
-        "style",
-        "to",
-        "innerRef"
-    ]);
-    return(/*#__PURE__*/ React.createElement(reactRouter.__RouterContext.Consumer, null, function(context) {
-        !context && invariant(false, "You should not use <NavLink> outside a <Router>");
-        var currentLocation = locationProp || context.location;
-        var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
-        var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
-        var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
-        var match = escapedPath ? reactRouter.matchPath(currentLocation.pathname, {
-            path: escapedPath,
-            exact: exact,
-            sensitive: sensitive,
-            strict: strict
-        }) : null;
-        var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
-        var className = typeof classNameProp === "function" ? classNameProp(isActive) : classNameProp;
-        var style = typeof styleProp === "function" ? styleProp(isActive) : styleProp;
-        if (isActive) {
-            className = joinClassnames(className, activeClassName);
-            style = _extends({
-            }, style, activeStyle);
-        }
-        var props = _extends({
-            "aria-current": isActive && ariaCurrent || null,
-            className: className,
-            style: style,
-            to: toLocation
-        }, rest); // React 15 compat
-        if (forwardRefShim$1 !== forwardRef$1) props.ref = forwardedRef || innerRef;
-        else props.innerRef = innerRef;
-        return(/*#__PURE__*/ React.createElement(Link, props));
-    }));
-});
-NavLink.displayName = "NavLink";
-var ariaCurrentType = PropTypes.oneOf([
-    "page",
-    "step",
-    "location",
-    "date",
-    "time",
-    "true",
-    "false"
-]);
-NavLink.propTypes = _extends({
-}, Link.propTypes, {
-    "aria-current": ariaCurrentType,
-    activeClassName: PropTypes.string,
-    activeStyle: PropTypes.object,
-    className: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.func
-    ]),
-    exact: PropTypes.bool,
-    isActive: PropTypes.func,
-    location: PropTypes.object,
-    sensitive: PropTypes.bool,
-    strict: PropTypes.bool,
-    style: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.func
-    ])
-});
-Object.defineProperty(exports, 'MemoryRouter', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.MemoryRouter;
-    }
-});
-Object.defineProperty(exports, 'Prompt', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.Prompt;
-    }
-});
-Object.defineProperty(exports, 'Redirect', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.Redirect;
-    }
-});
-Object.defineProperty(exports, 'Route', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.Route;
-    }
-});
-Object.defineProperty(exports, 'Router', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.Router;
-    }
-});
-Object.defineProperty(exports, 'StaticRouter', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.StaticRouter;
-    }
-});
-Object.defineProperty(exports, 'Switch', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.Switch;
-    }
-});
-Object.defineProperty(exports, 'generatePath', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.generatePath;
-    }
-});
-Object.defineProperty(exports, 'matchPath', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.matchPath;
-    }
-});
-Object.defineProperty(exports, 'useHistory', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.useHistory;
-    }
-});
-Object.defineProperty(exports, 'useLocation', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.useLocation;
-    }
-});
-Object.defineProperty(exports, 'useParams', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.useParams;
-    }
-});
-Object.defineProperty(exports, 'useRouteMatch', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.useRouteMatch;
-    }
-});
-Object.defineProperty(exports, 'withRouter', {
-    enumerable: true,
-    get: function() {
-        return reactRouter.withRouter;
-    }
-});
-exports.BrowserRouter = BrowserRouter;
-exports.HashRouter = HashRouter;
-exports.Link = Link;
-exports.NavLink = NavLink;
-
-},{"react-router":"az1m7","react":"4mchR","history":"7Kc8n","prop-types":"2bysO","tiny-warning":"eDUdC","tiny-invariant":"9t1GA"}],"3wgSm":[function(require,module,exports) {
+},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3wgSm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7b1e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30028,7 +29490,309 @@ $RefreshReg$(_c, "RegiView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG","prop-types":"2bysO","./user-registration-view.scss":"egDuS","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","axios":"1IeuP","react-router-dom/Link":"gLUzy"}],"egDuS":[function() {},{}],"hRkrD":[function() {},{}],"eGJ1e":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","./user-registration-view.scss":"egDuS","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","axios":"1IeuP","react-router-dom/Link":"gLUzy"}],"egDuS":[function() {},{}],"hRkrD":[function() {},{}],"etVME":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MemoryRouter", ()=>_reactRouter.MemoryRouter
+);
+parcelHelpers.export(exports, "Prompt", ()=>_reactRouter.Prompt
+);
+parcelHelpers.export(exports, "Redirect", ()=>_reactRouter.Redirect
+);
+parcelHelpers.export(exports, "Route", ()=>_reactRouter.Route
+);
+parcelHelpers.export(exports, "Router", ()=>_reactRouter.Router
+);
+parcelHelpers.export(exports, "StaticRouter", ()=>_reactRouter.StaticRouter
+);
+parcelHelpers.export(exports, "Switch", ()=>_reactRouter.Switch
+);
+parcelHelpers.export(exports, "generatePath", ()=>_reactRouter.generatePath
+);
+parcelHelpers.export(exports, "matchPath", ()=>_reactRouter.matchPath
+);
+parcelHelpers.export(exports, "useHistory", ()=>_reactRouter.useHistory
+);
+parcelHelpers.export(exports, "useLocation", ()=>_reactRouter.useLocation
+);
+parcelHelpers.export(exports, "useParams", ()=>_reactRouter.useParams
+);
+parcelHelpers.export(exports, "useRouteMatch", ()=>_reactRouter.useRouteMatch
+);
+parcelHelpers.export(exports, "withRouter", ()=>_reactRouter.withRouter
+);
+parcelHelpers.export(exports, "BrowserRouter", ()=>BrowserRouter
+);
+parcelHelpers.export(exports, "HashRouter", ()=>HashRouter
+);
+parcelHelpers.export(exports, "Link", ()=>Link
+);
+parcelHelpers.export(exports, "NavLink", ()=>NavLink
+);
+var _reactRouter = require("react-router");
+var _inheritsLoose = require("@babel/runtime/helpers/esm/inheritsLoose");
+var _inheritsLooseDefault = parcelHelpers.interopDefault(_inheritsLoose);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _history = require("history");
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _tinyWarning = require("tiny-warning");
+var _tinyWarningDefault = parcelHelpers.interopDefault(_tinyWarning);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _tinyInvariant = require("tiny-invariant");
+var _tinyInvariantDefault = parcelHelpers.interopDefault(_tinyInvariant);
+/**
+ * The public API for a <Router> that uses HTML5 history.
+ */ var BrowserRouter = /*#__PURE__*/ function(_React$Component) {
+    _inheritsLooseDefault.default(BrowserRouter, _React$Component);
+    function BrowserRouter() {
+        var _this;
+        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+        _this = _React$Component.call.apply(_React$Component, [
+            this
+        ].concat(args)) || this;
+        _this.history = _history.createBrowserHistory(_this.props);
+        return _this;
+    }
+    var _proto = BrowserRouter.prototype;
+    _proto.render = function render() {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.Router, {
+            history: this.history,
+            children: this.props.children
+        }));
+    };
+    return BrowserRouter;
+}(_reactDefault.default.Component);
+BrowserRouter.propTypes = {
+    basename: _propTypesDefault.default.string,
+    children: _propTypesDefault.default.node,
+    forceRefresh: _propTypesDefault.default.bool,
+    getUserConfirmation: _propTypesDefault.default.func,
+    keyLength: _propTypesDefault.default.number
+};
+BrowserRouter.prototype.componentDidMount = function() {
+    _tinyWarningDefault.default(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.");
+};
+/**
+ * The public API for a <Router> that uses window.location.hash.
+ */ var HashRouter = /*#__PURE__*/ function(_React$Component) {
+    _inheritsLooseDefault.default(HashRouter, _React$Component);
+    function HashRouter() {
+        var _this;
+        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+        _this = _React$Component.call.apply(_React$Component, [
+            this
+        ].concat(args)) || this;
+        _this.history = _history.createHashHistory(_this.props);
+        return _this;
+    }
+    var _proto = HashRouter.prototype;
+    _proto.render = function render() {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.Router, {
+            history: this.history,
+            children: this.props.children
+        }));
+    };
+    return HashRouter;
+}(_reactDefault.default.Component);
+HashRouter.propTypes = {
+    basename: _propTypesDefault.default.string,
+    children: _propTypesDefault.default.node,
+    getUserConfirmation: _propTypesDefault.default.func,
+    hashType: _propTypesDefault.default.oneOf([
+        "hashbang",
+        "noslash",
+        "slash"
+    ])
+};
+HashRouter.prototype.componentDidMount = function() {
+    _tinyWarningDefault.default(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { HashRouter as Router }`.");
+};
+var resolveToLocation = function resolveToLocation(to, currentLocation) {
+    return typeof to === "function" ? to(currentLocation) : to;
+};
+var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
+    return typeof to === "string" ? _history.createLocation(to, null, null, currentLocation) : to;
+};
+var forwardRefShim = function forwardRefShim(C) {
+    return C;
+};
+var forwardRef = _reactDefault.default.forwardRef;
+if (typeof forwardRef === "undefined") forwardRef = forwardRefShim;
+function isModifiedEvent(event) {
+    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+var LinkAnchor = forwardRef(function(_ref, forwardedRef) {
+    var innerRef = _ref.innerRef, navigate = _ref.navigate, _onClick = _ref.onClick, rest = _objectWithoutPropertiesLooseDefault.default(_ref, [
+        "innerRef",
+        "navigate",
+        "onClick"
+    ]);
+    var target = rest.target;
+    var props = _extendsDefault.default({
+    }, rest, {
+        onClick: function onClick(event) {
+            try {
+                if (_onClick) _onClick(event);
+            } catch (ex) {
+                event.preventDefault();
+                throw ex;
+            }
+            if (!event.defaultPrevented && event.button === 0 && (!target || target === "_self") && !isModifiedEvent(event) // ignore clicks with modifier keys
+            ) {
+                event.preventDefault();
+                navigate();
+            }
+        }
+    }); // React 15 compat
+    if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
+    else props.ref = innerRef;
+    /* eslint-disable-next-line jsx-a11y/anchor-has-content */ return(/*#__PURE__*/ _reactDefault.default.createElement("a", props));
+});
+LinkAnchor.displayName = "LinkAnchor";
+/**
+ * The public API for rendering a history-aware <a>.
+ */ var Link = forwardRef(function(_ref2, forwardedRef) {
+    var _ref2$component = _ref2.component, component = _ref2$component === void 0 ? LinkAnchor : _ref2$component, replace = _ref2.replace, to = _ref2.to, innerRef = _ref2.innerRef, rest = _objectWithoutPropertiesLooseDefault.default(_ref2, [
+        "component",
+        "replace",
+        "to",
+        "innerRef"
+    ]);
+    return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
+        !context && _tinyInvariantDefault.default(false, "You should not use <Link> outside a <Router>");
+        var history = context.history;
+        var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
+        var href = location ? history.createHref(location) : "";
+        var props = _extendsDefault.default({
+        }, rest, {
+            href: href,
+            navigate: function navigate() {
+                var location = resolveToLocation(to, context.location);
+                var isDuplicateNavigation = _history.createPath(context.location) === _history.createPath(normalizeToLocation(location));
+                var method = replace || isDuplicateNavigation ? history.replace : history.push;
+                method(location);
+            }
+        }); // React 15 compat
+        if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
+        else props.innerRef = innerRef;
+        return(/*#__PURE__*/ _reactDefault.default.createElement(component, props));
+    }));
+});
+var toType = _propTypesDefault.default.oneOfType([
+    _propTypesDefault.default.string,
+    _propTypesDefault.default.object,
+    _propTypesDefault.default.func
+]);
+var refType = _propTypesDefault.default.oneOfType([
+    _propTypesDefault.default.string,
+    _propTypesDefault.default.func,
+    _propTypesDefault.default.shape({
+        current: _propTypesDefault.default.any
+    })
+]);
+Link.displayName = "Link";
+Link.propTypes = {
+    innerRef: refType,
+    onClick: _propTypesDefault.default.func,
+    replace: _propTypesDefault.default.bool,
+    target: _propTypesDefault.default.string,
+    to: toType.isRequired
+};
+var forwardRefShim$1 = function forwardRefShim(C) {
+    return C;
+};
+var forwardRef$1 = _reactDefault.default.forwardRef;
+if (typeof forwardRef$1 === "undefined") forwardRef$1 = forwardRefShim$1;
+function joinClassnames() {
+    for(var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++)classnames[_key] = arguments[_key];
+    return classnames.filter(function(i) {
+        return i;
+    }).join(" ");
+}
+/**
+ * A <Link> wrapper that knows if it's "active" or not.
+ */ var NavLink = forwardRef$1(function(_ref, forwardedRef) {
+    var _ref$ariaCurrent = _ref["aria-current"], ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent, _ref$activeClassName = _ref.activeClassName, activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName, activeStyle = _ref.activeStyle, classNameProp = _ref.className, exact = _ref.exact, isActiveProp = _ref.isActive, locationProp = _ref.location, sensitive = _ref.sensitive, strict = _ref.strict, styleProp = _ref.style, to = _ref.to, innerRef = _ref.innerRef, rest = _objectWithoutPropertiesLooseDefault.default(_ref, [
+        "aria-current",
+        "activeClassName",
+        "activeStyle",
+        "className",
+        "exact",
+        "isActive",
+        "location",
+        "sensitive",
+        "strict",
+        "style",
+        "to",
+        "innerRef"
+    ]);
+    return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
+        !context && _tinyInvariantDefault.default(false, "You should not use <NavLink> outside a <Router>");
+        var currentLocation = locationProp || context.location;
+        var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
+        var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
+        var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
+        var match = escapedPath ? _reactRouter.matchPath(currentLocation.pathname, {
+            path: escapedPath,
+            exact: exact,
+            sensitive: sensitive,
+            strict: strict
+        }) : null;
+        var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
+        var className = typeof classNameProp === "function" ? classNameProp(isActive) : classNameProp;
+        var style = typeof styleProp === "function" ? styleProp(isActive) : styleProp;
+        if (isActive) {
+            className = joinClassnames(className, activeClassName);
+            style = _extendsDefault.default({
+            }, style, activeStyle);
+        }
+        var props = _extendsDefault.default({
+            "aria-current": isActive && ariaCurrent || null,
+            className: className,
+            style: style,
+            to: toLocation
+        }, rest); // React 15 compat
+        if (forwardRefShim$1 !== forwardRef$1) props.ref = forwardedRef || innerRef;
+        else props.innerRef = innerRef;
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Link, props));
+    }));
+});
+NavLink.displayName = "NavLink";
+var ariaCurrentType = _propTypesDefault.default.oneOf([
+    "page",
+    "step",
+    "location",
+    "date",
+    "time",
+    "true",
+    "false"
+]);
+NavLink.propTypes = _extendsDefault.default({
+}, Link.propTypes, {
+    "aria-current": ariaCurrentType,
+    activeClassName: _propTypesDefault.default.string,
+    activeStyle: _propTypesDefault.default.object,
+    className: _propTypesDefault.default.oneOfType([
+        _propTypesDefault.default.string,
+        _propTypesDefault.default.func
+    ]),
+    exact: _propTypesDefault.default.bool,
+    isActive: _propTypesDefault.default.func,
+    location: _propTypesDefault.default.object,
+    sensitive: _propTypesDefault.default.bool,
+    strict: _propTypesDefault.default.bool,
+    style: _propTypesDefault.default.oneOfType([
+        _propTypesDefault.default.object,
+        _propTypesDefault.default.func
+    ])
+});
+
+},{"react-router":"az1m7","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","history":"7Kc8n","prop-types":"2bysO","tiny-warning":"eDUdC","@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","tiny-invariant":"9t1GA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eGJ1e":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ec38 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30208,7 +29972,7 @@ GenreView.prototype = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","prop-types":"2bysO","react-bootstrap":"9qMdX","./genre-view.scss":"hKWHe","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG"}],"9qMdX":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","prop-types":"2bysO","react-bootstrap":"9qMdX","./genre-view.scss":"hKWHe","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"9qMdX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -30546,7 +30310,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":"4xdrS","./AccordionContext":"ewZOe","./AccordionCollapse":"bk2tr","./AccordionButton":"fkLUQ","./Alert":"jCNVG","./Anchor":"1sqBH","./Badge":"655UP","./Breadcrumb":"jersl","./BreadcrumbItem":"h6vFq","./Button":"64Pgd","./ButtonGroup":"lNHIX","./ButtonToolbar":"eZyti","./Card":"jeXXJ","./CardImg":"2QSkt","./CardGroup":"cyfp1","./Carousel":"gCbs7","./CarouselItem":"3uqGs","./CloseButton":"arc5K","./Col":"kxhZp","./Collapse":"ilxlq","./Dropdown":"7gNYx","./DropdownButton":"bqS2l","./Fade":"cHHEJ","./Form":"PeiIB","./FormControl":"3iZ43","./FormCheck":"k9egm","./FormFloating":"2z0Ti","./FloatingLabel":"1Xz1h","./FormGroup":"6eZW8","./FormLabel":"4E1MN","./FormText":"gsCyO","./FormSelect":"cLBuq","./Container":"gFkXb","./Image":"lntx1","./Figure":"dD7yw","./InputGroup":"jHgra","./ListGroup":"5ZBCJ","./ListGroupItem":"lStPp","./Modal":"3e8qu","./ModalBody":"eiGfM","./ModalDialog":"5L3Ev","./ModalFooter":"5ZZee","./ModalTitle":"bXx7g","./Nav":"3TTuV","./Navbar":"6tJ6F","./NavbarBrand":"3BfVc","./NavDropdown":"ieiTF","./NavItem":"lgp9h","./NavLink":"aGfFg","./Offcanvas":"k5ln7","./OffcanvasHeader":"8XL24","./OffcanvasTitle":"7WoM0","./OffcanvasBody":"gbeym","./Overlay":"92F4y","./OverlayTrigger":"90D2y","./PageItem":"aLJu6","./Pagination":"j9EMR","./Placeholder":"cGyxn","./PlaceholderButton":"GdRy3","./Popover":"cRMw9","./PopoverHeader":"aQjaj","./PopoverBody":"4h2uh","./ProgressBar":"fjWS2","./Ratio":"ap3iS","./Row":"eR7YE","./Spinner":"fIUSy","./SplitButton":"cRJfo","./SSRProvider":"hFbgz","./Stack":"jyr8Z","./Tab":"aP3XF","./TabContainer":"ciJeM","./TabContent":"kjnDo","./Table":"g38lh","./TabPane":"dgZMl","./Tabs":"7zOeE","./ThemeProvider":"oG7Uz","./Toast":"b3kl2","./ToastBody":"1FEN9","./ToastHeader":"e7EVr","./ToastContainer":"8m5Zr","./ToggleButton":"g8FN5","./ToggleButtonGroup":"c1Mk9","./Tooltip":"aUst3","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4xdrS":[function(require,module,exports) {
+},{"./Accordion":"4xdrS","./AccordionContext":"ewZOe","./AccordionCollapse":"bk2tr","./AccordionButton":"fkLUQ","./Alert":"jCNVG","./Anchor":"1sqBH","./Badge":"655UP","./Breadcrumb":"jersl","./BreadcrumbItem":"h6vFq","./Button":"64Pgd","./ButtonGroup":"lNHIX","./ButtonToolbar":"eZyti","./Card":"jeXXJ","./CardImg":"2QSkt","./CardGroup":"cyfp1","./Carousel":"gCbs7","./CarouselItem":"3uqGs","./CloseButton":"arc5K","./Col":"kxhZp","./Collapse":"ilxlq","./Dropdown":"7gNYx","./DropdownButton":"bqS2l","./Fade":"cHHEJ","./Form":"PeiIB","./FormControl":"3iZ43","./FormCheck":"k9egm","./FormFloating":"2z0Ti","./FloatingLabel":"1Xz1h","./FormGroup":"6eZW8","./FormLabel":"4E1MN","./FormText":"gsCyO","./FormSelect":"cLBuq","./Container":"gFkXb","./Image":"lntx1","./Figure":"dD7yw","./InputGroup":"jHgra","./ListGroup":"5ZBCJ","./ListGroupItem":"lStPp","./Modal":"3e8qu","./ModalBody":"eiGfM","./ModalDialog":"5L3Ev","./ModalFooter":"5ZZee","./ModalTitle":"bXx7g","./Nav":"3TTuV","./Navbar":"6tJ6F","./NavbarBrand":"3BfVc","./NavDropdown":"ieiTF","./NavItem":"lgp9h","./NavLink":"aGfFg","./Offcanvas":"k5ln7","./OffcanvasHeader":"8XL24","./OffcanvasTitle":"7WoM0","./OffcanvasBody":"gbeym","./Overlay":"92F4y","./OverlayTrigger":"90D2y","./PageItem":"aLJu6","./Pagination":"j9EMR","./Placeholder":"cGyxn","./PlaceholderButton":"GdRy3","./Popover":"cRMw9","./PopoverHeader":"aQjaj","./PopoverBody":"4h2uh","./ProgressBar":"fjWS2","./Ratio":"ap3iS","./Row":"eR7YE","./Spinner":"fIUSy","./SplitButton":"cRJfo","./SSRProvider":"hFbgz","./Stack":"jyr8Z","./Tab":"aP3XF","./TabContainer":"ciJeM","./TabContent":"kjnDo","./Table":"g38lh","./TabPane":"dgZMl","./Tabs":"7zOeE","./ThemeProvider":"oG7Uz","./Toast":"b3kl2","./ToastBody":"1FEN9","./ToastHeader":"e7EVr","./ToastContainer":"8m5Zr","./ToggleButton":"g8FN5","./ToggleButtonGroup":"c1Mk9","./Tooltip":"aUst3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4xdrS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -30599,7 +30363,7 @@ exports.default = Object.assign(Accordion, {
     Body: _accordionBodyDefault.default
 });
 
-},{"classnames":"2cVcN","react":"4mchR","uncontrollable":"aG99Z","./ThemeProvider":"oG7Uz","./AccordionBody":"60jad","./AccordionButton":"fkLUQ","./AccordionCollapse":"bk2tr","./AccordionContext":"ewZOe","./AccordionHeader":"ePjXr","./AccordionItem":"7pMYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aG99Z":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","uncontrollable":"aG99Z","./ThemeProvider":"oG7Uz","./AccordionBody":"60jad","./AccordionButton":"fkLUQ","./AccordionCollapse":"bk2tr","./AccordionContext":"ewZOe","./AccordionHeader":"ePjXr","./AccordionItem":"7pMYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aG99Z":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useUncontrolled", ()=>_hookDefault.default
@@ -30613,7 +30377,7 @@ var _hookDefault = parcelHelpers.interopDefault(_hook);
 var _uncontrollable = require("./uncontrollable");
 var _uncontrollableDefault = parcelHelpers.interopDefault(_uncontrollable);
 
-},{"./hook":"agkdx","./uncontrollable":"xUGGj","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"agkdx":[function(require,module,exports) {
+},{"./hook":"agkdx","./uncontrollable":"xUGGj","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"agkdx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useUncontrolledProp", ()=>useUncontrolledProp
@@ -30677,7 +30441,7 @@ function useUncontrolled(props, config) {
 }
 exports.default = useUncontrolled;
 
-},{"@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","react":"4mchR","./utils":"5zfpz","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5zfpz":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","react":"4mchR","./utils":"5zfpz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5zfpz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "uncontrolledPropTypes", ()=>uncontrolledPropTypes
@@ -30728,7 +30492,7 @@ function canAcceptRef(component) {
     return !!component && (typeof component !== 'function' || component.prototype && component.prototype.isReactComponent);
 }
 
-},{"invariant":"Xxs2W","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"Xxs2W":[function(require,module,exports) {
+},{"invariant":"Xxs2W","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"Xxs2W":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -30925,7 +30689,7 @@ function uncontrollable(Component, controlledValues, methods) {
 }
 exports.default = uncontrollable;
 
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","react-lifecycles-compat":"cW1jb","invariant":"Xxs2W","./utils":"5zfpz","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cW1jb":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","react-lifecycles-compat":"cW1jb","invariant":"Xxs2W","./utils":"5zfpz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cW1jb":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "polyfill", ()=>polyfill
@@ -31019,7 +30783,7 @@ function polyfill(Component) {
     return Component;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"60jad":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"60jad":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -31047,7 +30811,7 @@ as: Component = 'div' , bsPrefix , className , ...props }, ref)=>{
 AccordionBody.displayName = 'AccordionBody';
 exports.default = AccordionBody;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AccordionCollapse":"bk2tr","./AccordionItemContext":"lXxJI","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"bk2tr":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AccordionCollapse":"bk2tr","./AccordionItemContext":"lXxJI","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bk2tr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -31075,7 +30839,7 @@ const AccordionCollapse = /*#__PURE__*/ _react.forwardRef(({ as: Component = 'di
 AccordionCollapse.displayName = 'AccordionCollapse';
 exports.default = AccordionCollapse;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./Collapse":"ilxlq","./AccordionContext":"ewZOe","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ilxlq":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./Collapse":"ilxlq","./AccordionContext":"ewZOe","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ilxlq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -31185,7 +30949,7 @@ const Collapse = /*#__PURE__*/ _reactDefault.default.forwardRef(({ onEnter , onE
 Collapse.defaultProps = defaultProps;
 exports.default = Collapse;
 
-},{"classnames":"2cVcN","dom-helpers/css":"k69TG","react":"4mchR","react-transition-group/Transition":"5xmpQ","./transitionEndListener":"6qkK8","./createChainedFunction":"bhPCF","./triggerBrowserReflow":"aOcXp","./TransitionWrapper":"7XqYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"k69TG":[function(require,module,exports) {
+},{"classnames":"2cVcN","dom-helpers/css":"k69TG","react":"4mchR","react-transition-group/Transition":"5xmpQ","./transitionEndListener":"6qkK8","./createChainedFunction":"bhPCF","./triggerBrowserReflow":"aOcXp","./TransitionWrapper":"7XqYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"k69TG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getComputedStyle = require("./getComputedStyle");
@@ -31209,7 +30973,7 @@ function style(node, property) {
 }
 exports.default = style;
 
-},{"./getComputedStyle":"jIQgC","./hyphenateStyle":"6klkX","./isTransform":"4Kv9P","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jIQgC":[function(require,module,exports) {
+},{"./getComputedStyle":"jIQgC","./hyphenateStyle":"6klkX","./isTransform":"4Kv9P","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jIQgC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _ownerWindow = require("./ownerWindow");
@@ -31219,7 +30983,7 @@ function getComputedStyle(node, psuedoElement) {
 }
 exports.default = getComputedStyle;
 
-},{"./ownerWindow":"iLNvx","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"iLNvx":[function(require,module,exports) {
+},{"./ownerWindow":"iLNvx","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iLNvx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _ownerDocument = require("./ownerDocument");
@@ -31230,7 +30994,7 @@ function ownerWindow(node) {
 }
 exports.default = ownerWindow;
 
-},{"./ownerDocument":"b8OFQ","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"b8OFQ":[function(require,module,exports) {
+},{"./ownerDocument":"b8OFQ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"b8OFQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function ownerDocument(node) {
@@ -31238,7 +31002,7 @@ function ownerDocument(node) {
 }
 exports.default = ownerDocument;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6klkX":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6klkX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -31253,7 +31017,7 @@ function hyphenateStyleName(string) {
 }
 exports.default = hyphenateStyleName;
 
-},{"./hyphenate":"lgwCL","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lgwCL":[function(require,module,exports) {
+},{"./hyphenate":"lgwCL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lgwCL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var rUpper = /([A-Z])/g;
@@ -31262,7 +31026,7 @@ function hyphenate(string) {
 }
 exports.default = hyphenate;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4Kv9P":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4Kv9P":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var supportedTransforms = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i;
@@ -31271,7 +31035,7 @@ function isTransform(value) {
 }
 exports.default = isTransform;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5xmpQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5xmpQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UNMOUNTED", ()=>UNMOUNTED
@@ -31785,14 +31549,14 @@ Transition.ENTERED = ENTERED;
 Transition.EXITING = EXITING;
 exports.default = Transition;
 
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","prop-types":"2bysO","react":"4mchR","react-dom":"afyCw","./config":"33G8w","./utils/PropTypes":"kLICv","./TransitionGroupContext":"frJY2","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"33G8w":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","prop-types":"2bysO","react":"4mchR","react-dom":"afyCw","./config":"33G8w","./utils/PropTypes":"kLICv","./TransitionGroupContext":"frJY2","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"33G8w":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
     disabled: false
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kLICv":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kLICv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "timeoutsShape", ()=>timeoutsShape
@@ -31826,14 +31590,14 @@ var classNamesShape = _propTypesDefault.default.oneOfType([
     })
 ]);
 
-},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"frJY2":[function(require,module,exports) {
+},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"frJY2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 exports.default = _reactDefault.default.createContext(null);
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6qkK8":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6qkK8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _css = require("dom-helpers/css");
@@ -31857,7 +31621,7 @@ function transitionEndListener(element, handler) {
 }
 exports.default = transitionEndListener;
 
-},{"dom-helpers/css":"k69TG","dom-helpers/transitionEnd":"5WYHD","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5WYHD":[function(require,module,exports) {
+},{"dom-helpers/css":"k69TG","dom-helpers/transitionEnd":"5WYHD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5WYHD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _css = require("./css");
@@ -31898,7 +31662,7 @@ function transitionEnd(element, handler, duration, padding) {
 }
 exports.default = transitionEnd;
 
-},{"./css":"k69TG","./listen":"fotiI","./triggerEvent":"1pvkH","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fotiI":[function(require,module,exports) {
+},{"./css":"k69TG","./listen":"fotiI","./triggerEvent":"1pvkH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fotiI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _addEventListener = require("./addEventListener");
@@ -31913,7 +31677,7 @@ function listen(node, eventName, handler, options) {
 }
 exports.default = listen;
 
-},{"./addEventListener":"kM7Ny","./removeEventListener":"6Rtjt","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kM7Ny":[function(require,module,exports) {
+},{"./addEventListener":"kM7Ny","./removeEventListener":"6Rtjt","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kM7Ny":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "optionsSupported", ()=>optionsSupported
@@ -31964,12 +31728,12 @@ try {
 }
 exports.default = addEventListener;
 
-},{"./canUseDOM":"b2ppt","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"b2ppt":[function(require,module,exports) {
+},{"./canUseDOM":"b2ppt","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"b2ppt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6Rtjt":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Rtjt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -31986,7 +31750,7 @@ parcelHelpers.defineInteropFlag(exports);
 }
 exports.default = removeEventListener;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"1pvkH":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1pvkH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function triggerEvent(node, eventName, bubbles, cancelable) {
@@ -32000,7 +31764,7 @@ function triggerEvent(node, eventName, bubbles, cancelable) {
 }
 exports.default = triggerEvent;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"bhPCF":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bhPCF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -32025,7 +31789,7 @@ parcelHelpers.defineInteropFlag(exports);
 }
 exports.default = createChainedFunction;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aOcXp":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aOcXp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function triggerBrowserReflow(node) {
@@ -32034,7 +31798,7 @@ function triggerBrowserReflow(node) {
 }
 exports.default = triggerBrowserReflow;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7XqYo":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7XqYo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32100,7 +31864,7 @@ const TransitionWrapper = /*#__PURE__*/ _reactDefault.default.forwardRef(({ onEn
 });
 exports.default = TransitionWrapper;
 
-},{"react":"4mchR","react-transition-group/Transition":"5xmpQ","@restart/hooks/useMergedRefs":"fj3d7","./safeFindDOMNode":"7yjLB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fj3d7":[function(require,module,exports) {
+},{"react":"4mchR","react-transition-group/Transition":"5xmpQ","@restart/hooks/useMergedRefs":"fj3d7","./safeFindDOMNode":"7yjLB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fj3d7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "mergeRefs", ()=>mergeRefs
@@ -32144,7 +31908,7 @@ function mergeRefs(refA, refB) {
 }
 exports.default = useMergedRefs;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7yjLB":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7yjLB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _reactDom = require("react-dom");
@@ -32155,7 +31919,7 @@ function safeFindDOMNode(componentOrElement) {
 }
 exports.default = safeFindDOMNode;
 
-},{"react-dom":"afyCw","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ewZOe":[function(require,module,exports) {
+},{"react-dom":"afyCw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ewZOe":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32164,7 +31928,7 @@ const context = /*#__PURE__*/ _react.createContext({
 context.displayName = 'AccordionContext';
 exports.default = context;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lXxJI":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lXxJI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32174,7 +31938,7 @@ const context = /*#__PURE__*/ _react.createContext({
 context.displayName = 'AccordionItemContext';
 exports.default = context;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fkLUQ":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fkLUQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useAccordionButton", ()=>useAccordionButton
@@ -32217,7 +31981,7 @@ as: Component = 'button' , bsPrefix , className , onClick , ...props }, ref)=>{
 AccordionButton.displayName = 'AccordionButton';
 exports.default = AccordionButton;
 
-},{"react":"4mchR","classnames":"2cVcN","./AccordionContext":"ewZOe","./AccordionItemContext":"lXxJI","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ePjXr":[function(require,module,exports) {
+},{"react":"4mchR","classnames":"2cVcN","./AccordionContext":"ewZOe","./AccordionItemContext":"lXxJI","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ePjXr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -32243,7 +32007,7 @@ as: Component = 'h2' , bsPrefix , className , children , onClick , ...props }, r
 AccordionHeader.displayName = 'AccordionHeader';
 exports.default = AccordionHeader;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AccordionButton":"fkLUQ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7pMYo":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AccordionButton":"fkLUQ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7pMYo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -32274,7 +32038,7 @@ as: Component = 'div' , bsPrefix , className , eventKey , ...props }, ref)=>{
 AccordionItem.displayName = 'AccordionItem';
 exports.default = AccordionItem;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AccordionItemContext":"lXxJI","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jCNVG":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AccordionItemContext":"lXxJI","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jCNVG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -32348,7 +32112,7 @@ exports.default = Object.assign(Alert, {
     Heading: AlertHeading
 });
 
-},{"classnames":"2cVcN","react":"4mchR","uncontrollable":"aG99Z","@restart/hooks/useEventCallback":"8QyIg","@restart/ui/Anchor":"c3Vvr","./ThemeProvider":"oG7Uz","./Fade":"cHHEJ","./CloseButton":"arc5K","./divWithClassName":"28Yge","./createWithBsPrefix":"8IH8I","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8QyIg":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","uncontrollable":"aG99Z","@restart/hooks/useEventCallback":"8QyIg","@restart/ui/Anchor":"c3Vvr","./ThemeProvider":"oG7Uz","./Fade":"cHHEJ","./CloseButton":"arc5K","./divWithClassName":"28Yge","./createWithBsPrefix":"8IH8I","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8QyIg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32364,7 +32128,7 @@ function useEventCallback(fn) {
 }
 exports.default = useEventCallback;
 
-},{"react":"4mchR","./useCommittedRef":"663QR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"663QR":[function(require,module,exports) {
+},{"react":"4mchR","./useCommittedRef":"663QR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"663QR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32387,7 +32151,7 @@ var _react = require("react");
 }
 exports.default = useCommittedRef;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"c3Vvr":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c3Vvr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "isTrivialHref", ()=>isTrivialHref
@@ -32442,7 +32206,7 @@ function isTrivialHref(href) {
 Anchor.displayName = 'Anchor';
 exports.default = Anchor;
 
-},{"react":"4mchR","@restart/hooks":"534Lk","./Button":"3AURZ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"534Lk":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks":"534Lk","./Button":"3AURZ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"534Lk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useCallbackRef", ()=>_useCallbackRefDefault.default
@@ -32498,7 +32262,7 @@ var _useImageDefault = parcelHelpers.interopDefault(_useImage);
 var _useResizeObserver = require("./useResizeObserver");
 var _useResizeObserverDefault = parcelHelpers.interopDefault(_useResizeObserver);
 
-},{"./useCallbackRef":"e0LTO","./useCommittedRef":"2qON3","./useEventCallback":"f2VQA","./useEventListener":"dGyPw","./useGlobalListener":"3D4ev","./useInterval":"h4THa","./useRafInterval":"p5cuv","./useMergeState":"jafuM","./useMergeStateFromProps":"eOXlF","./useMounted":"58qhK","./usePrevious":"UwSoS","./useImage":"95q9l","./useResizeObserver":"4OMuv","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"e0LTO":[function(require,module,exports) {
+},{"./useCallbackRef":"e0LTO","./useCommittedRef":"2qON3","./useEventCallback":"f2VQA","./useEventListener":"dGyPw","./useGlobalListener":"3D4ev","./useInterval":"h4THa","./useRafInterval":"p5cuv","./useMergeState":"jafuM","./useMergeStateFromProps":"eOXlF","./useMounted":"58qhK","./usePrevious":"UwSoS","./useImage":"95q9l","./useResizeObserver":"4OMuv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e0LTO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32507,7 +32271,7 @@ function useCallbackRef() {
 }
 exports.default = useCallbackRef;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"2qON3":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2qON3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32530,7 +32294,7 @@ var _react = require("react");
 }
 exports.default = useCommittedRef;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"f2VQA":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"f2VQA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32546,7 +32310,7 @@ function useEventCallback(fn) {
 }
 exports.default = useEventCallback;
 
-},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"dGyPw":[function(require,module,exports) {
+},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dGyPw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32567,7 +32331,7 @@ function useEventListener(eventTarget, event, listener, capture) {
 }
 exports.default = useEventListener;
 
-},{"react":"4mchR","./useEventCallback":"f2VQA","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3D4ev":[function(require,module,exports) {
+},{"react":"4mchR","./useEventCallback":"f2VQA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3D4ev":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useEventListener = require("./useEventListener");
@@ -32582,7 +32346,7 @@ function useGlobalListener(event, handler, capture) {
 }
 exports.default = useGlobalListener;
 
-},{"./useEventListener":"dGyPw","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"h4THa":[function(require,module,exports) {
+},{"./useEventListener":"dGyPw","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"h4THa":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32631,7 +32395,7 @@ var _useCommittedRefDefault = parcelHelpers.interopDefault(_useCommittedRef);
 }
 exports.default = useInterval;
 
-},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"p5cuv":[function(require,module,exports) {
+},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"p5cuv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32664,7 +32428,7 @@ function useRafInterval(fn, ms, paused) {
 }
 exports.default = useRafInterval;
 
-},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jafuM":[function(require,module,exports) {
+},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jafuM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32701,7 +32465,7 @@ function useMergeState(initialState) {
 }
 exports.default = useMergeState;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"eOXlF":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eOXlF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useMergeState = require("./useMergeState");
@@ -32717,7 +32481,7 @@ function useMergeStateFromProps(props, gDSFP, initialState) {
 }
 exports.default = useMergeStateFromProps;
 
-},{"./useMergeState":"jafuM","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"58qhK":[function(require,module,exports) {
+},{"./useMergeState":"jafuM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"58qhK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32735,7 +32499,7 @@ function useMounted() {
 }
 exports.default = useMounted;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"UwSoS":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"UwSoS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32748,7 +32512,7 @@ function usePrevious(value) {
 }
 exports.default = usePrevious;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"95q9l":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"95q9l":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32800,7 +32564,7 @@ function useImage(imageOrUrl, crossOrigin) {
 }
 exports.default = useImage;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4OMuv":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4OMuv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32836,7 +32600,7 @@ function useResizeObserver(element) {
 }
 exports.default = useResizeObserver;
 
-},{"react":"4mchR","./useIsomorphicEffect":"fxDpu","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fxDpu":[function(require,module,exports) {
+},{"react":"4mchR","./useIsomorphicEffect":"fxDpu","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fxDpu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -32845,7 +32609,7 @@ var isReactNative = typeof global !== 'undefined' && global.navigator && global.
 var isDOM = typeof document !== 'undefined';
 exports.default = isDOM || isReactNative ? _react.useLayoutEffect : _react.useEffect;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cHHEJ":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cHHEJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -32894,7 +32658,7 @@ Fade.defaultProps = defaultProps;
 Fade.displayName = 'Fade';
 exports.default = Fade;
 
-},{"classnames":"2cVcN","react":"4mchR","react-transition-group/Transition":"5xmpQ","./transitionEndListener":"6qkK8","./triggerBrowserReflow":"aOcXp","./TransitionWrapper":"7XqYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"arc5K":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","react-transition-group/Transition":"5xmpQ","./transitionEndListener":"6qkK8","./triggerBrowserReflow":"aOcXp","./TransitionWrapper":"7XqYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"arc5K":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _propTypes = require("prop-types");
@@ -32929,14 +32693,29 @@ CloseButton.propTypes = propTypes;
 CloseButton.defaultProps = defaultProps;
 exports.default = CloseButton;
 
-},{"prop-types":"2bysO","react":"4mchR","classnames":"2cVcN","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"1sqBH":[function(require,module,exports) {
+},{"prop-types":"2bysO","react":"4mchR","classnames":"2cVcN","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"28Yge":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _jsxRuntime = require("react/jsx-runtime");
+exports.default = (className)=>/*#__PURE__*/ _react.forwardRef((p, ref)=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            ...p,
+            ref: ref,
+            className: _classnamesDefault.default(p.className, className)
+        })
+    )
+;
+
+},{"react":"4mchR","classnames":"2cVcN","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1sqBH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _anchor = require("@restart/ui/Anchor");
 var _anchorDefault = parcelHelpers.interopDefault(_anchor);
 exports.default = _anchorDefault.default;
 
-},{"@restart/ui/Anchor":"c3Vvr","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"655UP":[function(require,module,exports) {
+},{"@restart/ui/Anchor":"c3Vvr","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"655UP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -32960,7 +32739,7 @@ Badge.displayName = 'Badge';
 Badge.defaultProps = defaultProps;
 exports.default = Badge;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jersl":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jersl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -32996,7 +32775,7 @@ exports.default = Object.assign(Breadcrumb, {
     Item: _breadcrumbItemDefault.default
 });
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./BreadcrumbItem":"h6vFq","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"h6vFq":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./BreadcrumbItem":"h6vFq","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"h6vFq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -33034,7 +32813,7 @@ BreadcrumbItem.displayName = 'BreadcrumbItem';
 BreadcrumbItem.defaultProps = defaultProps;
 exports.default = BreadcrumbItem;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Anchor":"c3Vvr","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lNHIX":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Anchor":"c3Vvr","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lNHIX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -33061,7 +32840,7 @@ ButtonGroup.displayName = 'ButtonGroup';
 ButtonGroup.defaultProps = defaultProps;
 exports.default = ButtonGroup;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"eZyti":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eZyti":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -33084,14 +32863,134 @@ ButtonToolbar.displayName = 'ButtonToolbar';
 ButtonToolbar.defaultProps = defaultProps;
 exports.default = ButtonToolbar;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cyfp1":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jeXXJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _createWithBsPrefix = require("./createWithBsPrefix");
+var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
+var _divWithClassName = require("./divWithClassName");
+var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
+var _cardImg = require("./CardImg");
+var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
+var _cardHeader = require("./CardHeader");
+var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
+var _jsxRuntime = require("react/jsx-runtime");
+const DivStyledAsH5 = _divWithClassNameDefault.default('h5');
+const DivStyledAsH6 = _divWithClassNameDefault.default('h6');
+const CardBody = _createWithBsPrefixDefault.default('card-body');
+const CardTitle = _createWithBsPrefixDefault.default('card-title', {
+    Component: DivStyledAsH5
+});
+const CardSubtitle = _createWithBsPrefixDefault.default('card-subtitle', {
+    Component: DivStyledAsH6
+});
+const CardLink = _createWithBsPrefixDefault.default('card-link', {
+    Component: 'a'
+});
+const CardText = _createWithBsPrefixDefault.default('card-text', {
+    Component: 'p'
+});
+const CardFooter = _createWithBsPrefixDefault.default('card-footer');
+const CardImgOverlay = _createWithBsPrefixDefault.default('card-img-overlay');
+const defaultProps = {
+    body: false
+};
+const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , bg , text , border , body , children , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div' , ...props }, ref)=>{
+    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card');
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ref: ref,
+        ...props,
+        className: _classnamesDefault.default(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
+        children: body ? /*#__PURE__*/ _jsxRuntime.jsx(CardBody, {
+            children: children
+        }) : children
+    }));
+});
+Card.displayName = 'Card';
+Card.defaultProps = defaultProps;
+exports.default = Object.assign(Card, {
+    Img: _cardImgDefault.default,
+    Title: CardTitle,
+    Subtitle: CardSubtitle,
+    Body: CardBody,
+    Link: CardLink,
+    Text: CardText,
+    Header: _cardHeaderDefault.default,
+    Footer: CardFooter,
+    ImgOverlay: CardImgOverlay
+});
+
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./createWithBsPrefix":"8IH8I","./divWithClassName":"28Yge","./CardImg":"2QSkt","./CardHeader":"6Iz81","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2QSkt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+const CardImg = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , variant , as: Component = 'img' , ...props }, ref)=>{
+    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-img');
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ref: ref,
+        className: _classnamesDefault.default(variant ? `${prefix}-${variant}` : prefix, className),
+        ...props
+    }));
+});
+CardImg.displayName = 'CardImg';
+exports.default = CardImg;
+
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Iz81":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _cardHeaderContext = require("./CardHeaderContext");
+var _cardHeaderContextDefault = parcelHelpers.interopDefault(_cardHeaderContext);
+var _jsxRuntime = require("react/jsx-runtime");
+const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div' , ...props }, ref)=>{
+    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-header');
+    const contextValue = _react.useMemo(()=>({
+            cardHeaderBsPrefix: prefix
+        })
+    , [
+        prefix
+    ]);
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_cardHeaderContextDefault.default.Provider, {
+        value: contextValue,
+        children: /*#__PURE__*/ _jsxRuntime.jsx(Component, {
+            ref: ref,
+            ...props,
+            className: _classnamesDefault.default(className, prefix)
+        })
+    }));
+});
+CardHeader.displayName = 'CardHeader';
+exports.default = CardHeader;
+
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./CardHeaderContext":"lEhgp","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lEhgp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+const context = /*#__PURE__*/ _react.createContext(null);
+context.displayName = 'CardHeaderContext';
+exports.default = context;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cyfp1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('card-group');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gCbs7":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gCbs7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useEventCallback = require("@restart/hooks/useEventCallback");
@@ -33428,7 +33327,7 @@ exports.default = Object.assign(Carousel, {
     Item: _carouselItemDefault.default
 });
 
-},{"@restart/hooks/useEventCallback":"8QyIg","@restart/hooks/useUpdateEffect":"179Fc","@restart/hooks/useCommittedRef":"663QR","@restart/hooks/useTimeout":"97tbq","@restart/ui/Anchor":"c3Vvr","classnames":"2cVcN","react":"4mchR","uncontrollable":"aG99Z","./CarouselCaption":"i3N24","./CarouselItem":"3uqGs","./ElementChildren":"eqDHF","./ThemeProvider":"oG7Uz","./transitionEndListener":"6qkK8","./triggerBrowserReflow":"aOcXp","./TransitionWrapper":"7XqYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"179Fc":[function(require,module,exports) {
+},{"@restart/hooks/useEventCallback":"8QyIg","@restart/hooks/useUpdateEffect":"179Fc","@restart/hooks/useCommittedRef":"663QR","@restart/hooks/useTimeout":"97tbq","@restart/ui/Anchor":"c3Vvr","classnames":"2cVcN","react":"4mchR","uncontrollable":"aG99Z","./CarouselCaption":"i3N24","./CarouselItem":"3uqGs","./ElementChildren":"eqDHF","./ThemeProvider":"oG7Uz","./transitionEndListener":"6qkK8","./triggerBrowserReflow":"aOcXp","./TransitionWrapper":"7XqYo","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"179Fc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -33463,7 +33362,7 @@ var _react = require("react");
 }
 exports.default = useUpdateEffect;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"97tbq":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"97tbq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -33511,7 +33410,7 @@ function useTimeout() {
 }
 exports.default = useTimeout;
 
-},{"react":"4mchR","./useMounted":"lesmc","./useWillUnmount":"fr49k","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lesmc":[function(require,module,exports) {
+},{"react":"4mchR","./useMounted":"lesmc","./useWillUnmount":"fr49k","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lesmc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -33529,7 +33428,7 @@ function useMounted() {
 }
 exports.default = useMounted;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fr49k":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fr49k":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useUpdatedRef = require("./useUpdatedRef");
@@ -33545,7 +33444,7 @@ function useWillUnmount(fn) {
 }
 exports.default = useWillUnmount;
 
-},{"./useUpdatedRef":"10mNT","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"10mNT":[function(require,module,exports) {
+},{"./useUpdatedRef":"10mNT","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"10mNT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -33556,14 +33455,14 @@ function useUpdatedRef(value) {
 }
 exports.default = useUpdatedRef;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"i3N24":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"i3N24":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('carousel-caption');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3uqGs":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3uqGs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -33583,7 +33482,7 @@ as: Component = 'div' , bsPrefix , className , ...props }, ref)=>{
 CarouselItem.displayName = 'CarouselItem';
 exports.default = CarouselItem;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"eqDHF":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eqDHF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "map", ()=>map
@@ -33615,7 +33514,7 @@ var _react = require("react");
     });
 }
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7gNYx":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7gNYx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -33719,7 +33618,7 @@ exports.default = Object.assign(Dropdown, {
     Header: DropdownHeader
 });
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Dropdown":"alyHv","uncontrollable":"aG99Z","@restart/hooks/useEventCallback":"8QyIg","./DropdownContext":"kQHR9","./DropdownItem":"6Tbgp","./DropdownMenu":"Zo7sg","./DropdownToggle":"6tN0k","./InputGroupContext":"8dQQC","./ThemeProvider":"oG7Uz","./createWithBsPrefix":"8IH8I","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"alyHv":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Dropdown":"alyHv","uncontrollable":"aG99Z","@restart/hooks/useEventCallback":"8QyIg","./DropdownContext":"kQHR9","./DropdownItem":"6Tbgp","./DropdownMenu":"Zo7sg","./DropdownToggle":"6tN0k","./InputGroupContext":"8dQQC","./ThemeProvider":"oG7Uz","./createWithBsPrefix":"8IH8I","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"alyHv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _querySelectorAll = require("dom-helpers/querySelectorAll");
@@ -33910,7 +33809,7 @@ Dropdown.Toggle = _dropdownToggleDefault.default;
 Dropdown.Item = _dropdownItemDefault.default;
 exports.default = Dropdown;
 
-},{"dom-helpers/querySelectorAll":"6tNC8","dom-helpers/addEventListener":"kM7Ny","react":"4mchR","uncontrollable":"aG99Z","@restart/hooks/usePrevious":"UwSoS","@restart/hooks/useForceUpdate":"cykiI","@restart/hooks/useGlobalListener":"3D4ev","@restart/hooks/useEventCallback":"f2VQA","./DropdownContext":"5UG3w","./DropdownMenu":"70HyH","./DropdownToggle":"2VtXp","./DropdownItem":"kWtLf","./SelectableContext":"6DoIj","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6tNC8":[function(require,module,exports) {
+},{"dom-helpers/querySelectorAll":"6tNC8","dom-helpers/addEventListener":"kM7Ny","react":"4mchR","uncontrollable":"aG99Z","@restart/hooks/usePrevious":"UwSoS","@restart/hooks/useForceUpdate":"cykiI","@restart/hooks/useGlobalListener":"3D4ev","@restart/hooks/useEventCallback":"f2VQA","./DropdownContext":"5UG3w","./DropdownMenu":"70HyH","./DropdownToggle":"2VtXp","./DropdownItem":"kWtLf","./SelectableContext":"6DoIj","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6tNC8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var toArray = Function.prototype.bind.call(Function.prototype.call, [].slice);
@@ -33919,7 +33818,7 @@ function qsa(element, selector) {
 }
 exports.default = qsa;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cykiI":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cykiI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -33933,14 +33832,14 @@ function useForceUpdate() {
 }
 exports.default = useForceUpdate;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5UG3w":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5UG3w":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
 const DropdownContext = /*#__PURE__*/ _react.createContext(null);
 exports.default = DropdownContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"70HyH":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"70HyH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -34056,7 +33955,7 @@ DropdownMenu.displayName = 'DropdownMenu';
 DropdownMenu.defaultProps = defaultProps;
 exports.default = DropdownMenu;
 
-},{"react":"4mchR","@restart/hooks/useCallbackRef":"e0LTO","./DropdownContext":"5UG3w","./usePopper":"608P5","./useRootClose":"gFxBS","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"608P5":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks/useCallbackRef":"e0LTO","./DropdownContext":"5UG3w","./usePopper":"608P5","./useRootClose":"gFxBS","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"608P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -34249,7 +34148,7 @@ const EMPTY_MODIFIERS = [];
 }
 exports.default = usePopper;
 
-},{"react":"4mchR","dequal":"8VXAH","@restart/hooks/useSafeState":"4P6QT","./popper":"3vCF1","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8VXAH":[function(require,module,exports) {
+},{"react":"4mchR","dequal":"8VXAH","@restart/hooks/useSafeState":"4P6QT","./popper":"3vCF1","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8VXAH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "dequal", ()=>dequal
@@ -34323,7 +34222,7 @@ function dequal(foo, bar) {
     return foo !== foo && bar !== bar;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4P6QT":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4P6QT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -34344,7 +34243,7 @@ function useSafeState(state) {
 }
 exports.default = useSafeState;
 
-},{"react":"4mchR","./useMounted":"58qhK","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3vCF1":[function(require,module,exports) {
+},{"react":"4mchR","./useMounted":"58qhK","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3vCF1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createPopper", ()=>createPopper
@@ -34373,7 +34272,7 @@ const createPopper = _popperBase.popperGenerator({
     defaultModifiers: [_hideDefault.default, _popperOffsetsDefault.default, _computeStylesDefault.default, _eventListenersDefault.default, _offsetDefault.default, _flipDefault.default, _preventOverflowDefault.default, _arrowDefault.default]
 });
 
-},{"@popperjs/core/lib/modifiers/arrow":"aFbbE","@popperjs/core/lib/modifiers/computeStyles":"jb5QZ","@popperjs/core/lib/modifiers/eventListeners":"6Xsje","@popperjs/core/lib/modifiers/flip":"6hQNA","@popperjs/core/lib/modifiers/hide":"1tv8l","@popperjs/core/lib/modifiers/offset":"228UQ","@popperjs/core/lib/modifiers/popperOffsets":"I1CrS","@popperjs/core/lib/modifiers/preventOverflow":"iquIt","@popperjs/core/lib/enums":"jZp3w","@popperjs/core/lib/popper-base":"68ueK","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aFbbE":[function(require,module,exports) {
+},{"@popperjs/core/lib/modifiers/arrow":"aFbbE","@popperjs/core/lib/modifiers/computeStyles":"jb5QZ","@popperjs/core/lib/modifiers/eventListeners":"6Xsje","@popperjs/core/lib/modifiers/flip":"6hQNA","@popperjs/core/lib/modifiers/hide":"1tv8l","@popperjs/core/lib/modifiers/offset":"228UQ","@popperjs/core/lib/modifiers/popperOffsets":"I1CrS","@popperjs/core/lib/modifiers/preventOverflow":"iquIt","@popperjs/core/lib/enums":"jZp3w","@popperjs/core/lib/popper-base":"68ueK","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aFbbE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getBasePlacementJs = require("../utils/getBasePlacement.js");
@@ -34466,7 +34365,7 @@ exports.default = {
     ]
 };
 
-},{"../utils/getBasePlacement.js":"c2UOX","../dom-utils/getLayoutRect.js":"3QcLC","../dom-utils/contains.js":"c5XYO","../dom-utils/getOffsetParent.js":"cEO6a","../utils/getMainAxisFromPlacement.js":"bDf0O","../utils/within.js":"91duw","../utils/mergePaddingObject.js":"h6lM0","../utils/expandToHashMap.js":"fPt6e","../enums.js":"jZp3w","../dom-utils/instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"c2UOX":[function(require,module,exports) {
+},{"../utils/getBasePlacement.js":"c2UOX","../dom-utils/getLayoutRect.js":"3QcLC","../dom-utils/contains.js":"c5XYO","../dom-utils/getOffsetParent.js":"cEO6a","../utils/getMainAxisFromPlacement.js":"bDf0O","../utils/within.js":"91duw","../utils/mergePaddingObject.js":"h6lM0","../utils/expandToHashMap.js":"fPt6e","../enums.js":"jZp3w","../dom-utils/instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c2UOX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _enumsJs = require("../enums.js");
@@ -34475,7 +34374,7 @@ function getBasePlacement(placement) {
 }
 exports.default = getBasePlacement;
 
-},{"../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jZp3w":[function(require,module,exports) {
+},{"../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jZp3w":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "top", ()=>top
@@ -34579,7 +34478,7 @@ var modifierPhases = [
     afterWrite
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3QcLC":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3QcLC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getBoundingClientRectJs = require("./getBoundingClientRect.js"); // Returns the layout rect of an element relative to its offsetParent. Layout
@@ -34600,7 +34499,7 @@ function getLayoutRect(element) {
 }
 exports.default = getLayoutRect;
 
-},{"./getBoundingClientRect.js":"ey7tS","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ey7tS":[function(require,module,exports) {
+},{"./getBoundingClientRect.js":"ey7tS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ey7tS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getBoundingClientRect(element, includeScale) {
@@ -34637,7 +34536,7 @@ function getBoundingClientRect(element, includeScale) {
 }
 exports.default = getBoundingClientRect;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"c5XYO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c5XYO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _instanceOfJs = require("./instanceOf.js");
@@ -34656,7 +34555,7 @@ function contains(parent, child) {
 }
 exports.default = contains;
 
-},{"./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fKIgP":[function(require,module,exports) {
+},{"./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fKIgP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "isElement", ()=>isElement
@@ -34682,7 +34581,7 @@ function isShadowRoot(node) {
     return node instanceof OwnElement || node instanceof ShadowRoot;
 }
 
-},{"./getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"htzDW":[function(require,module,exports) {
+},{"./getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"htzDW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getWindow(node) {
@@ -34695,7 +34594,7 @@ function getWindow(node) {
 }
 exports.default = getWindow;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cEO6a":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cEO6a":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getWindowJs = require("./getWindow.js");
@@ -34747,7 +34646,7 @@ function getOffsetParent(element) {
 }
 exports.default = getOffsetParent;
 
-},{"./getWindow.js":"htzDW","./getNodeName.js":"6JAN3","./getComputedStyle.js":"daHn5","./instanceOf.js":"fKIgP","./isTableElement.js":"lzjUw","./getParentNode.js":"alOJj","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6JAN3":[function(require,module,exports) {
+},{"./getWindow.js":"htzDW","./getNodeName.js":"6JAN3","./getComputedStyle.js":"daHn5","./instanceOf.js":"fKIgP","./isTableElement.js":"lzjUw","./getParentNode.js":"alOJj","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6JAN3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getNodeName(element) {
@@ -34755,7 +34654,7 @@ function getNodeName(element) {
 }
 exports.default = getNodeName;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"daHn5":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"daHn5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getWindowJs = require("./getWindow.js");
@@ -34765,7 +34664,7 @@ function getComputedStyle(element) {
 }
 exports.default = getComputedStyle;
 
-},{"./getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lzjUw":[function(require,module,exports) {
+},{"./getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lzjUw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getNodeNameJs = require("./getNodeName.js");
@@ -34779,7 +34678,7 @@ function isTableElement(element) {
 }
 exports.default = isTableElement;
 
-},{"./getNodeName.js":"6JAN3","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"alOJj":[function(require,module,exports) {
+},{"./getNodeName.js":"6JAN3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"alOJj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getNodeNameJs = require("./getNodeName.js");
@@ -34797,7 +34696,7 @@ function getParentNode(element) {
 }
 exports.default = getParentNode;
 
-},{"./getNodeName.js":"6JAN3","./getDocumentElement.js":"eJuqT","./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"eJuqT":[function(require,module,exports) {
+},{"./getNodeName.js":"6JAN3","./getDocumentElement.js":"eJuqT","./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eJuqT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _instanceOfJs = require("./instanceOf.js");
@@ -34807,7 +34706,7 @@ function getDocumentElement(element) {
 }
 exports.default = getDocumentElement;
 
-},{"./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"bDf0O":[function(require,module,exports) {
+},{"./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bDf0O":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getMainAxisFromPlacement(placement) {
@@ -34818,7 +34717,7 @@ function getMainAxisFromPlacement(placement) {
 }
 exports.default = getMainAxisFromPlacement;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"91duw":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"91duw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _mathJs = require("./math.js");
@@ -34827,7 +34726,7 @@ function within(min, value, max) {
 }
 exports.default = within;
 
-},{"./math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fL6pm":[function(require,module,exports) {
+},{"./math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fL6pm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "max", ()=>max
@@ -34840,7 +34739,7 @@ var max = Math.max;
 var min = Math.min;
 var round = Math.round;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"h6lM0":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"h6lM0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getFreshSideObjectJs = require("./getFreshSideObject.js");
@@ -34851,7 +34750,7 @@ function mergePaddingObject(paddingObject) {
 }
 exports.default = mergePaddingObject;
 
-},{"./getFreshSideObject.js":"73NUq","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"73NUq":[function(require,module,exports) {
+},{"./getFreshSideObject.js":"73NUq","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"73NUq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getFreshSideObject() {
@@ -34864,7 +34763,7 @@ function getFreshSideObject() {
 }
 exports.default = getFreshSideObject;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fPt6e":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fPt6e":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function expandToHashMap(value, keys) {
@@ -34876,7 +34775,7 @@ function expandToHashMap(value, keys) {
 }
 exports.default = expandToHashMap;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jb5QZ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jb5QZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "mapToStyles", ()=>mapToStyles
@@ -35017,7 +34916,7 @@ exports.default = {
     }
 };
 
-},{"../enums.js":"jZp3w","../dom-utils/getOffsetParent.js":"cEO6a","../dom-utils/getWindow.js":"htzDW","../dom-utils/getDocumentElement.js":"eJuqT","../dom-utils/getComputedStyle.js":"daHn5","../utils/getBasePlacement.js":"c2UOX","../utils/getVariation.js":"f9eYT","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"f9eYT":[function(require,module,exports) {
+},{"../enums.js":"jZp3w","../dom-utils/getOffsetParent.js":"cEO6a","../dom-utils/getWindow.js":"htzDW","../dom-utils/getDocumentElement.js":"eJuqT","../dom-utils/getComputedStyle.js":"daHn5","../utils/getBasePlacement.js":"c2UOX","../utils/getVariation.js":"f9eYT","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"f9eYT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getVariation(placement) {
@@ -35025,7 +34924,7 @@ function getVariation(placement) {
 }
 exports.default = getVariation;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6Xsje":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Xsje":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getWindowJs = require("../dom-utils/getWindow.js"); // eslint-disable-next-line import/no-unused-modules
@@ -35060,7 +34959,7 @@ exports.default = {
     }
 };
 
-},{"../dom-utils/getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6hQNA":[function(require,module,exports) {
+},{"../dom-utils/getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6hQNA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getOppositePlacementJs = require("../utils/getOppositePlacement.js");
@@ -35179,7 +35078,7 @@ exports.default = {
     }
 };
 
-},{"../utils/getOppositePlacement.js":"8FB8g","../utils/getBasePlacement.js":"c2UOX","../utils/getOppositeVariationPlacement.js":"j1zX8","../utils/detectOverflow.js":"crSQf","../utils/computeAutoPlacement.js":"8qqHW","../enums.js":"jZp3w","../utils/getVariation.js":"f9eYT","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8FB8g":[function(require,module,exports) {
+},{"../utils/getOppositePlacement.js":"8FB8g","../utils/getBasePlacement.js":"c2UOX","../utils/getOppositeVariationPlacement.js":"j1zX8","../utils/detectOverflow.js":"crSQf","../utils/computeAutoPlacement.js":"8qqHW","../enums.js":"jZp3w","../utils/getVariation.js":"f9eYT","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8FB8g":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var hash = {
@@ -35195,7 +35094,7 @@ function getOppositePlacement(placement) {
 }
 exports.default = getOppositePlacement;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"j1zX8":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"j1zX8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var hash = {
@@ -35209,7 +35108,7 @@ function getOppositeVariationPlacement(placement) {
 }
 exports.default = getOppositeVariationPlacement;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"crSQf":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"crSQf":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getClippingRectJs = require("../dom-utils/getClippingRect.js");
@@ -35267,7 +35166,7 @@ function detectOverflow(state, options) {
 }
 exports.default = detectOverflow;
 
-},{"../dom-utils/getClippingRect.js":"5k2MU","../dom-utils/getDocumentElement.js":"eJuqT","../dom-utils/getBoundingClientRect.js":"ey7tS","./computeOffsets.js":"4rK4R","./rectToClientRect.js":"aZgXm","../enums.js":"jZp3w","../dom-utils/instanceOf.js":"fKIgP","./mergePaddingObject.js":"h6lM0","./expandToHashMap.js":"fPt6e","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5k2MU":[function(require,module,exports) {
+},{"../dom-utils/getClippingRect.js":"5k2MU","../dom-utils/getDocumentElement.js":"eJuqT","../dom-utils/getBoundingClientRect.js":"ey7tS","./computeOffsets.js":"4rK4R","./rectToClientRect.js":"aZgXm","../enums.js":"jZp3w","../dom-utils/instanceOf.js":"fKIgP","./mergePaddingObject.js":"h6lM0","./expandToHashMap.js":"fPt6e","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5k2MU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _enumsJs = require("../enums.js");
@@ -35347,7 +35246,7 @@ function getClippingRect(element, boundary, rootBoundary) {
 }
 exports.default = getClippingRect;
 
-},{"../enums.js":"jZp3w","./getViewportRect.js":"9whPD","./getDocumentRect.js":"e3m4U","./listScrollParents.js":"h9LnN","./getOffsetParent.js":"cEO6a","./getDocumentElement.js":"eJuqT","./getComputedStyle.js":"daHn5","./instanceOf.js":"fKIgP","./getBoundingClientRect.js":"ey7tS","./getParentNode.js":"alOJj","./contains.js":"c5XYO","./getNodeName.js":"6JAN3","../utils/rectToClientRect.js":"aZgXm","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"9whPD":[function(require,module,exports) {
+},{"../enums.js":"jZp3w","./getViewportRect.js":"9whPD","./getDocumentRect.js":"e3m4U","./listScrollParents.js":"h9LnN","./getOffsetParent.js":"cEO6a","./getDocumentElement.js":"eJuqT","./getComputedStyle.js":"daHn5","./instanceOf.js":"fKIgP","./getBoundingClientRect.js":"ey7tS","./getParentNode.js":"alOJj","./contains.js":"c5XYO","./getNodeName.js":"6JAN3","../utils/rectToClientRect.js":"aZgXm","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9whPD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getWindowJs = require("./getWindow.js");
@@ -35392,7 +35291,7 @@ function getViewportRect(element) {
 }
 exports.default = getViewportRect;
 
-},{"./getWindow.js":"htzDW","./getDocumentElement.js":"eJuqT","./getWindowScrollBarX.js":"3oin6","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3oin6":[function(require,module,exports) {
+},{"./getWindow.js":"htzDW","./getDocumentElement.js":"eJuqT","./getWindowScrollBarX.js":"3oin6","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3oin6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getBoundingClientRectJs = require("./getBoundingClientRect.js");
@@ -35413,7 +35312,7 @@ function getWindowScrollBarX(element) {
 }
 exports.default = getWindowScrollBarX;
 
-},{"./getBoundingClientRect.js":"ey7tS","./getDocumentElement.js":"eJuqT","./getWindowScroll.js":"gZQL2","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gZQL2":[function(require,module,exports) {
+},{"./getBoundingClientRect.js":"ey7tS","./getDocumentElement.js":"eJuqT","./getWindowScroll.js":"gZQL2","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gZQL2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getWindowJs = require("./getWindow.js");
@@ -35429,7 +35328,7 @@ function getWindowScroll(node) {
 }
 exports.default = getWindowScroll;
 
-},{"./getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"e3m4U":[function(require,module,exports) {
+},{"./getWindow.js":"htzDW","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e3m4U":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getDocumentElementJs = require("./getDocumentElement.js");
@@ -35460,7 +35359,7 @@ function getDocumentRect(element) {
 }
 exports.default = getDocumentRect;
 
-},{"./getDocumentElement.js":"eJuqT","./getComputedStyle.js":"daHn5","./getWindowScrollBarX.js":"3oin6","./getWindowScroll.js":"gZQL2","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"h9LnN":[function(require,module,exports) {
+},{"./getDocumentElement.js":"eJuqT","./getComputedStyle.js":"daHn5","./getWindowScrollBarX.js":"3oin6","./getWindowScroll.js":"gZQL2","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"h9LnN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getScrollParentJs = require("./getScrollParent.js");
@@ -35485,7 +35384,7 @@ function listScrollParents(element, list) {
 }
 exports.default = listScrollParents;
 
-},{"./getScrollParent.js":"6KLmw","./getParentNode.js":"alOJj","./getWindow.js":"htzDW","./isScrollParent.js":"6o0f4","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6KLmw":[function(require,module,exports) {
+},{"./getScrollParent.js":"6KLmw","./getParentNode.js":"alOJj","./getWindow.js":"htzDW","./isScrollParent.js":"6o0f4","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6KLmw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getParentNodeJs = require("./getParentNode.js");
@@ -35507,7 +35406,7 @@ function getScrollParent(node) {
 }
 exports.default = getScrollParent;
 
-},{"./getParentNode.js":"alOJj","./isScrollParent.js":"6o0f4","./getNodeName.js":"6JAN3","./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6o0f4":[function(require,module,exports) {
+},{"./getParentNode.js":"alOJj","./isScrollParent.js":"6o0f4","./getNodeName.js":"6JAN3","./instanceOf.js":"fKIgP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6o0f4":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getComputedStyleJs = require("./getComputedStyle.js");
@@ -35519,7 +35418,7 @@ function isScrollParent(element) {
 }
 exports.default = isScrollParent;
 
-},{"./getComputedStyle.js":"daHn5","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aZgXm":[function(require,module,exports) {
+},{"./getComputedStyle.js":"daHn5","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aZgXm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function rectToClientRect(rect) {
@@ -35533,7 +35432,7 @@ function rectToClientRect(rect) {
 }
 exports.default = rectToClientRect;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4rK4R":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4rK4R":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getBasePlacementJs = require("./getBasePlacement.js");
@@ -35598,7 +35497,7 @@ function computeOffsets(_ref) {
 }
 exports.default = computeOffsets;
 
-},{"./getBasePlacement.js":"c2UOX","./getVariation.js":"f9eYT","./getMainAxisFromPlacement.js":"bDf0O","../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8qqHW":[function(require,module,exports) {
+},{"./getBasePlacement.js":"c2UOX","./getVariation.js":"f9eYT","./getMainAxisFromPlacement.js":"bDf0O","../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8qqHW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getVariationJs = require("./getVariation.js");
@@ -35645,7 +35544,7 @@ function computeAutoPlacement(state, options) {
 }
 exports.default = computeAutoPlacement;
 
-},{"./getVariation.js":"f9eYT","../enums.js":"jZp3w","./detectOverflow.js":"crSQf","./getBasePlacement.js":"c2UOX","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"1tv8l":[function(require,module,exports) {
+},{"./getVariation.js":"f9eYT","../enums.js":"jZp3w","./detectOverflow.js":"crSQf","./getBasePlacement.js":"c2UOX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1tv8l":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _enumsJs = require("../enums.js");
@@ -35705,7 +35604,7 @@ exports.default = {
     fn: hide
 };
 
-},{"../enums.js":"jZp3w","../utils/detectOverflow.js":"crSQf","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"228UQ":[function(require,module,exports) {
+},{"../enums.js":"jZp3w","../utils/detectOverflow.js":"crSQf","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"228UQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "distanceAndSkiddingToXY", ()=>distanceAndSkiddingToXY
@@ -35758,7 +35657,7 @@ exports.default = {
     fn: offset
 };
 
-},{"../utils/getBasePlacement.js":"c2UOX","../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"I1CrS":[function(require,module,exports) {
+},{"../utils/getBasePlacement.js":"c2UOX","../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"I1CrS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _computeOffsetsJs = require("../utils/computeOffsets.js");
@@ -35785,7 +35684,7 @@ exports.default = {
     }
 };
 
-},{"../utils/computeOffsets.js":"4rK4R","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"iquIt":[function(require,module,exports) {
+},{"../utils/computeOffsets.js":"4rK4R","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iquIt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _enumsJs = require("../enums.js");
@@ -35893,7 +35792,7 @@ exports.default = {
     ]
 };
 
-},{"../enums.js":"jZp3w","../utils/getBasePlacement.js":"c2UOX","../utils/getMainAxisFromPlacement.js":"bDf0O","../utils/getAltAxis.js":"km1Cn","../utils/within.js":"91duw","../dom-utils/getLayoutRect.js":"3QcLC","../dom-utils/getOffsetParent.js":"cEO6a","../utils/detectOverflow.js":"crSQf","../utils/getVariation.js":"f9eYT","../utils/getFreshSideObject.js":"73NUq","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"km1Cn":[function(require,module,exports) {
+},{"../enums.js":"jZp3w","../utils/getBasePlacement.js":"c2UOX","../utils/getMainAxisFromPlacement.js":"bDf0O","../utils/getAltAxis.js":"km1Cn","../utils/within.js":"91duw","../dom-utils/getLayoutRect.js":"3QcLC","../dom-utils/getOffsetParent.js":"cEO6a","../utils/detectOverflow.js":"crSQf","../utils/getVariation.js":"f9eYT","../utils/getFreshSideObject.js":"73NUq","../utils/math.js":"fL6pm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"km1Cn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getAltAxis(axis) {
@@ -35901,7 +35800,7 @@ function getAltAxis(axis) {
 }
 exports.default = getAltAxis;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"68ueK":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"68ueK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // eslint-disable-next-line import/no-unused-modules
@@ -35913,7 +35812,7 @@ parcelHelpers.export(exports, "detectOverflow", ()=>_createPopperJs.detectOverfl
 );
 var _createPopperJs = require("./createPopper.js");
 
-},{"./createPopper.js":"6w8cU","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6w8cU":[function(require,module,exports) {
+},{"./createPopper.js":"6w8cU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6w8cU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "popperGenerator", ()=>popperGenerator
@@ -36139,7 +36038,7 @@ function popperGenerator(generatorOptions) {
 }
 var createPopper = /*#__PURE__*/ popperGenerator(); // eslint-disable-next-line import/no-unused-modules
 
-},{"./dom-utils/getCompositeRect.js":"8RbQq","./dom-utils/getLayoutRect.js":"3QcLC","./dom-utils/listScrollParents.js":"h9LnN","./dom-utils/getOffsetParent.js":"cEO6a","./dom-utils/getComputedStyle.js":"daHn5","./utils/orderModifiers.js":"6glJ2","./utils/debounce.js":"2MXaX","./utils/validateModifiers.js":"4YNnu","./utils/uniqueBy.js":"lqIFN","./utils/getBasePlacement.js":"c2UOX","./utils/mergeByName.js":"15Bos","./utils/detectOverflow.js":"crSQf","./dom-utils/instanceOf.js":"fKIgP","./enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8RbQq":[function(require,module,exports) {
+},{"./dom-utils/getCompositeRect.js":"8RbQq","./dom-utils/getLayoutRect.js":"3QcLC","./dom-utils/listScrollParents.js":"h9LnN","./dom-utils/getOffsetParent.js":"cEO6a","./dom-utils/getComputedStyle.js":"daHn5","./utils/orderModifiers.js":"6glJ2","./utils/debounce.js":"2MXaX","./utils/validateModifiers.js":"4YNnu","./utils/uniqueBy.js":"lqIFN","./utils/getBasePlacement.js":"c2UOX","./utils/mergeByName.js":"15Bos","./utils/detectOverflow.js":"crSQf","./dom-utils/instanceOf.js":"fKIgP","./enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8RbQq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getBoundingClientRectJs = require("./getBoundingClientRect.js");
@@ -36192,7 +36091,7 @@ function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
 }
 exports.default = getCompositeRect;
 
-},{"./getBoundingClientRect.js":"ey7tS","./getNodeScroll.js":"bJ4uu","./getNodeName.js":"6JAN3","./instanceOf.js":"fKIgP","./getWindowScrollBarX.js":"3oin6","./getDocumentElement.js":"eJuqT","./isScrollParent.js":"6o0f4","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"bJ4uu":[function(require,module,exports) {
+},{"./getBoundingClientRect.js":"ey7tS","./getNodeScroll.js":"bJ4uu","./getNodeName.js":"6JAN3","./instanceOf.js":"fKIgP","./getWindowScrollBarX.js":"3oin6","./getDocumentElement.js":"eJuqT","./isScrollParent.js":"6o0f4","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bJ4uu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getWindowScrollJs = require("./getWindowScroll.js");
@@ -36208,7 +36107,7 @@ function getNodeScroll(node) {
 }
 exports.default = getNodeScroll;
 
-},{"./getWindowScroll.js":"gZQL2","./getWindow.js":"htzDW","./instanceOf.js":"fKIgP","./getHTMLElementScroll.js":"5uO18","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5uO18":[function(require,module,exports) {
+},{"./getWindowScroll.js":"gZQL2","./getWindow.js":"htzDW","./instanceOf.js":"fKIgP","./getHTMLElementScroll.js":"5uO18","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5uO18":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getHTMLElementScroll(element) {
@@ -36219,7 +36118,7 @@ function getHTMLElementScroll(element) {
 }
 exports.default = getHTMLElementScroll;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6glJ2":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6glJ2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _enumsJs = require("../enums.js"); // source: https://stackoverflow.com/questions/49875255
@@ -36258,7 +36157,7 @@ function orderModifiers(modifiers) {
 }
 exports.default = orderModifiers;
 
-},{"../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"2MXaX":[function(require,module,exports) {
+},{"../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2MXaX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function debounce(fn) {
@@ -36275,7 +36174,7 @@ function debounce(fn) {
 }
 exports.default = debounce;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4YNnu":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4YNnu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _formatJs = require("./format.js");
@@ -36338,7 +36237,7 @@ function validateModifiers(modifiers) {
 }
 exports.default = validateModifiers;
 
-},{"./format.js":"8LgWn","../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8LgWn":[function(require,module,exports) {
+},{"./format.js":"8LgWn","../enums.js":"jZp3w","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8LgWn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function format(str) {
@@ -36349,7 +36248,7 @@ function format(str) {
 }
 exports.default = format;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lqIFN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lqIFN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function uniqueBy(arr, fn) {
@@ -36364,7 +36263,7 @@ function uniqueBy(arr, fn) {
 }
 exports.default = uniqueBy;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"15Bos":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"15Bos":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function mergeByName(modifiers) {
@@ -36386,7 +36285,7 @@ function mergeByName(modifiers) {
 }
 exports.default = mergeByName;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gFxBS":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gFxBS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _contains = require("dom-helpers/contains");
@@ -36484,7 +36383,7 @@ const getRefTarget = (ref)=>ref && ('current' in ref ? ref.current : ref)
 }
 exports.default = useRootClose;
 
-},{"dom-helpers/contains":"asPpd","dom-helpers/listen":"fotiI","dom-helpers/ownerDocument":"b8OFQ","react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","warning":"4vouU","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"asPpd":[function(require,module,exports) {
+},{"dom-helpers/contains":"asPpd","dom-helpers/listen":"fotiI","dom-helpers/ownerDocument":"b8OFQ","react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","warning":"4vouU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"asPpd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function contains(context, node) {
@@ -36495,7 +36394,7 @@ function contains(context, node) {
 }
 exports.default = contains;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4lnJO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4lnJO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "toModifierMap", ()=>toModifierMap
@@ -36561,7 +36460,7 @@ function mergeOptionsWithPopperConfig({ enabled , enableEvents , placement , fli
 }
 exports.default = mergeOptionsWithPopperConfig;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"2VtXp":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2VtXp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "isRoleMenu", ()=>isRoleMenu
@@ -36625,7 +36524,7 @@ function useDropdownToggle() {
 DropdownToggle.displayName = 'DropdownToggle';
 exports.default = DropdownToggle;
 
-},{"react":"4mchR","./ssr":"kv7iw","./DropdownContext":"5UG3w","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kv7iw":[function(require,module,exports) {
+},{"react":"4mchR","./ssr":"kv7iw","./DropdownContext":"5UG3w","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kv7iw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useSSRSafeId", ()=>_ssr.useSSRSafeId
@@ -36636,7 +36535,7 @@ parcelHelpers.export(exports, "SSRProvider", ()=>_ssr.SSRProvider
 );
 var _ssr = require("@react-aria/ssr");
 
-},{"@react-aria/ssr":"hJUdj","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"hJUdj":[function(require,module,exports) {
+},{"@react-aria/ssr":"hJUdj","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hJUdj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -36703,7 +36602,7 @@ function useIsSSR() {
     return isSSR;
 }
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kWtLf":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kWtLf":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -36784,7 +36683,7 @@ const DropdownItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
 DropdownItem.displayName = 'DropdownItem';
 exports.default = DropdownItem;
 
-},{"react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","./SelectableContext":"6DoIj","./NavContext":"8F9CB","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6DoIj":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","./SelectableContext":"6DoIj","./NavContext":"8F9CB","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6DoIj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "makeEventKey", ()=>makeEventKey
@@ -36797,7 +36696,7 @@ const makeEventKey = (eventKey, href = null)=>{
 };
 exports.default = SelectableContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8F9CB":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8F9CB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -36805,7 +36704,7 @@ const NavContext = /*#__PURE__*/ _react.createContext(null);
 NavContext.displayName = 'NavContext';
 exports.default = NavContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"djk1E":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"djk1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ATTRIBUTE_PREFIX", ()=>ATTRIBUTE_PREFIX
@@ -36825,7 +36724,7 @@ function dataProp(property) {
     return `${PROPERTY_PREFIX}${property}`;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kQHR9":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kQHR9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -36834,7 +36733,7 @@ const DropdownContext = /*#__PURE__*/ _react.createContext({
 DropdownContext.displayName = 'DropdownContext';
 exports.default = DropdownContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6Tbgp":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Tbgp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -36864,7 +36763,7 @@ const DropdownItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , e
 DropdownItem.displayName = 'DropdownItem';
 exports.default = DropdownItem;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownItem":"kWtLf","@restart/ui/Anchor":"c3Vvr","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"Zo7sg":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownItem":"kWtLf","@restart/ui/Anchor":"c3Vvr","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"Zo7sg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getDropdownMenuPlacement", ()=>getDropdownMenuPlacement
@@ -36983,7 +36882,7 @@ DropdownMenu.displayName = 'DropdownMenu';
 DropdownMenu.defaultProps = defaultProps;
 exports.default = DropdownMenu;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownMenu":"70HyH","@restart/hooks/useIsomorphicEffect":"e6sqn","@restart/hooks/useMergedRefs":"fj3d7","warning":"4vouU","./DropdownContext":"kQHR9","./InputGroupContext":"8dQQC","./NavbarContext":"1TV6u","./ThemeProvider":"oG7Uz","./useWrappedRefWithWarning":"aSYIB","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"e6sqn":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownMenu":"70HyH","@restart/hooks/useIsomorphicEffect":"e6sqn","@restart/hooks/useMergedRefs":"fj3d7","warning":"4vouU","./DropdownContext":"kQHR9","./InputGroupContext":"8dQQC","./NavbarContext":"1TV6u","./ThemeProvider":"oG7Uz","./useWrappedRefWithWarning":"aSYIB","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e6sqn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -36992,7 +36891,7 @@ var isReactNative = typeof global !== 'undefined' && global.navigator && global.
 var isDOM = typeof document !== 'undefined';
 exports.default = isDOM || isReactNative ? _react.useLayoutEffect : _react.useEffect;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8dQQC":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8dQQC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -37000,7 +36899,7 @@ const context = /*#__PURE__*/ _react.createContext(null);
 context.displayName = 'InputGroupContext';
 exports.default = context;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"1TV6u":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1TV6u":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react"); // TODO: check
@@ -37008,7 +36907,7 @@ const context = /*#__PURE__*/ _react.createContext(null);
 context.displayName = 'NavbarContext';
 exports.default = context;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aSYIB":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aSYIB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _invariant = require("invariant");
@@ -37026,7 +36925,7 @@ function useWrappedRefWithWarning(ref, componentName) {
 }
 exports.default = useWrappedRefWithWarning;
 
-},{"invariant":"Xxs2W","react":"4mchR","@restart/hooks/useMergedRefs":"fj3d7","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gcZF4":[function(require,module,exports) {
+},{"invariant":"Xxs2W","react":"4mchR","@restart/hooks/useMergedRefs":"fj3d7","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gcZF4":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "alignPropType", ()=>alignPropType
@@ -37056,7 +36955,7 @@ const alignPropType = _propTypesDefault.default.oneOfType([
     })
 ]);
 
-},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6tN0k":[function(require,module,exports) {
+},{"prop-types":"2bysO","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6tN0k":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -37093,7 +36992,7 @@ as: Component = _buttonDefault.default , ...props }, ref)=>{
 DropdownToggle.displayName = 'DropdownToggle';
 exports.default = DropdownToggle;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownToggle":"2VtXp","@restart/ui/DropdownContext":"5UG3w","@restart/hooks/useMergedRefs":"fj3d7","./Button":"64Pgd","./InputGroupContext":"8dQQC","./ThemeProvider":"oG7Uz","./useWrappedRefWithWarning":"aSYIB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"bqS2l":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownToggle":"2VtXp","@restart/ui/DropdownContext":"5UG3w","@restart/hooks/useMergedRefs":"fj3d7","./Button":"64Pgd","./InputGroupContext":"8dQQC","./ThemeProvider":"oG7Uz","./useWrappedRefWithWarning":"aSYIB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bqS2l":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -37176,7 +37075,7 @@ DropdownButton.displayName = 'DropdownButton';
 DropdownButton.propTypes = propTypes;
 exports.default = DropdownButton;
 
-},{"react":"4mchR","prop-types":"2bysO","./Dropdown":"7gNYx","./DropdownToggle":"6tN0k","./DropdownMenu":"Zo7sg","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gFkXb":[function(require,module,exports) {
+},{"react":"4mchR","prop-types":"2bysO","./Dropdown":"7gNYx","./DropdownToggle":"6tN0k","./DropdownMenu":"Zo7sg","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gFkXb":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -37201,7 +37100,7 @@ Container.displayName = 'Container';
 Container.defaultProps = defaultProps;
 exports.default = Container;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lntx1":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lntx1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "propTypes", ()=>propTypes
@@ -37249,7 +37148,7 @@ Image.displayName = 'Image';
 Image.defaultProps = defaultProps;
 exports.default = Image;
 
-},{"classnames":"2cVcN","react":"4mchR","prop-types":"2bysO","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"dD7yw":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","prop-types":"2bysO","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dD7yw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
@@ -37266,7 +37165,7 @@ exports.default = Object.assign(Figure, {
     Caption: _figureCaptionDefault.default
 });
 
-},{"./createWithBsPrefix":"8IH8I","./FigureImage":"9Daf1","./FigureCaption":"4ZHZG","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"9Daf1":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","./FigureImage":"9Daf1","./FigureCaption":"4ZHZG","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9Daf1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -37289,7 +37188,7 @@ FigureImage.propTypes = _image.propTypes;
 FigureImage.defaultProps = defaultProps;
 exports.default = FigureImage;
 
-},{"classnames":"2cVcN","react":"4mchR","./Image":"lntx1","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4ZHZG":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./Image":"lntx1","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4ZHZG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
@@ -37299,7 +37198,7 @@ const FigureCaption = _createWithBsPrefixDefault.default('figure-caption', {
 });
 exports.default = FigureCaption;
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jHgra":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jHgra":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -37358,7 +37257,7 @@ exports.default = Object.assign(InputGroup, {
     Checkbox: InputGroupCheckbox
 });
 
-},{"classnames":"2cVcN","react":"4mchR","./createWithBsPrefix":"8IH8I","./ThemeProvider":"oG7Uz","./FormCheckInput":"fNTQv","./InputGroupContext":"8dQQC","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5ZBCJ":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./createWithBsPrefix":"8IH8I","./ThemeProvider":"oG7Uz","./FormCheckInput":"fNTQv","./InputGroupContext":"8dQQC","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5ZBCJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -37394,7 +37293,7 @@ exports.default = Object.assign(ListGroup, {
     Item: _listGroupItemDefault.default
 });
 
-},{"classnames":"2cVcN","react":"4mchR","warning":"4vouU","uncontrollable":"aG99Z","@restart/ui/Nav":"7lhRU","./ThemeProvider":"oG7Uz","./ListGroupItem":"lStPp","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7lhRU":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","warning":"4vouU","uncontrollable":"aG99Z","@restart/ui/Nav":"7lhRU","./ThemeProvider":"oG7Uz","./ListGroupItem":"lStPp","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7lhRU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _querySelectorAll = require("dom-helpers/querySelectorAll");
@@ -37528,7 +37427,7 @@ exports.default = Object.assign(Nav, {
     Item: _navItemDefault.default
 });
 
-},{"dom-helpers/querySelectorAll":"6tNC8","react":"4mchR","@restart/hooks/useForceUpdate":"cykiI","@restart/hooks/useMergedRefs":"iIPt2","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./TabContext":"gm1bN","./DataKey":"djk1E","./NavItem":"cgqID","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"iIPt2":[function(require,module,exports) {
+},{"dom-helpers/querySelectorAll":"6tNC8","react":"4mchR","@restart/hooks/useForceUpdate":"cykiI","@restart/hooks/useMergedRefs":"iIPt2","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./TabContext":"gm1bN","./DataKey":"djk1E","./NavItem":"cgqID","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iIPt2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "mergeRefs", ()=>mergeRefs
@@ -37572,14 +37471,14 @@ function mergeRefs(refA, refB) {
 }
 exports.default = useMergedRefs;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gm1bN":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gm1bN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
 const TabContext = /*#__PURE__*/ _react.createContext(null);
 exports.default = TabContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cgqID":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cgqID":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useNavItem", ()=>useNavItem
@@ -37666,7 +37565,7 @@ const NavItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
 NavItem.displayName = 'NavItem';
 exports.default = NavItem;
 
-},{"react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"lStPp":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lStPp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -37709,7 +37608,7 @@ const ListGroupItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , active , dis
 ListGroupItem.displayName = 'ListGroupItem';
 exports.default = ListGroupItem;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","@restart/ui/NavItem":"cgqID","@restart/ui/SelectableContext":"6DoIj","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3e8qu":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","@restart/ui/NavItem":"cgqID","@restart/ui/SelectableContext":"6DoIj","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3e8qu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -37947,7 +37846,7 @@ exports.default = Object.assign(Modal, {
     BACKDROP_TRANSITION_DURATION: 150
 });
 
-},{"classnames":"2cVcN","dom-helpers/addEventListener":"kM7Ny","dom-helpers/canUseDOM":"b2ppt","dom-helpers/ownerDocument":"b8OFQ","dom-helpers/removeEventListener":"6Rtjt","dom-helpers/scrollbarSize":"gkTjJ","@restart/hooks/useCallbackRef":"4MRqx","@restart/hooks/useEventCallback":"8QyIg","@restart/hooks/useMergedRefs":"fj3d7","@restart/hooks/useWillUnmount":"fr49k","dom-helpers/transitionEnd":"5WYHD","react":"4mchR","@restart/ui/Modal":"2BxPy","./BootstrapModalManager":"fLjhQ","./Fade":"cHHEJ","./ModalBody":"eiGfM","./ModalContext":"6Bu6N","./ModalDialog":"5L3Ev","./ModalFooter":"5ZZee","./ModalHeader":"jx4Qr","./ModalTitle":"bXx7g","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gkTjJ":[function(require,module,exports) {
+},{"classnames":"2cVcN","dom-helpers/addEventListener":"kM7Ny","dom-helpers/canUseDOM":"b2ppt","dom-helpers/ownerDocument":"b8OFQ","dom-helpers/removeEventListener":"6Rtjt","dom-helpers/scrollbarSize":"gkTjJ","@restart/hooks/useCallbackRef":"4MRqx","@restart/hooks/useEventCallback":"8QyIg","@restart/hooks/useMergedRefs":"fj3d7","@restart/hooks/useWillUnmount":"fr49k","dom-helpers/transitionEnd":"5WYHD","react":"4mchR","@restart/ui/Modal":"2BxPy","./BootstrapModalManager":"fLjhQ","./Fade":"cHHEJ","./ModalBody":"eiGfM","./ModalContext":"6Bu6N","./ModalDialog":"5L3Ev","./ModalFooter":"5ZZee","./ModalHeader":"jx4Qr","./ModalTitle":"bXx7g","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gkTjJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _canUseDOM = require("./canUseDOM");
@@ -37971,7 +37870,7 @@ function scrollbarSize(recalc) {
 }
 exports.default = scrollbarSize;
 
-},{"./canUseDOM":"b2ppt","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4MRqx":[function(require,module,exports) {
+},{"./canUseDOM":"b2ppt","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4MRqx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -37980,7 +37879,7 @@ function useCallbackRef() {
 }
 exports.default = useCallbackRef;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"2BxPy":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2BxPy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /* eslint-disable @typescript-eslint/no-use-before-define, react/prop-types */ var _activeElement = require("dom-helpers/activeElement");
@@ -38223,7 +38122,7 @@ exports.default = Object.assign(Modal, {
     Manager: _modalManagerDefault.default
 });
 
-},{"dom-helpers/activeElement":"7gRL6","dom-helpers/contains":"asPpd","dom-helpers/canUseDOM":"b2ppt","dom-helpers/listen":"fotiI","react":"4mchR","react-dom":"afyCw","@restart/hooks/useMounted":"58qhK","@restart/hooks/useWillUnmount":"4wq5A","@restart/hooks/usePrevious":"UwSoS","@restart/hooks/useEventCallback":"f2VQA","./ModalManager":"jg7yG","./useWaitForDOMRef":"fWRMw","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7gRL6":[function(require,module,exports) {
+},{"dom-helpers/activeElement":"7gRL6","dom-helpers/contains":"asPpd","dom-helpers/canUseDOM":"b2ppt","dom-helpers/listen":"fotiI","react":"4mchR","react-dom":"afyCw","@restart/hooks/useMounted":"58qhK","@restart/hooks/useWillUnmount":"4wq5A","@restart/hooks/usePrevious":"UwSoS","@restart/hooks/useEventCallback":"f2VQA","./ModalManager":"jg7yG","./useWaitForDOMRef":"fWRMw","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7gRL6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _ownerDocument = require("./ownerDocument");
@@ -38243,7 +38142,7 @@ function activeElement(doc) {
 }
 exports.default = activeElement;
 
-},{"./ownerDocument":"b8OFQ","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4wq5A":[function(require,module,exports) {
+},{"./ownerDocument":"b8OFQ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4wq5A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useUpdatedRef = require("./useUpdatedRef");
@@ -38259,7 +38158,7 @@ function useWillUnmount(fn) {
 }
 exports.default = useWillUnmount;
 
-},{"./useUpdatedRef":"81GAV","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"81GAV":[function(require,module,exports) {
+},{"./useUpdatedRef":"81GAV","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"81GAV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -38270,7 +38169,7 @@ function useUpdatedRef(value) {
 }
 exports.default = useUpdatedRef;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jg7yG":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jg7yG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "OPEN_DATA_ATTRIBUTE", ()=>OPEN_DATA_ATTRIBUTE
@@ -38358,7 +38257,7 @@ const OPEN_DATA_ATTRIBUTE = _dataKey.dataAttr('modal-open');
 }
 exports.default = ModalManager;
 
-},{"dom-helpers/css":"k69TG","./DataKey":"djk1E","./getScrollbarWidth":"aOSpm","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aOSpm":[function(require,module,exports) {
+},{"dom-helpers/css":"k69TG","./DataKey":"djk1E","./getScrollbarWidth":"aOSpm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aOSpm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function getBodyScrollbarWidth() {
@@ -38366,7 +38265,7 @@ function getBodyScrollbarWidth() {
 }
 exports.default = getBodyScrollbarWidth;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fWRMw":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fWRMw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "resolveContainerRef", ()=>resolveContainerRef
@@ -38407,7 +38306,7 @@ function useWaitForDOMRef(ref, onResolved) {
 }
 exports.default = useWaitForDOMRef;
 
-},{"dom-helpers/ownerDocument":"b8OFQ","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fLjhQ":[function(require,module,exports) {
+},{"dom-helpers/ownerDocument":"b8OFQ","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fLjhQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getSharedManager", ()=>getSharedManager
@@ -38480,7 +38379,7 @@ function getSharedManager(options) {
 }
 exports.default = BootstrapModalManager;
 
-},{"dom-helpers/addClass":"l4YUz","dom-helpers/css":"k69TG","dom-helpers/querySelectorAll":"6tNC8","dom-helpers/removeClass":"hVmiH","@restart/ui/ModalManager":"jg7yG","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"l4YUz":[function(require,module,exports) {
+},{"dom-helpers/addClass":"l4YUz","dom-helpers/css":"k69TG","dom-helpers/querySelectorAll":"6tNC8","dom-helpers/removeClass":"hVmiH","@restart/ui/ModalManager":"jg7yG","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"l4YUz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _hasClass = require("./hasClass");
@@ -38494,7 +38393,7 @@ function addClass(element, className) {
 }
 exports.default = addClass;
 
-},{"./hasClass":"aIALm","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aIALm":[function(require,module,exports) {
+},{"./hasClass":"aIALm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aIALm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function hasClass(element, className) {
@@ -38503,7 +38402,7 @@ function hasClass(element, className) {
 }
 exports.default = hasClass;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"hVmiH":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hVmiH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function replaceClassName(origClass, classToRemove) {
@@ -38516,14 +38415,14 @@ function removeClass(element, className) {
 }
 exports.default = removeClass;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"eiGfM":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eiGfM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('modal-body');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6Bu6N":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Bu6N":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -38534,7 +38433,7 @@ const ModalContext = /*#__PURE__*/ _react.createContext({
 });
 exports.default = ModalContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5L3Ev":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5L3Ev":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -38559,14 +38458,14 @@ const ModalDialog = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , co
 ModalDialog.displayName = 'ModalDialog';
 exports.default = ModalDialog;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5ZZee":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5ZZee":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('modal-footer');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"jx4Qr":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jx4Qr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -38592,7 +38491,7 @@ ModalHeader.displayName = 'ModalHeader';
 ModalHeader.defaultProps = defaultProps;
 exports.default = ModalHeader;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AbstractModalHeader":"7dtig","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7dtig":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AbstractModalHeader":"7dtig","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7dtig":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -38629,7 +38528,7 @@ const AbstractModalHeader = /*#__PURE__*/ _react.forwardRef(({ closeLabel , clos
 AbstractModalHeader.defaultProps = defaultProps;
 exports.default = AbstractModalHeader;
 
-},{"react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./CloseButton":"arc5K","./ModalContext":"6Bu6N","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"bXx7g":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./CloseButton":"arc5K","./ModalContext":"6Bu6N","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bXx7g":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
@@ -38641,7 +38540,7 @@ exports.default = _createWithBsPrefixDefault.default('modal-title', {
     Component: DivStyledAsH4
 });
 
-},{"./createWithBsPrefix":"8IH8I","./divWithClassName":"28Yge","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3TTuV":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","./divWithClassName":"28Yge","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3TTuV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -38703,7 +38602,7 @@ exports.default = Object.assign(Nav, {
     Link: _navLinkDefault.default
 });
 
-},{"classnames":"2cVcN","prop-types-extra/lib/all":"b0cSl","react":"4mchR","uncontrollable":"aG99Z","@restart/ui/Nav":"7lhRU","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","./CardHeaderContext":"lEhgp","./NavItem":"lgp9h","./NavLink":"aGfFg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"b0cSl":[function(require,module,exports) {
+},{"classnames":"2cVcN","prop-types-extra/lib/all":"b0cSl","react":"4mchR","uncontrollable":"aG99Z","@restart/ui/Nav":"7lhRU","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","./CardHeaderContext":"lEhgp","./NavItem":"lgp9h","./NavLink":"aGfFg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"b0cSl":[function(require,module,exports) {
 'use strict';
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -38776,7 +38675,7 @@ var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('nav-item');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aGfFg":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aGfFg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -38809,7 +38708,7 @@ NavLink.displayName = 'NavLink';
 NavLink.defaultProps = defaultProps;
 exports.default = NavLink;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Anchor":"c3Vvr","@restart/ui/NavItem":"cgqID","@restart/ui/SelectableContext":"6DoIj","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6tJ6F":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Anchor":"c3Vvr","@restart/ui/NavItem":"cgqID","@restart/ui/SelectableContext":"6DoIj","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6tJ6F":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -38893,7 +38792,7 @@ exports.default = Object.assign(Navbar, {
     Toggle: _navbarToggleDefault.default
 });
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/SelectableContext":"6DoIj","uncontrollable":"aG99Z","./createWithBsPrefix":"8IH8I","./NavbarBrand":"3BfVc","./NavbarCollapse":"gt0Yo","./NavbarToggle":"2eclc","./NavbarOffcanvas":"5DaRS","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"3BfVc":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/SelectableContext":"6DoIj","uncontrollable":"aG99Z","./createWithBsPrefix":"8IH8I","./NavbarBrand":"3BfVc","./NavbarCollapse":"gt0Yo","./NavbarToggle":"2eclc","./NavbarOffcanvas":"5DaRS","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3BfVc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -38913,7 +38812,7 @@ const NavbarBrand = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , as
 NavbarBrand.displayName = 'NavbarBrand';
 exports.default = NavbarBrand;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gt0Yo":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gt0Yo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -38939,7 +38838,7 @@ const NavbarCollapse = /*#__PURE__*/ _react.forwardRef(({ children , bsPrefix , 
 NavbarCollapse.displayName = 'NavbarCollapse';
 exports.default = NavbarCollapse;
 
-},{"react":"4mchR","./Collapse":"ilxlq","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"2eclc":[function(require,module,exports) {
+},{"react":"4mchR","./Collapse":"ilxlq","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2eclc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -38979,7 +38878,7 @@ NavbarToggle.displayName = 'NavbarToggle';
 NavbarToggle.defaultProps = defaultProps;
 exports.default = NavbarToggle;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"5DaRS":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./ThemeProvider":"oG7Uz","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5DaRS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -38999,7 +38898,7 @@ const NavbarOffcanvas = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
 NavbarOffcanvas.displayName = 'NavbarOffcanvas';
 exports.default = NavbarOffcanvas;
 
-},{"react":"4mchR","./Offcanvas":"k5ln7","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"k5ln7":[function(require,module,exports) {
+},{"react":"4mchR","./Offcanvas":"k5ln7","./NavbarContext":"1TV6u","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"k5ln7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39136,14 +39035,14 @@ exports.default = Object.assign(Offcanvas, {
     Title: _offcanvasTitleDefault.default
 });
 
-},{"classnames":"2cVcN","@restart/hooks/useEventCallback":"8QyIg","react":"4mchR","@restart/ui/Modal":"2BxPy","./Fade":"cHHEJ","./OffcanvasBody":"gbeym","./OffcanvasToggling":"dNxYF","./ModalContext":"6Bu6N","./NavbarContext":"1TV6u","./OffcanvasHeader":"8XL24","./OffcanvasTitle":"7WoM0","./ThemeProvider":"oG7Uz","./BootstrapModalManager":"fLjhQ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"gbeym":[function(require,module,exports) {
+},{"classnames":"2cVcN","@restart/hooks/useEventCallback":"8QyIg","react":"4mchR","@restart/ui/Modal":"2BxPy","./Fade":"cHHEJ","./OffcanvasBody":"gbeym","./OffcanvasToggling":"dNxYF","./ModalContext":"6Bu6N","./NavbarContext":"1TV6u","./OffcanvasHeader":"8XL24","./OffcanvasTitle":"7WoM0","./ThemeProvider":"oG7Uz","./BootstrapModalManager":"fLjhQ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gbeym":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('offcanvas-body');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"dNxYF":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dNxYF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39183,7 +39082,7 @@ OffcanvasToggling.defaultProps = defaultProps;
 OffcanvasToggling.displayName = 'OffcanvasToggling';
 exports.default = OffcanvasToggling;
 
-},{"classnames":"2cVcN","react":"4mchR","react-transition-group/Transition":"5xmpQ","./transitionEndListener":"6qkK8","./TransitionWrapper":"7XqYo","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8XL24":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","react-transition-group/Transition":"5xmpQ","./transitionEndListener":"6qkK8","./TransitionWrapper":"7XqYo","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8XL24":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39209,7 +39108,7 @@ OffcanvasHeader.displayName = 'OffcanvasHeader';
 OffcanvasHeader.defaultProps = defaultProps;
 exports.default = OffcanvasHeader;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AbstractModalHeader":"7dtig","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7WoM0":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./AbstractModalHeader":"7dtig","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7WoM0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
@@ -39221,7 +39120,7 @@ exports.default = _createWithBsPrefixDefault.default('offcanvas-title', {
     Component: DivStyledAsH5
 });
 
-},{"./createWithBsPrefix":"8IH8I","./divWithClassName":"28Yge","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ieiTF":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","./divWithClassName":"28Yge","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ieiTF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39267,7 +39166,7 @@ exports.default = Object.assign(NavDropdown, {
     Header: _dropdownDefault.default.Header
 });
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./Dropdown":"7gNYx","./NavLink":"aGfFg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"92F4y":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./Dropdown":"7gNYx","./NavLink":"aGfFg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"92F4y":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -39350,7 +39249,7 @@ Overlay.displayName = 'Overlay';
 Overlay.defaultProps = defaultProps;
 exports.default = Overlay;
 
-},{"react":"4mchR","classnames":"2cVcN","@restart/ui/Overlay":"kSc2X","@restart/hooks/useMergedRefs":"fj3d7","./useOverlayOffset":"JceeM","./Fade":"cHHEJ","./safeFindDOMNode":"7yjLB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kSc2X":[function(require,module,exports) {
+},{"react":"4mchR","classnames":"2cVcN","@restart/ui/Overlay":"kSc2X","@restart/hooks/useMergedRefs":"fj3d7","./useOverlayOffset":"JceeM","./Fade":"cHHEJ","./safeFindDOMNode":"7yjLB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kSc2X":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -39437,7 +39336,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 Overlay.displayName = 'Overlay';
 exports.default = Overlay;
 
-},{"react":"4mchR","react-dom":"afyCw","@restart/hooks/useCallbackRef":"e0LTO","@restart/hooks/useMergedRefs":"iIPt2","./usePopper":"608P5","./useRootClose":"gFxBS","./useWaitForDOMRef":"fWRMw","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"JceeM":[function(require,module,exports) {
+},{"react":"4mchR","react-dom":"afyCw","@restart/hooks/useCallbackRef":"e0LTO","@restart/hooks/useMergedRefs":"iIPt2","./usePopper":"608P5","./useRootClose":"gFxBS","./useWaitForDOMRef":"fWRMw","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"JceeM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -39473,7 +39372,7 @@ function useOverlayOffset() {
 }
 exports.default = useOverlayOffset;
 
-},{"react":"4mchR","dom-helpers/hasClass":"aIALm","./ThemeProvider":"oG7Uz","./Popover":"cRMw9","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cRMw9":[function(require,module,exports) {
+},{"react":"4mchR","dom-helpers/hasClass":"aIALm","./ThemeProvider":"oG7Uz","./Popover":"cRMw9","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cRMw9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39524,21 +39423,21 @@ exports.default = Object.assign(Popover, {
     ]
 });
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./PopoverHeader":"aQjaj","./PopoverBody":"4h2uh","./helpers":"4wQJ9","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aQjaj":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./PopoverHeader":"aQjaj","./PopoverBody":"4h2uh","./helpers":"4wQJ9","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aQjaj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('popover-header');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4h2uh":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4h2uh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('popover-body');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"4wQJ9":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4wQJ9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BsPrefixComponent", ()=>BsPrefixComponent
@@ -39556,7 +39455,7 @@ function getOverlayDirection(placement, isRTL) {
     return bsDirection;
 }
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"90D2y":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"90D2y":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _contains = require("dom-helpers/contains");
@@ -39704,7 +39603,7 @@ function OverlayTrigger({ trigger , overlay , children , popperConfig ={
 OverlayTrigger.defaultProps = defaultProps;
 exports.default = OverlayTrigger;
 
-},{"dom-helpers/contains":"asPpd","react":"4mchR","@restart/hooks/useTimeout":"97tbq","warning":"4vouU","uncontrollable":"aG99Z","@restart/hooks/useMergedRefs":"fj3d7","./Overlay":"92F4y","./safeFindDOMNode":"7yjLB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aLJu6":[function(require,module,exports) {
+},{"dom-helpers/contains":"asPpd","react":"4mchR","@restart/hooks/useTimeout":"97tbq","warning":"4vouU","uncontrollable":"aG99Z","@restart/hooks/useMergedRefs":"fj3d7","./Overlay":"92F4y","./safeFindDOMNode":"7yjLB","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aLJu6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "First", ()=>First
@@ -39779,7 +39678,7 @@ const Ellipsis = createButton('Ellipsis', '…', 'More');
 const Next = createButton('Next', '›');
 const Last = createButton('Last', '»');
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Anchor":"c3Vvr","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"j9EMR":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/Anchor":"c3Vvr","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"j9EMR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39814,7 +39713,7 @@ exports.default = Object.assign(Pagination, {
     Last: _pageItem.Last
 });
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./PageItem":"aLJu6","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cGyxn":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./PageItem":"aLJu6","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cGyxn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -39835,7 +39734,7 @@ exports.default = Object.assign(Placeholder, {
     Button: _placeholderButtonDefault.default
 });
 
-},{"react":"4mchR","./usePlaceholder":"e4PAh","./PlaceholderButton":"GdRy3","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"e4PAh":[function(require,module,exports) {
+},{"react":"4mchR","./usePlaceholder":"e4PAh","./PlaceholderButton":"GdRy3","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e4PAh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39852,7 +39751,7 @@ function usePlaceholder({ animation , bg , bsPrefix , size , ...props }) {
 }
 exports.default = usePlaceholder;
 
-},{"classnames":"2cVcN","./ThemeProvider":"oG7Uz","./Col":"kxhZp","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"GdRy3":[function(require,module,exports) {
+},{"classnames":"2cVcN","./ThemeProvider":"oG7Uz","./Col":"kxhZp","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"GdRy3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -39873,7 +39772,7 @@ const PlaceholderButton = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
 PlaceholderButton.displayName = 'PlaceholderButton';
 exports.default = PlaceholderButton;
 
-},{"react":"4mchR","./Button":"64Pgd","./usePlaceholder":"e4PAh","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fjWS2":[function(require,module,exports) {
+},{"react":"4mchR","./Button":"64Pgd","./usePlaceholder":"e4PAh","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fjWS2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -39969,7 +39868,7 @@ ProgressBar.displayName = 'ProgressBar';
 ProgressBar.defaultProps = defaultProps;
 exports.default = ProgressBar;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./ElementChildren":"eqDHF","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ap3iS":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./ElementChildren":"eqDHF","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ap3iS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40004,7 +39903,7 @@ const Ratio = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , children
 Ratio.defaultProps = defaultProps;
 exports.default = Ratio;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"fIUSy":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fIUSy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40025,7 +39924,7 @@ as: Component = 'div' , className , ...props }, ref)=>{
 Spinner.displayName = 'Spinner';
 exports.default = Spinner;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"cRJfo":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cRJfo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40127,13 +40026,13 @@ SplitButton.defaultProps = defaultProps;
 SplitButton.displayName = 'SplitButton';
 exports.default = SplitButton;
 
-},{"react":"4mchR","prop-types":"2bysO","./Button":"64Pgd","./ButtonGroup":"lNHIX","./Dropdown":"7gNYx","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"hFbgz":[function(require,module,exports) {
+},{"react":"4mchR","prop-types":"2bysO","./Button":"64Pgd","./ButtonGroup":"lNHIX","./Dropdown":"7gNYx","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hFbgz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _ssr = require("@restart/ui/ssr");
 exports.default = _ssr.SSRProvider;
 
-},{"@restart/ui/ssr":"kv7iw","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aP3XF":[function(require,module,exports) {
+},{"@restart/ui/ssr":"kv7iw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aP3XF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _propTypes = require("prop-types");
@@ -40171,7 +40070,7 @@ exports.default = Object.assign(Tab, {
     Pane: _tabPaneDefault.default
 });
 
-},{"prop-types":"2bysO","react":"4mchR","./TabContainer":"ciJeM","./TabContent":"kjnDo","./TabPane":"dgZMl","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ciJeM":[function(require,module,exports) {
+},{"prop-types":"2bysO","react":"4mchR","./TabContainer":"ciJeM","./TabContent":"kjnDo","./TabPane":"dgZMl","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ciJeM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40188,7 +40087,7 @@ const TabContainer = ({ transition , ...props })=>/*#__PURE__*/ _jsxRuntime.jsx(
 TabContainer.displayName = 'TabContainer';
 exports.default = TabContainer;
 
-},{"react":"4mchR","@restart/ui/Tabs":"aJNfG","./getTabTransitionComponent":"ir4Do","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aJNfG":[function(require,module,exports) {
+},{"react":"4mchR","@restart/ui/Tabs":"aJNfG","./getTabTransitionComponent":"ir4Do","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aJNfG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40240,7 +40139,7 @@ const Tabs = (props)=>{
 Tabs.Panel = _tabPanelDefault.default;
 exports.default = Tabs;
 
-},{"react":"4mchR","uncontrollable":"aG99Z","./ssr":"kv7iw","./TabContext":"gm1bN","./SelectableContext":"6DoIj","./TabPanel":"b38ff","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"b38ff":[function(require,module,exports) {
+},{"react":"4mchR","uncontrollable":"aG99Z","./ssr":"kv7iw","./TabContext":"gm1bN","./SelectableContext":"6DoIj","./TabPanel":"b38ff","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"b38ff":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useTabPanel", ()=>useTabPanel
@@ -40342,7 +40241,7 @@ const TabPanel = /*#__PURE__*/ _react.forwardRef((_ref2, ref)=>{
 TabPanel.displayName = 'TabPanel';
 exports.default = TabPanel;
 
-},{"react":"4mchR","./TabContext":"gm1bN","./SelectableContext":"6DoIj","./NoopTransition":"7iQSh","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7iQSh":[function(require,module,exports) {
+},{"react":"4mchR","./TabContext":"gm1bN","./SelectableContext":"6DoIj","./NoopTransition":"7iQSh","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7iQSh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40364,7 +40263,7 @@ function NoopTransition({ children , in: inProp , mountOnEnter , unmountOnExit  
 }
 exports.default = NoopTransition;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"ir4Do":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ir4Do":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _fade = require("./Fade");
@@ -40375,14 +40274,14 @@ function getTabTransitionComponent(transition) {
 }
 exports.default = getTabTransitionComponent;
 
-},{"./Fade":"cHHEJ","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"kjnDo":[function(require,module,exports) {
+},{"./Fade":"cHHEJ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kjnDo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('tab-content');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"dgZMl":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dgZMl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40433,7 +40332,7 @@ const TabPane = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , transition , ...pr
 TabPane.displayName = 'TabPane';
 exports.default = TabPane;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/NoopTransition":"7iQSh","@restart/ui/SelectableContext":"6DoIj","@restart/ui/TabContext":"gm1bN","@restart/ui/TabPanel":"b38ff","./ThemeProvider":"oG7Uz","./getTabTransitionComponent":"ir4Do","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"g38lh":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/NoopTransition":"7iQSh","@restart/ui/SelectableContext":"6DoIj","@restart/ui/TabContext":"gm1bN","@restart/ui/TabPanel":"b38ff","./ThemeProvider":"oG7Uz","./getTabTransitionComponent":"ir4Do","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g38lh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40461,7 +40360,7 @@ const Table = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , striped 
 });
 exports.default = Table;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"7zOeE":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7zOeE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40549,7 +40448,7 @@ Tabs.defaultProps = defaultProps;
 Tabs.displayName = 'Tabs';
 exports.default = Tabs;
 
-},{"react":"4mchR","uncontrollable":"aG99Z","@restart/ui/Tabs":"aJNfG","./Nav":"3TTuV","./NavLink":"aGfFg","./NavItem":"lgp9h","./TabContent":"kjnDo","./TabPane":"dgZMl","./ElementChildren":"eqDHF","./getTabTransitionComponent":"ir4Do","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"b3kl2":[function(require,module,exports) {
+},{"react":"4mchR","uncontrollable":"aG99Z","@restart/ui/Tabs":"aJNfG","./Nav":"3TTuV","./NavLink":"aGfFg","./NavItem":"lgp9h","./TabContent":"kjnDo","./TabPane":"dgZMl","./ElementChildren":"eqDHF","./getTabTransitionComponent":"ir4Do","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"b3kl2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40623,7 +40522,7 @@ exports.default = Object.assign(Toast, {
     Header: _toastHeaderDefault.default
 });
 
-},{"react":"4mchR","classnames":"2cVcN","@restart/hooks/useTimeout":"97tbq","./ToastFade":"hq4Gx","./ToastHeader":"e7EVr","./ToastBody":"1FEN9","./ThemeProvider":"oG7Uz","./ToastContext":"6iuw1","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"hq4Gx":[function(require,module,exports) {
+},{"react":"4mchR","classnames":"2cVcN","@restart/hooks/useTimeout":"97tbq","./ToastFade":"hq4Gx","./ToastHeader":"e7EVr","./ToastBody":"1FEN9","./ThemeProvider":"oG7Uz","./ToastContext":"6iuw1","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hq4Gx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40644,7 +40543,7 @@ const ToastFade = /*#__PURE__*/ _react.forwardRef((props, ref)=>/*#__PURE__*/ _j
 ToastFade.displayName = 'ToastFade';
 exports.default = ToastFade;
 
-},{"react":"4mchR","react-transition-group/Transition":"5xmpQ","./Fade":"cHHEJ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"e7EVr":[function(require,module,exports) {
+},{"react":"4mchR","react-transition-group/Transition":"5xmpQ","./Fade":"cHHEJ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e7EVr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40687,7 +40586,7 @@ ToastHeader.displayName = 'ToastHeader';
 ToastHeader.defaultProps = defaultProps;
 exports.default = ToastHeader;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./ThemeProvider":"oG7Uz","./CloseButton":"arc5K","./ToastContext":"6iuw1","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"6iuw1":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./ThemeProvider":"oG7Uz","./CloseButton":"arc5K","./ToastContext":"6iuw1","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6iuw1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40698,14 +40597,14 @@ const ToastContext = /*#__PURE__*/ _react.createContext({
 });
 exports.default = ToastContext;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"1FEN9":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1FEN9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
 var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
 exports.default = _createWithBsPrefixDefault.default('toast-body');
 
-},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"8m5Zr":[function(require,module,exports) {
+},{"./createWithBsPrefix":"8IH8I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8m5Zr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40736,7 +40635,7 @@ as: Component = 'div' , ...props }, ref)=>{
 ToastContainer.displayName = 'ToastContainer';
 exports.default = ToastContainer;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"g8FN5":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g8FN5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40778,7 +40677,7 @@ const ToggleButton = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , name , classN
 ToggleButton.displayName = 'ToggleButton';
 exports.default = ToggleButton;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./Button":"64Pgd","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"c1Mk9":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./Button":"64Pgd","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c1Mk9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -40841,7 +40740,7 @@ exports.default = Object.assign(ToggleButtonGroup, {
     Button: _toggleButtonDefault.default
 });
 
-},{"react":"4mchR","invariant":"Xxs2W","uncontrollable":"aG99Z","./createChainedFunction":"bhPCF","./ElementChildren":"eqDHF","./ButtonGroup":"lNHIX","./ToggleButton":"g8FN5","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"aUst3":[function(require,module,exports) {
+},{"react":"4mchR","invariant":"Xxs2W","uncontrollable":"aG99Z","./createChainedFunction":"bhPCF","./ElementChildren":"eqDHF","./ButtonGroup":"lNHIX","./ToggleButton":"g8FN5","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aUst3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -40881,7 +40780,7 @@ Tooltip.defaultProps = defaultProps;
 Tooltip.displayName = 'Tooltip';
 exports.default = Tooltip;
 
-},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./helpers":"4wQJ9","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC"}],"hKWHe":[function() {},{}],"47DIu":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","./ThemeProvider":"oG7Uz","./helpers":"4wQJ9","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hKWHe":[function() {},{}],"47DIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$da2a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41053,7 +40952,7 @@ DirectorView.prototype = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","prop-types":"2bysO","react-bootstrap":"9qMdX","./director-view.scss":"fYPph","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG"}],"fYPph":[function() {},{}],"aZt7f":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","prop-types":"2bysO","react-bootstrap":"9qMdX","./director-view.scss":"fYPph","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"fYPph":[function() {},{}],"aZt7f":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$80e7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41652,7 +41551,7 @@ class ProfileView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","prop-types":"2bysO","react-bootstrap":"9qMdX","./profile-view.scss":"z96SM","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG"}],"z96SM":[function() {},{}],"5Jwf5":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","prop-types":"2bysO","react-bootstrap":"9qMdX","./profile-view.scss":"z96SM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"z96SM":[function() {},{}],"5Jwf5":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0880 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41805,6 +41704,2288 @@ $RefreshReg$(_c, "NavBarView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","./navbar-view.scss":"2VsN7","@parcel/transformer-js/src/esmodule-helpers.js":"9OhsC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"czqXG"}],"2VsN7":[function() {},{}],"5dhe6":[function() {},{}]},["nEs01","l1AHa","dB8et"], "dB8et", "parcelRequireaec4")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","./navbar-view.scss":"2VsN7","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"2VsN7":[function() {},{}],"6dgbZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
+);
+parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
+);
+// action creators
+parcelHelpers.export(exports, "setMovies", ()=>setMovies
+);
+parcelHelpers.export(exports, "setFilter", ()=>setFilter
+);
+const SET_MOVIES = 'SET_MOVIES';
+const SET_FILTER = 'SET_FILTER';
+function setMovies(value) {
+    return {
+        type: SET_MOVIES,
+        value
+    };
+}
+function setFilter(value) {
+    return {
+        type: SET_FILTER,
+        value
+    };
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c7uwF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$30fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$30fb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _reactRedux = require("react-redux");
+var _visibilityFilterInput = require("../visibility-filter-input/visibility-filter-input");
+var _visibilityFilterInputDefault = parcelHelpers.interopDefault(_visibilityFilterInput);
+var _movieCard = require("../movie-card/movie-card");
+const mapStateToProps = (state)=>{
+    const { visibilityFilter  } = state;
+    return {
+        visibilityFilter
+    };
+};
+function MoviesList(props) {
+    const { movies , visibilityFilter  } = props;
+    let filteredMovies = movies;
+    if (visibilityFilter !== '') filteredMovies = movies.filter((m)=>m.Title.toLowerCase().includes(visibilityFilter.toLowerCase())
+    );
+    if (!movies) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+        className: "main-view",
+        __source: {
+            fileName: "src/components/movie-list/movie-list.jsx",
+            lineNumber: 22
+        },
+        __self: this
+    }));
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                className: "mt-5",
+                md: 3,
+                __source: {
+                    fileName: "src/components/movie-list/movie-list.jsx",
+                    lineNumber: 25
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_visibilityFilterInputDefault.default, {
+                    visibilityFilter: visibilityFilter,
+                    __source: {
+                        fileName: "src/components/movie-list/movie-list.jsx",
+                        lineNumber: 26
+                    },
+                    __self: this
+                })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                md: 12,
+                __source: {
+                    fileName: "src/components/movie-list/movie-list.jsx",
+                    lineNumber: 28
+                },
+                __self: this
+            }),
+            filteredMovies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                    md: 3,
+                    __source: {
+                        fileName: "src/components/movie-list/movie-list.jsx",
+                        lineNumber: 30
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                        movie: m,
+                        __source: {
+                            fileName: "src/components/movie-list/movie-list.jsx",
+                            lineNumber: 31
+                        },
+                        __self: this
+                    })
+                }, m._id)
+            )
+        ]
+    }));
+}
+_c = MoviesList;
+exports.default = _reactRedux.connect(mapStateToProps)(MoviesList);
+var _c;
+$RefreshReg$(_c, "MoviesList");
+
+  $parcel$ReactRefreshHelpers$30fb.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap/Col":"kxhZp","react-redux":"lT3ms","../movie-card/movie-card":"04zIX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../visibility-filter-input/visibility-filter-input":"dyllb"}],"lT3ms":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "batch", ()=>_reactBatchedUpdates.unstable_batchedUpdates
+);
+var _reactBatchedUpdates = require("./utils/reactBatchedUpdates");
+var _batch = require("./utils/batch"); // Enable batched updates in our subscriptions for use
+var _exports = require("./exports");
+parcelHelpers.exportAll(_exports, exports);
+// with standard React renderers (ReactDOM, React Native)
+_batch.setBatch(_reactBatchedUpdates.unstable_batchedUpdates);
+
+},{"./exports":"1gqcD","./utils/reactBatchedUpdates":"4YO5h","./utils/batch":"fA8pq","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1gqcD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Provider", ()=>_providerDefault.default
+);
+parcelHelpers.export(exports, "connectAdvanced", ()=>_connectAdvancedDefault.default
+);
+parcelHelpers.export(exports, "ReactReduxContext", ()=>_context.ReactReduxContext
+);
+parcelHelpers.export(exports, "connect", ()=>_connectDefault.default
+);
+parcelHelpers.export(exports, "useDispatch", ()=>_useDispatch.useDispatch
+);
+parcelHelpers.export(exports, "createDispatchHook", ()=>_useDispatch.createDispatchHook
+);
+parcelHelpers.export(exports, "useSelector", ()=>_useSelector.useSelector
+);
+parcelHelpers.export(exports, "createSelectorHook", ()=>_useSelector.createSelectorHook
+);
+parcelHelpers.export(exports, "useStore", ()=>_useStore.useStore
+);
+parcelHelpers.export(exports, "createStoreHook", ()=>_useStore.createStoreHook
+);
+parcelHelpers.export(exports, "shallowEqual", ()=>_shallowEqualDefault.default
+);
+var _provider = require("./components/Provider");
+var _providerDefault = parcelHelpers.interopDefault(_provider);
+var _connectAdvanced = require("./components/connectAdvanced");
+var _connectAdvancedDefault = parcelHelpers.interopDefault(_connectAdvanced);
+var _context = require("./components/Context");
+var _connect = require("./connect/connect");
+var _connectDefault = parcelHelpers.interopDefault(_connect);
+var _useDispatch = require("./hooks/useDispatch");
+var _useSelector = require("./hooks/useSelector");
+var _useStore = require("./hooks/useStore");
+var _shallowEqual = require("./utils/shallowEqual");
+var _shallowEqualDefault = parcelHelpers.interopDefault(_shallowEqual);
+
+},{"./components/Provider":"kqCXB","./components/connectAdvanced":"gCMBA","./components/Context":"aaKgS","./connect/connect":"bkdXc","./hooks/useDispatch":"c9JDK","./hooks/useSelector":"iL9Et","./hooks/useStore":"8fCzH","./utils/shallowEqual":"3yFU4","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kqCXB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _context = require("./Context");
+var _subscription = require("../utils/Subscription");
+var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
+function Provider(_ref) {
+    var store = _ref.store, context = _ref.context, children = _ref.children;
+    var contextValue = _react.useMemo(function() {
+        var subscription = _subscription.createSubscription(store);
+        subscription.onStateChange = subscription.notifyNestedSubs;
+        return {
+            store: store,
+            subscription: subscription
+        };
+    }, [
+        store
+    ]);
+    var previousState = _react.useMemo(function() {
+        return store.getState();
+    }, [
+        store
+    ]);
+    _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect(function() {
+        var subscription = contextValue.subscription;
+        subscription.trySubscribe();
+        if (previousState !== store.getState()) subscription.notifyNestedSubs();
+        return function() {
+            subscription.tryUnsubscribe();
+            subscription.onStateChange = null;
+        };
+    }, [
+        contextValue,
+        previousState
+    ]);
+    var Context = context || _context.ReactReduxContext;
+    return(/*#__PURE__*/ _reactDefault.default.createElement(Context.Provider, {
+        value: contextValue
+    }, children));
+}
+Provider.propTypes = {
+    store: _propTypesDefault.default.shape({
+        subscribe: _propTypesDefault.default.func.isRequired,
+        dispatch: _propTypesDefault.default.func.isRequired,
+        getState: _propTypesDefault.default.func.isRequired
+    }),
+    context: _propTypesDefault.default.object,
+    children: _propTypesDefault.default.any
+};
+exports.default = Provider;
+
+},{"react":"4mchR","prop-types":"2bysO","./Context":"aaKgS","../utils/Subscription":"3J8F7","../utils/useIsomorphicLayoutEffect":"8GKWv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aaKgS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ReactReduxContext", ()=>ReactReduxContext
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var ReactReduxContext = /*#__PURE__*/ _reactDefault.default.createContext(null);
+ReactReduxContext.displayName = 'ReactRedux';
+exports.default = ReactReduxContext;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3J8F7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createSubscription", ()=>createSubscription
+);
+var _batch = require("./batch"); // encapsulates the subscription logic for connecting a component to the redux store, as
+// well as nesting subscriptions of descendant components, so that we can ensure the
+// ancestor components re-render before descendants
+function createListenerCollection() {
+    var batch = _batch.getBatch();
+    var first = null;
+    var last = null;
+    return {
+        clear: function clear() {
+            first = null;
+            last = null;
+        },
+        notify: function notify() {
+            batch(function() {
+                var listener = first;
+                while(listener){
+                    listener.callback();
+                    listener = listener.next;
+                }
+            });
+        },
+        get: function get() {
+            var listeners = [];
+            var listener = first;
+            while(listener){
+                listeners.push(listener);
+                listener = listener.next;
+            }
+            return listeners;
+        },
+        subscribe: function subscribe(callback) {
+            var isSubscribed = true;
+            var listener = last = {
+                callback: callback,
+                next: null,
+                prev: last
+            };
+            if (listener.prev) listener.prev.next = listener;
+            else first = listener;
+            return function unsubscribe() {
+                if (!isSubscribed || first === null) return;
+                isSubscribed = false;
+                if (listener.next) listener.next.prev = listener.prev;
+                else last = listener.prev;
+                if (listener.prev) listener.prev.next = listener.next;
+                else first = listener.next;
+            };
+        }
+    };
+}
+var nullListeners = {
+    notify: function notify() {
+    },
+    get: function get() {
+        return [];
+    }
+};
+function createSubscription(store, parentSub) {
+    var unsubscribe;
+    var listeners = nullListeners;
+    function addNestedSub(listener) {
+        trySubscribe();
+        return listeners.subscribe(listener);
+    }
+    function notifyNestedSubs() {
+        listeners.notify();
+    }
+    function handleChangeWrapper() {
+        if (subscription.onStateChange) subscription.onStateChange();
+    }
+    function isSubscribed() {
+        return Boolean(unsubscribe);
+    }
+    function trySubscribe() {
+        if (!unsubscribe) {
+            unsubscribe = parentSub ? parentSub.addNestedSub(handleChangeWrapper) : store.subscribe(handleChangeWrapper);
+            listeners = createListenerCollection();
+        }
+    }
+    function tryUnsubscribe() {
+        if (unsubscribe) {
+            unsubscribe();
+            unsubscribe = undefined;
+            listeners.clear();
+            listeners = nullListeners;
+        }
+    }
+    var subscription = {
+        addNestedSub: addNestedSub,
+        notifyNestedSubs: notifyNestedSubs,
+        handleChangeWrapper: handleChangeWrapper,
+        isSubscribed: isSubscribed,
+        trySubscribe: trySubscribe,
+        tryUnsubscribe: tryUnsubscribe,
+        getListeners: function getListeners() {
+            return listeners;
+        }
+    };
+    return subscription;
+}
+
+},{"./batch":"fA8pq","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fA8pq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "setBatch", ()=>setBatch
+);
+parcelHelpers.export(exports, "getBatch", ()=>getBatch
+);
+// Default to a dummy "batch" implementation that just runs the callback
+function defaultNoopBatch(callback) {
+    callback();
+}
+var batch = defaultNoopBatch; // Allow injecting another batching function later
+var setBatch = function setBatch(newBatch) {
+    return batch = newBatch;
+}; // Supply a getter just to skip dealing with ESM bindings
+var getBatch = function getBatch() {
+    return batch;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8GKWv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useIsomorphicLayoutEffect", ()=>useIsomorphicLayoutEffect
+);
+var _react = require("react"); // React currently throws a warning when using useLayoutEffect on the server.
+var useIsomorphicLayoutEffect = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? _react.useLayoutEffect : _react.useEffect;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gCMBA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _hoistNonReactStatics = require("hoist-non-react-statics");
+var _hoistNonReactStaticsDefault = parcelHelpers.interopDefault(_hoistNonReactStatics);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactIs = require("react-is");
+var _subscription = require("../utils/Subscription");
+var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
+var _context = require("./Context"); // Define some constant arrays just to avoid re-creating these
+var _excluded = [
+    "getDisplayName",
+    "methodName",
+    "renderCountProp",
+    "shouldHandleStateChanges",
+    "storeKey",
+    "withRef",
+    "forwardRef",
+    "context"
+], _excluded2 = [
+    "reactReduxForwardedRef"
+];
+var EMPTY_ARRAY = [];
+var NO_SUBSCRIPTION_ARRAY = [
+    null,
+    null
+];
+var stringifyComponent = function stringifyComponent(Comp) {
+    try {
+        return JSON.stringify(Comp);
+    } catch (err) {
+        return String(Comp);
+    }
+};
+function storeStateUpdatesReducer(state, action) {
+    var updateCount = state[1];
+    return [
+        action.payload,
+        updateCount + 1
+    ];
+}
+function useIsomorphicLayoutEffectWithArgs(effectFunc, effectArgs, dependencies) {
+    _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect(function() {
+        return effectFunc.apply(void 0, effectArgs);
+    }, dependencies);
+}
+function captureWrapperProps(lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, actualChildProps, childPropsFromStoreUpdate, notifyNestedSubs) {
+    // We want to capture the wrapper props and child props we used for later comparisons
+    lastWrapperProps.current = wrapperProps;
+    lastChildProps.current = actualChildProps;
+    renderIsScheduled.current = false; // If the render was from a store update, clear out that reference and cascade the subscriber update
+    if (childPropsFromStoreUpdate.current) {
+        childPropsFromStoreUpdate.current = null;
+        notifyNestedSubs();
+    }
+}
+function subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, childPropsFromStoreUpdate, notifyNestedSubs, forceComponentUpdateDispatch) {
+    // If we're not subscribed to the store, nothing to do here
+    if (!shouldHandleStateChanges) return; // Capture values for checking if and when this component unmounts
+    var didUnsubscribe = false;
+    var lastThrownError = null; // We'll run this callback every time a store subscription update propagates to this component
+    var checkForUpdates = function checkForUpdates() {
+        if (didUnsubscribe) // Don't run stale listeners.
+        // Redux doesn't guarantee unsubscriptions happen until next dispatch.
+        return;
+        var latestStoreState = store.getState();
+        var newChildProps, error;
+        try {
+            // Actually run the selector with the most recent store state and wrapper props
+            // to determine what the child props should be
+            newChildProps = childPropsSelector(latestStoreState, lastWrapperProps.current);
+        } catch (e) {
+            error = e;
+            lastThrownError = e;
+        }
+        if (!error) lastThrownError = null;
+         // If the child props haven't changed, nothing to do here - cascade the subscription update
+        if (newChildProps === lastChildProps.current) {
+            if (!renderIsScheduled.current) notifyNestedSubs();
+        } else {
+            // Save references to the new child props.  Note that we track the "child props from store update"
+            // as a ref instead of a useState/useReducer because we need a way to determine if that value has
+            // been processed.  If this went into useState/useReducer, we couldn't clear out the value without
+            // forcing another re-render, which we don't want.
+            lastChildProps.current = newChildProps;
+            childPropsFromStoreUpdate.current = newChildProps;
+            renderIsScheduled.current = true; // If the child props _did_ change (or we caught an error), this wrapper component needs to re-render
+            forceComponentUpdateDispatch({
+                type: 'STORE_UPDATED',
+                payload: {
+                    error: error
+                }
+            });
+        }
+    }; // Actually subscribe to the nearest connected ancestor (or store)
+    subscription.onStateChange = checkForUpdates;
+    subscription.trySubscribe(); // Pull data from the store after first render in case the store has
+    // changed since we began.
+    checkForUpdates();
+    var unsubscribeWrapper = function unsubscribeWrapper() {
+        didUnsubscribe = true;
+        subscription.tryUnsubscribe();
+        subscription.onStateChange = null;
+        if (lastThrownError) // It's possible that we caught an error due to a bad mapState function, but the
+        // parent re-rendered without this component and we're about to unmount.
+        // This shouldn't happen as long as we do top-down subscriptions correctly, but
+        // if we ever do those wrong, this throw will surface the error in our tests.
+        // In that case, throw the error from here so it doesn't get lost.
+        throw lastThrownError;
+    };
+    return unsubscribeWrapper;
+}
+var initStateUpdates = function initStateUpdates() {
+    return [
+        null,
+        0
+    ];
+};
+function connectAdvanced(/*
+  selectorFactory is a func that is responsible for returning the selector function used to
+  compute new props from state, props, and dispatch. For example:
+     export default connectAdvanced((dispatch, options) => (state, props) => ({
+      thing: state.things[props.thingId],
+      saveThing: fields => dispatch(actionCreators.saveThing(props.thingId, fields)),
+    }))(YourComponent)
+   Access to dispatch is provided to the factory so selectorFactories can bind actionCreators
+  outside of their selector as an optimization. Options passed to connectAdvanced are passed to
+  the selectorFactory, along with displayName and WrappedComponent, as the second argument.
+   Note that selectorFactory is responsible for all caching/memoization of inbound and outbound
+  props. Do not use connectAdvanced directly without memoizing results between calls to your
+  selector, otherwise the Connect component will re-render on every state or props change.
+*/ selectorFactory, _ref) {
+    if (_ref === void 0) _ref = {
+    };
+    var _ref2 = _ref, _ref2$getDisplayName = _ref2.getDisplayName, getDisplayName = _ref2$getDisplayName === void 0 ? function(name) {
+        return "ConnectAdvanced(" + name + ")";
+    } : _ref2$getDisplayName, _ref2$methodName = _ref2.methodName, methodName = _ref2$methodName === void 0 ? 'connectAdvanced' : _ref2$methodName, _ref2$renderCountProp = _ref2.renderCountProp, renderCountProp = _ref2$renderCountProp === void 0 ? undefined : _ref2$renderCountProp, _ref2$shouldHandleSta = _ref2.shouldHandleStateChanges, shouldHandleStateChanges = _ref2$shouldHandleSta === void 0 ? true : _ref2$shouldHandleSta, _ref2$storeKey = _ref2.storeKey, storeKey = _ref2$storeKey === void 0 ? 'store' : _ref2$storeKey, _ref2$withRef = _ref2.withRef, withRef = _ref2$withRef === void 0 ? false : _ref2$withRef, _ref2$forwardRef = _ref2.forwardRef, forwardRef = _ref2$forwardRef === void 0 ? false : _ref2$forwardRef, _ref2$context = _ref2.context, context = _ref2$context === void 0 ? _context.ReactReduxContext : _ref2$context, connectOptions = _objectWithoutPropertiesLooseDefault.default(_ref2, _excluded);
+    if (renderCountProp !== undefined) throw new Error("renderCountProp is removed. render counting is built into the latest React Dev Tools profiling extension");
+    if (withRef) throw new Error('withRef is removed. To access the wrapped instance, use a ref on the connected component');
+    var customStoreWarningMessage = "To use a custom Redux store for specific components, create a custom React context with React.createContext(), and pass the context object to React Redux's Provider and specific components like: <Provider context={MyContext}><ConnectedComponent context={MyContext} /></Provider>. You may also pass a {context : MyContext} option to connect";
+    if (storeKey !== 'store') throw new Error('storeKey has been removed and does not do anything. ' + customStoreWarningMessage);
+    var Context = context;
+    return function wrapWithConnect(WrappedComponent) {
+        if (!_reactIs.isValidElementType(WrappedComponent)) throw new Error("You must pass a component to the function returned by " + (methodName + ". Instead received " + stringifyComponent(WrappedComponent)));
+        var wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
+        var displayName = getDisplayName(wrappedComponentName);
+        var selectorFactoryOptions = _extendsDefault.default({
+        }, connectOptions, {
+            getDisplayName: getDisplayName,
+            methodName: methodName,
+            renderCountProp: renderCountProp,
+            shouldHandleStateChanges: shouldHandleStateChanges,
+            storeKey: storeKey,
+            displayName: displayName,
+            wrappedComponentName: wrappedComponentName,
+            WrappedComponent: WrappedComponent
+        });
+        var pure = connectOptions.pure;
+        function createChildSelector(store) {
+            return selectorFactory(store.dispatch, selectorFactoryOptions);
+        } // If we aren't running in "pure" mode, we don't want to memoize values.
+        // To avoid conditionally calling hooks, we fall back to a tiny wrapper
+        // that just executes the given callback immediately.
+        var usePureOnlyMemo = pure ? _react.useMemo : function(callback) {
+            return callback();
+        };
+        function ConnectFunction(props) {
+            var _useMemo = _react.useMemo(function() {
+                // Distinguish between actual "data" props that were passed to the wrapper component,
+                // and values needed to control behavior (forwarded refs, alternate context instances).
+                // To maintain the wrapperProps object reference, memoize this destructuring.
+                var reactReduxForwardedRef = props.reactReduxForwardedRef, wrapperProps = _objectWithoutPropertiesLooseDefault.default(props, _excluded2);
+                return [
+                    props.context,
+                    reactReduxForwardedRef,
+                    wrapperProps
+                ];
+            }, [
+                props
+            ]), propsContext = _useMemo[0], reactReduxForwardedRef = _useMemo[1], wrapperProps = _useMemo[2];
+            var ContextToUse = _react.useMemo(function() {
+                // Users may optionally pass in a custom context instance to use instead of our ReactReduxContext.
+                // Memoize the check that determines which context instance we should use.
+                return propsContext && propsContext.Consumer && _reactIs.isContextConsumer(/*#__PURE__*/ _reactDefault.default.createElement(propsContext.Consumer, null)) ? propsContext : Context;
+            }, [
+                propsContext,
+                Context
+            ]); // Retrieve the store and ancestor subscription via context, if available
+            var contextValue = _react.useContext(ContextToUse); // The store _must_ exist as either a prop or in context.
+            // We'll check to see if it _looks_ like a Redux store first.
+            // This allows us to pass through a `store` prop that is just a plain value.
+            var didStoreComeFromProps = Boolean(props.store) && Boolean(props.store.getState) && Boolean(props.store.dispatch);
+            var didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store);
+            if (!didStoreComeFromProps && !didStoreComeFromContext) throw new Error("Could not find \"store\" in the context of " + ("\"" + displayName + "\". Either wrap the root component in a <Provider>, ") + "or pass a custom React context provider to <Provider> and the corresponding " + ("React context consumer to " + displayName + " in connect options."));
+             // Based on the previous check, one of these must be true
+            var store = didStoreComeFromProps ? props.store : contextValue.store;
+            var childPropsSelector = _react.useMemo(function() {
+                // The child props selector needs the store reference as an input.
+                // Re-create this selector whenever the store changes.
+                return createChildSelector(store);
+            }, [
+                store
+            ]);
+            var _useMemo2 = _react.useMemo(function() {
+                if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY; // This Subscription's source should match where store came from: props vs. context. A component
+                // connected to the store via props shouldn't use subscription from context, or vice versa.
+                // This Subscription's source should match where store came from: props vs. context. A component
+                // connected to the store via props shouldn't use subscription from context, or vice versa.
+                var subscription = _subscription.createSubscription(store, didStoreComeFromProps ? null : contextValue.subscription); // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
+                // the middle of the notification loop, where `subscription` will then be null. This can
+                // probably be avoided if Subscription's listeners logic is changed to not call listeners
+                // that have been unsubscribed in the  middle of the notification loop.
+                // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
+                // the middle of the notification loop, where `subscription` will then be null. This can
+                // probably be avoided if Subscription's listeners logic is changed to not call listeners
+                // that have been unsubscribed in the  middle of the notification loop.
+                var notifyNestedSubs = subscription.notifyNestedSubs.bind(subscription);
+                return [
+                    subscription,
+                    notifyNestedSubs
+                ];
+            }, [
+                store,
+                didStoreComeFromProps,
+                contextValue
+            ]), subscription = _useMemo2[0], notifyNestedSubs = _useMemo2[1]; // Determine what {store, subscription} value should be put into nested context, if necessary,
+            // and memoize that value to avoid unnecessary context updates.
+            var overriddenContextValue = _react.useMemo(function() {
+                if (didStoreComeFromProps) // This component is directly subscribed to a store from props.
+                // We don't want descendants reading from this store - pass down whatever
+                // the existing context value is from the nearest connected ancestor.
+                return contextValue;
+                 // Otherwise, put this component's subscription instance into context, so that
+                // connected descendants won't update until after this component is done
+                return _extendsDefault.default({
+                }, contextValue, {
+                    subscription: subscription
+                });
+            }, [
+                didStoreComeFromProps,
+                contextValue,
+                subscription
+            ]); // We need to force this wrapper component to re-render whenever a Redux store update
+            // causes a change to the calculated child component props (or we caught an error in mapState)
+            var _useReducer = _react.useReducer(storeStateUpdatesReducer, EMPTY_ARRAY, initStateUpdates), _useReducer$ = _useReducer[0], previousStateUpdateResult = _useReducer$[0], forceComponentUpdateDispatch = _useReducer[1]; // Propagate any mapState/mapDispatch errors upwards
+            if (previousStateUpdateResult && previousStateUpdateResult.error) throw previousStateUpdateResult.error;
+             // Set up refs to coordinate values between the subscription effect and the render logic
+            var lastChildProps = _react.useRef();
+            var lastWrapperProps = _react.useRef(wrapperProps);
+            var childPropsFromStoreUpdate = _react.useRef();
+            var renderIsScheduled = _react.useRef(false);
+            var actualChildProps = usePureOnlyMemo(function() {
+                // Tricky logic here:
+                // - This render may have been triggered by a Redux store update that produced new child props
+                // - However, we may have gotten new wrapper props after that
+                // If we have new child props, and the same wrapper props, we know we should use the new child props as-is.
+                // But, if we have new wrapper props, those might change the child props, so we have to recalculate things.
+                // So, we'll use the child props from store update only if the wrapper props are the same as last time.
+                if (childPropsFromStoreUpdate.current && wrapperProps === lastWrapperProps.current) return childPropsFromStoreUpdate.current;
+                 // TODO We're reading the store directly in render() here. Bad idea?
+                // This will likely cause Bad Things (TM) to happen in Concurrent Mode.
+                // Note that we do this because on renders _not_ caused by store updates, we need the latest store state
+                // to determine what the child props should be.
+                return childPropsSelector(store.getState(), wrapperProps);
+            }, [
+                store,
+                previousStateUpdateResult,
+                wrapperProps
+            ]); // We need this to execute synchronously every time we re-render. However, React warns
+            // about useLayoutEffect in SSR, so we try to detect environment and fall back to
+            // just useEffect instead to avoid the warning, since neither will run anyway.
+            useIsomorphicLayoutEffectWithArgs(captureWrapperProps, [
+                lastWrapperProps,
+                lastChildProps,
+                renderIsScheduled,
+                wrapperProps,
+                actualChildProps,
+                childPropsFromStoreUpdate,
+                notifyNestedSubs
+            ]); // Our re-subscribe logic only runs when the store/subscription setup changes
+            useIsomorphicLayoutEffectWithArgs(subscribeUpdates, [
+                shouldHandleStateChanges,
+                store,
+                subscription,
+                childPropsSelector,
+                lastWrapperProps,
+                lastChildProps,
+                renderIsScheduled,
+                childPropsFromStoreUpdate,
+                notifyNestedSubs,
+                forceComponentUpdateDispatch
+            ], [
+                store,
+                subscription,
+                childPropsSelector
+            ]); // Now that all that's done, we can finally try to actually render the child component.
+            // We memoize the elements for the rendered child component as an optimization.
+            var renderedWrappedComponent = _react.useMemo(function() {
+                return(/*#__PURE__*/ _reactDefault.default.createElement(WrappedComponent, _extendsDefault.default({
+                }, actualChildProps, {
+                    ref: reactReduxForwardedRef
+                })));
+            }, [
+                reactReduxForwardedRef,
+                WrappedComponent,
+                actualChildProps
+            ]); // If React sees the exact same element reference as last time, it bails out of re-rendering
+            // that child, same as if it was wrapped in React.memo() or returned false from shouldComponentUpdate.
+            var renderedChild = _react.useMemo(function() {
+                if (shouldHandleStateChanges) // If this component is subscribed to store updates, we need to pass its own
+                // subscription instance down to our descendants. That means rendering the same
+                // Context instance, and putting a different value into the context.
+                return(/*#__PURE__*/ _reactDefault.default.createElement(ContextToUse.Provider, {
+                    value: overriddenContextValue
+                }, renderedWrappedComponent));
+                return renderedWrappedComponent;
+            }, [
+                ContextToUse,
+                renderedWrappedComponent,
+                overriddenContextValue
+            ]);
+            return renderedChild;
+        } // If we're in "pure" mode, ensure our wrapper component only re-renders when incoming props have changed.
+        var Connect = pure ? _reactDefault.default.memo(ConnectFunction) : ConnectFunction;
+        Connect.WrappedComponent = WrappedComponent;
+        Connect.displayName = ConnectFunction.displayName = displayName;
+        if (forwardRef) {
+            var forwarded = _reactDefault.default.forwardRef(function forwardConnectRef(props, ref) {
+                return(/*#__PURE__*/ _reactDefault.default.createElement(Connect, _extendsDefault.default({
+                }, props, {
+                    reactReduxForwardedRef: ref
+                })));
+            });
+            forwarded.displayName = displayName;
+            forwarded.WrappedComponent = WrappedComponent;
+            return _hoistNonReactStaticsDefault.default(forwarded, WrappedComponent);
+        }
+        return _hoistNonReactStaticsDefault.default(Connect, WrappedComponent);
+    };
+}
+exports.default = connectAdvanced;
+
+},{"@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","hoist-non-react-statics":"6NILB","react":"4mchR","react-is":"f4rDi","../utils/Subscription":"3J8F7","../utils/useIsomorphicLayoutEffect":"8GKWv","./Context":"aaKgS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"f4rDi":[function(require,module,exports) {
+'use strict';
+module.exports = require('./cjs/react-is.development.js');
+
+},{"./cjs/react-is.development.js":"8LLho"}],"8LLho":[function(require,module,exports) {
+/** @license React v17.0.2
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ 'use strict';
+(function() {
+    // ATTENTION
+    // When adding new symbols to this file,
+    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+    // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+    // nor polyfill, then a plain number is used for performance.
+    var REACT_ELEMENT_TYPE = 60103;
+    var REACT_PORTAL_TYPE = 60106;
+    var REACT_FRAGMENT_TYPE = 60107;
+    var REACT_STRICT_MODE_TYPE = 60108;
+    var REACT_PROFILER_TYPE = 60114;
+    var REACT_PROVIDER_TYPE = 60109;
+    var REACT_CONTEXT_TYPE = 60110;
+    var REACT_FORWARD_REF_TYPE = 60112;
+    var REACT_SUSPENSE_TYPE = 60113;
+    var REACT_SUSPENSE_LIST_TYPE = 60120;
+    var REACT_MEMO_TYPE = 60115;
+    var REACT_LAZY_TYPE = 60116;
+    var REACT_BLOCK_TYPE = 60121;
+    var REACT_SERVER_BLOCK_TYPE = 60122;
+    var REACT_FUNDAMENTAL_TYPE = 60117;
+    var REACT_SCOPE_TYPE = 60119;
+    var REACT_OPAQUE_ID_TYPE = 60128;
+    var REACT_DEBUG_TRACING_MODE_TYPE = 60129;
+    var REACT_OFFSCREEN_TYPE = 60130;
+    var REACT_LEGACY_HIDDEN_TYPE = 60131;
+    if (typeof Symbol === 'function' && Symbol.for) {
+        var symbolFor = Symbol.for;
+        REACT_ELEMENT_TYPE = symbolFor('react.element');
+        REACT_PORTAL_TYPE = symbolFor('react.portal');
+        REACT_FRAGMENT_TYPE = symbolFor('react.fragment');
+        REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+        REACT_PROFILER_TYPE = symbolFor('react.profiler');
+        REACT_PROVIDER_TYPE = symbolFor('react.provider');
+        REACT_CONTEXT_TYPE = symbolFor('react.context');
+        REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+        REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
+        REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+        REACT_MEMO_TYPE = symbolFor('react.memo');
+        REACT_LAZY_TYPE = symbolFor('react.lazy');
+        REACT_BLOCK_TYPE = symbolFor('react.block');
+        REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+        REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+        REACT_SCOPE_TYPE = symbolFor('react.scope');
+        REACT_OPAQUE_ID_TYPE = symbolFor('react.opaque.id');
+        REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+        REACT_OFFSCREEN_TYPE = symbolFor('react.offscreen');
+        REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+    }
+    // Filter certain DOM attributes (e.g. src, href) if their values are empty strings.
+    var enableScopeAPI = false; // Experimental Create Event Handle API.
+    function isValidElementType(type) {
+        if (typeof type === 'string' || typeof type === 'function') return true;
+         // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+        if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI) return true;
+        if (typeof type === 'object' && type !== null) {
+            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) return true;
+        }
+        return false;
+    }
+    function typeOf(object) {
+        if (typeof object === 'object' && object !== null) {
+            var $$typeof = object.$$typeof;
+            switch($$typeof){
+                case REACT_ELEMENT_TYPE:
+                    var type = object.type;
+                    switch(type){
+                        case REACT_FRAGMENT_TYPE:
+                        case REACT_PROFILER_TYPE:
+                        case REACT_STRICT_MODE_TYPE:
+                        case REACT_SUSPENSE_TYPE:
+                        case REACT_SUSPENSE_LIST_TYPE:
+                            return type;
+                        default:
+                            var $$typeofType = type && type.$$typeof;
+                            switch($$typeofType){
+                                case REACT_CONTEXT_TYPE:
+                                case REACT_FORWARD_REF_TYPE:
+                                case REACT_LAZY_TYPE:
+                                case REACT_MEMO_TYPE:
+                                case REACT_PROVIDER_TYPE:
+                                    return $$typeofType;
+                                default:
+                                    return $$typeof;
+                            }
+                    }
+                case REACT_PORTAL_TYPE:
+                    return $$typeof;
+            }
+        }
+        return undefined;
+    }
+    var ContextConsumer = REACT_CONTEXT_TYPE;
+    var ContextProvider = REACT_PROVIDER_TYPE;
+    var Element = REACT_ELEMENT_TYPE;
+    var ForwardRef = REACT_FORWARD_REF_TYPE;
+    var Fragment = REACT_FRAGMENT_TYPE;
+    var Lazy = REACT_LAZY_TYPE;
+    var Memo = REACT_MEMO_TYPE;
+    var Portal = REACT_PORTAL_TYPE;
+    var Profiler = REACT_PROFILER_TYPE;
+    var StrictMode = REACT_STRICT_MODE_TYPE;
+    var Suspense = REACT_SUSPENSE_TYPE;
+    var hasWarnedAboutDeprecatedIsAsyncMode = false;
+    var hasWarnedAboutDeprecatedIsConcurrentMode = false; // AsyncMode should be deprecated
+    function isAsyncMode(object) {
+        if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+            hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+            console['warn']("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 18+.");
+        }
+        return false;
+    }
+    function isConcurrentMode(object) {
+        if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
+            hasWarnedAboutDeprecatedIsConcurrentMode = true; // Using console['warn'] to evade Babel and ESLint
+            console['warn']("The ReactIs.isConcurrentMode() alias has been deprecated, and will be removed in React 18+.");
+        }
+        return false;
+    }
+    function isContextConsumer(object) {
+        return typeOf(object) === REACT_CONTEXT_TYPE;
+    }
+    function isContextProvider(object) {
+        return typeOf(object) === REACT_PROVIDER_TYPE;
+    }
+    function isElement(object) {
+        return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    function isForwardRef(object) {
+        return typeOf(object) === REACT_FORWARD_REF_TYPE;
+    }
+    function isFragment(object) {
+        return typeOf(object) === REACT_FRAGMENT_TYPE;
+    }
+    function isLazy(object) {
+        return typeOf(object) === REACT_LAZY_TYPE;
+    }
+    function isMemo(object) {
+        return typeOf(object) === REACT_MEMO_TYPE;
+    }
+    function isPortal(object) {
+        return typeOf(object) === REACT_PORTAL_TYPE;
+    }
+    function isProfiler(object) {
+        return typeOf(object) === REACT_PROFILER_TYPE;
+    }
+    function isStrictMode(object) {
+        return typeOf(object) === REACT_STRICT_MODE_TYPE;
+    }
+    function isSuspense(object) {
+        return typeOf(object) === REACT_SUSPENSE_TYPE;
+    }
+    exports.ContextConsumer = ContextConsumer;
+    exports.ContextProvider = ContextProvider;
+    exports.Element = Element;
+    exports.ForwardRef = ForwardRef;
+    exports.Fragment = Fragment;
+    exports.Lazy = Lazy;
+    exports.Memo = Memo;
+    exports.Portal = Portal;
+    exports.Profiler = Profiler;
+    exports.StrictMode = StrictMode;
+    exports.Suspense = Suspense;
+    exports.isAsyncMode = isAsyncMode;
+    exports.isConcurrentMode = isConcurrentMode;
+    exports.isContextConsumer = isContextConsumer;
+    exports.isContextProvider = isContextProvider;
+    exports.isElement = isElement;
+    exports.isForwardRef = isForwardRef;
+    exports.isFragment = isFragment;
+    exports.isLazy = isLazy;
+    exports.isMemo = isMemo;
+    exports.isPortal = isPortal;
+    exports.isProfiler = isProfiler;
+    exports.isStrictMode = isStrictMode;
+    exports.isSuspense = isSuspense;
+    exports.isValidElementType = isValidElementType;
+    exports.typeOf = typeOf;
+})();
+
+},{}],"bkdXc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// different options opens up some testing and extensibility scenarios
+parcelHelpers.export(exports, "createConnect", ()=>createConnect
+);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _connectAdvanced = require("../components/connectAdvanced");
+var _connectAdvancedDefault = parcelHelpers.interopDefault(_connectAdvanced);
+var _shallowEqual = require("../utils/shallowEqual");
+var _shallowEqualDefault = parcelHelpers.interopDefault(_shallowEqual);
+var _mapDispatchToProps = require("./mapDispatchToProps");
+var _mapDispatchToPropsDefault = parcelHelpers.interopDefault(_mapDispatchToProps);
+var _mapStateToProps = require("./mapStateToProps");
+var _mapStateToPropsDefault = parcelHelpers.interopDefault(_mapStateToProps);
+var _mergeProps = require("./mergeProps");
+var _mergePropsDefault = parcelHelpers.interopDefault(_mergeProps);
+var _selectorFactory = require("./selectorFactory");
+var _selectorFactoryDefault = parcelHelpers.interopDefault(_selectorFactory);
+var _excluded = [
+    "pure",
+    "areStatesEqual",
+    "areOwnPropsEqual",
+    "areStatePropsEqual",
+    "areMergedPropsEqual"
+];
+/*
+  connect is a facade over connectAdvanced. It turns its args into a compatible
+  selectorFactory, which has the signature:
+
+    (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
+  
+  connect passes its args to connectAdvanced as options, which will in turn pass them to
+  selectorFactory each time a Connect component instance is instantiated or hot reloaded.
+
+  selectorFactory returns a final props selector from its mapStateToProps,
+  mapStateToPropsFactories, mapDispatchToProps, mapDispatchToPropsFactories, mergeProps,
+  mergePropsFactories, and pure args.
+
+  The resulting final props selector is called by the Connect component instance whenever
+  it receives new props or store state.
+ */ function match(arg, factories, name) {
+    for(var i = factories.length - 1; i >= 0; i--){
+        var result = factories[i](arg);
+        if (result) return result;
+    }
+    return function(dispatch, options) {
+        throw new Error("Invalid value of type " + typeof arg + " for " + name + " argument when connecting component " + options.wrappedComponentName + ".");
+    };
+}
+function strictEqual(a, b) {
+    return a === b;
+} // createConnect with default args builds the 'official' connect behavior. Calling it with
+function createConnect(_temp) {
+    var _ref = _temp === void 0 ? {
+    } : _temp, _ref$connectHOC = _ref.connectHOC, connectHOC = _ref$connectHOC === void 0 ? _connectAdvancedDefault.default : _ref$connectHOC, _ref$mapStateToPropsF = _ref.mapStateToPropsFactories, mapStateToPropsFactories = _ref$mapStateToPropsF === void 0 ? _mapStateToPropsDefault.default : _ref$mapStateToPropsF, _ref$mapDispatchToPro = _ref.mapDispatchToPropsFactories, mapDispatchToPropsFactories = _ref$mapDispatchToPro === void 0 ? _mapDispatchToPropsDefault.default : _ref$mapDispatchToPro, _ref$mergePropsFactor = _ref.mergePropsFactories, mergePropsFactories = _ref$mergePropsFactor === void 0 ? _mergePropsDefault.default : _ref$mergePropsFactor, _ref$selectorFactory = _ref.selectorFactory, selectorFactory = _ref$selectorFactory === void 0 ? _selectorFactoryDefault.default : _ref$selectorFactory;
+    return function connect(mapStateToProps, mapDispatchToProps, mergeProps, _ref2) {
+        if (_ref2 === void 0) _ref2 = {
+        };
+        var _ref3 = _ref2, _ref3$pure = _ref3.pure, pure = _ref3$pure === void 0 ? true : _ref3$pure, _ref3$areStatesEqual = _ref3.areStatesEqual, areStatesEqual = _ref3$areStatesEqual === void 0 ? strictEqual : _ref3$areStatesEqual, _ref3$areOwnPropsEqua = _ref3.areOwnPropsEqual, areOwnPropsEqual = _ref3$areOwnPropsEqua === void 0 ? _shallowEqualDefault.default : _ref3$areOwnPropsEqua, _ref3$areStatePropsEq = _ref3.areStatePropsEqual, areStatePropsEqual = _ref3$areStatePropsEq === void 0 ? _shallowEqualDefault.default : _ref3$areStatePropsEq, _ref3$areMergedPropsE = _ref3.areMergedPropsEqual, areMergedPropsEqual = _ref3$areMergedPropsE === void 0 ? _shallowEqualDefault.default : _ref3$areMergedPropsE, extraOptions = _objectWithoutPropertiesLooseDefault.default(_ref3, _excluded);
+        var initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps');
+        var initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps');
+        var initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps');
+        return connectHOC(selectorFactory, _extendsDefault.default({
+            // used in error messages
+            methodName: 'connect',
+            // used to compute Connect's displayName from the wrapped component's displayName.
+            getDisplayName: function getDisplayName(name) {
+                return "Connect(" + name + ")";
+            },
+            // if mapStateToProps is falsy, the Connect component doesn't subscribe to store state changes
+            shouldHandleStateChanges: Boolean(mapStateToProps),
+            // passed through to selectorFactory
+            initMapStateToProps: initMapStateToProps,
+            initMapDispatchToProps: initMapDispatchToProps,
+            initMergeProps: initMergeProps,
+            pure: pure,
+            areStatesEqual: areStatesEqual,
+            areOwnPropsEqual: areOwnPropsEqual,
+            areStatePropsEqual: areStatePropsEqual,
+            areMergedPropsEqual: areMergedPropsEqual
+        }, extraOptions));
+    };
+}
+exports.default = /*#__PURE__*/ createConnect();
+
+},{"@babel/runtime/helpers/esm/extends":"5inYT","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","../components/connectAdvanced":"gCMBA","../utils/shallowEqual":"3yFU4","./mapDispatchToProps":"3jptH","./mapStateToProps":"5Joy4","./mergeProps":"7JK5z","./selectorFactory":"6ourf","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3yFU4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function is(x, y) {
+    if (x === y) return x !== 0 || y !== 0 || 1 / x === 1 / y;
+    else return x !== x && y !== y;
+}
+function shallowEqual(objA, objB) {
+    if (is(objA, objB)) return true;
+    if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) return false;
+    var keysA = Object.keys(objA);
+    var keysB = Object.keys(objB);
+    if (keysA.length !== keysB.length) return false;
+    for(var i = 0; i < keysA.length; i++){
+        if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) return false;
+    }
+    return true;
+}
+exports.default = shallowEqual;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3jptH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "whenMapDispatchToPropsIsFunction", ()=>whenMapDispatchToPropsIsFunction
+);
+parcelHelpers.export(exports, "whenMapDispatchToPropsIsMissing", ()=>whenMapDispatchToPropsIsMissing
+);
+parcelHelpers.export(exports, "whenMapDispatchToPropsIsObject", ()=>whenMapDispatchToPropsIsObject
+);
+var _bindActionCreators = require("../utils/bindActionCreators");
+var _bindActionCreatorsDefault = parcelHelpers.interopDefault(_bindActionCreators);
+var _wrapMapToProps = require("./wrapMapToProps");
+function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
+    return typeof mapDispatchToProps === 'function' ? _wrapMapToProps.wrapMapToPropsFunc(mapDispatchToProps, 'mapDispatchToProps') : undefined;
+}
+function whenMapDispatchToPropsIsMissing(mapDispatchToProps) {
+    return !mapDispatchToProps ? _wrapMapToProps.wrapMapToPropsConstant(function(dispatch) {
+        return {
+            dispatch: dispatch
+        };
+    }) : undefined;
+}
+function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
+    return mapDispatchToProps && typeof mapDispatchToProps === 'object' ? _wrapMapToProps.wrapMapToPropsConstant(function(dispatch) {
+        return _bindActionCreatorsDefault.default(mapDispatchToProps, dispatch);
+    }) : undefined;
+}
+exports.default = [
+    whenMapDispatchToPropsIsFunction,
+    whenMapDispatchToPropsIsMissing,
+    whenMapDispatchToPropsIsObject
+];
+
+},{"../utils/bindActionCreators":"lElt9","./wrapMapToProps":"9zqy2","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lElt9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function bindActionCreators(actionCreators, dispatch) {
+    var boundActionCreators = {
+    };
+    var _loop = function _loop(key) {
+        var actionCreator = actionCreators[key];
+        if (typeof actionCreator === 'function') boundActionCreators[key] = function() {
+            return dispatch(actionCreator.apply(void 0, arguments));
+        };
+    };
+    for(var key in actionCreators)_loop(key);
+    return boundActionCreators;
+}
+exports.default = bindActionCreators;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9zqy2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "wrapMapToPropsConstant", ()=>wrapMapToPropsConstant
+) // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
+;
+// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
+// whether mapToProps needs to be invoked when props have changed.
+//
+// A length of one signals that mapToProps does not depend on props from the parent component.
+// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
+// therefore not reporting its length accurately..
+parcelHelpers.export(exports, "getDependsOnOwnProps", ()=>getDependsOnOwnProps
+) // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
+;
+// this function wraps mapToProps in a proxy function which does several things:
+//
+//  * Detects whether the mapToProps function being called depends on props, which
+//    is used by selectorFactory to decide if it should reinvoke on props changes.
+//
+//  * On first call, handles mapToProps if returns another function, and treats that
+//    new function as the true mapToProps for subsequent calls.
+//
+//  * On first call, verifies the first result is a plain object, in order to warn
+//    the developer that their mapToProps function is not returning a valid result.
+//
+parcelHelpers.export(exports, "wrapMapToPropsFunc", ()=>wrapMapToPropsFunc
+);
+var _verifyPlainObject = require("../utils/verifyPlainObject");
+var _verifyPlainObjectDefault = parcelHelpers.interopDefault(_verifyPlainObject);
+function wrapMapToPropsConstant(getConstant) {
+    return function initConstantSelector(dispatch, options) {
+        var constant = getConstant(dispatch, options);
+        function constantSelector() {
+            return constant;
+        }
+        constantSelector.dependsOnOwnProps = false;
+        return constantSelector;
+    };
+}
+function getDependsOnOwnProps(mapToProps) {
+    return mapToProps.dependsOnOwnProps !== null && mapToProps.dependsOnOwnProps !== undefined ? Boolean(mapToProps.dependsOnOwnProps) : mapToProps.length !== 1;
+}
+function wrapMapToPropsFunc(mapToProps, methodName) {
+    return function initProxySelector(dispatch, _ref) {
+        var displayName = _ref.displayName;
+        var proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+            return proxy.dependsOnOwnProps ? proxy.mapToProps(stateOrDispatch, ownProps) : proxy.mapToProps(stateOrDispatch);
+        }; // allow detectFactoryAndVerify to get ownProps
+        proxy.dependsOnOwnProps = true;
+        proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
+            proxy.mapToProps = mapToProps;
+            proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps);
+            var props = proxy(stateOrDispatch, ownProps);
+            if (typeof props === 'function') {
+                proxy.mapToProps = props;
+                proxy.dependsOnOwnProps = getDependsOnOwnProps(props);
+                props = proxy(stateOrDispatch, ownProps);
+            }
+            _verifyPlainObjectDefault.default(props, displayName, methodName);
+            return props;
+        };
+        return proxy;
+    };
+}
+
+},{"../utils/verifyPlainObject":"b9vFS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"b9vFS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _isPlainObject = require("./isPlainObject");
+var _isPlainObjectDefault = parcelHelpers.interopDefault(_isPlainObject);
+var _warning = require("./warning");
+var _warningDefault = parcelHelpers.interopDefault(_warning);
+function verifyPlainObject(value, displayName, methodName) {
+    if (!_isPlainObjectDefault.default(value)) _warningDefault.default(methodName + "() in " + displayName + " must return a plain object. Instead received " + value + ".");
+}
+exports.default = verifyPlainObject;
+
+},{"./isPlainObject":"4QUt9","./warning":"4gc0J","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4QUt9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function isPlainObject(obj) {
+    if (typeof obj !== 'object' || obj === null) return false;
+    var proto = Object.getPrototypeOf(obj);
+    if (proto === null) return true;
+    var baseProto = proto;
+    while(Object.getPrototypeOf(baseProto) !== null)baseProto = Object.getPrototypeOf(baseProto);
+    return proto === baseProto;
+}
+exports.default = isPlainObject;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4gc0J":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function warning(message) {
+    /* eslint-disable no-console */ if (typeof console !== 'undefined' && typeof console.error === 'function') console.error(message);
+    /* eslint-enable no-console */ try {
+        // This error was thrown as a convenience so that if you enable
+        // "break on all exceptions" in your console,
+        // it would pause the execution at this line.
+        throw new Error(message);
+    /* eslint-disable no-empty */ } catch (e) {
+    }
+/* eslint-enable no-empty */ }
+exports.default = warning;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5Joy4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "whenMapStateToPropsIsFunction", ()=>whenMapStateToPropsIsFunction
+);
+parcelHelpers.export(exports, "whenMapStateToPropsIsMissing", ()=>whenMapStateToPropsIsMissing
+);
+var _wrapMapToProps = require("./wrapMapToProps");
+function whenMapStateToPropsIsFunction(mapStateToProps) {
+    return typeof mapStateToProps === 'function' ? _wrapMapToProps.wrapMapToPropsFunc(mapStateToProps, 'mapStateToProps') : undefined;
+}
+function whenMapStateToPropsIsMissing(mapStateToProps) {
+    return !mapStateToProps ? _wrapMapToProps.wrapMapToPropsConstant(function() {
+        return {
+        };
+    }) : undefined;
+}
+exports.default = [
+    whenMapStateToPropsIsFunction,
+    whenMapStateToPropsIsMissing
+];
+
+},{"./wrapMapToProps":"9zqy2","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7JK5z":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "defaultMergeProps", ()=>defaultMergeProps
+);
+parcelHelpers.export(exports, "wrapMergePropsFunc", ()=>wrapMergePropsFunc
+);
+parcelHelpers.export(exports, "whenMergePropsIsFunction", ()=>whenMergePropsIsFunction
+);
+parcelHelpers.export(exports, "whenMergePropsIsOmitted", ()=>whenMergePropsIsOmitted
+);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _verifyPlainObject = require("../utils/verifyPlainObject");
+var _verifyPlainObjectDefault = parcelHelpers.interopDefault(_verifyPlainObject);
+function defaultMergeProps(stateProps, dispatchProps, ownProps) {
+    return _extendsDefault.default({
+    }, ownProps, stateProps, dispatchProps);
+}
+function wrapMergePropsFunc(mergeProps) {
+    return function initMergePropsProxy(dispatch, _ref) {
+        var displayName = _ref.displayName, pure = _ref.pure, areMergedPropsEqual = _ref.areMergedPropsEqual;
+        var hasRunOnce = false;
+        var mergedProps;
+        return function mergePropsProxy(stateProps, dispatchProps, ownProps) {
+            var nextMergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+            if (hasRunOnce) {
+                if (!pure || !areMergedPropsEqual(nextMergedProps, mergedProps)) mergedProps = nextMergedProps;
+            } else {
+                hasRunOnce = true;
+                mergedProps = nextMergedProps;
+                _verifyPlainObjectDefault.default(mergedProps, displayName, 'mergeProps');
+            }
+            return mergedProps;
+        };
+    };
+}
+function whenMergePropsIsFunction(mergeProps) {
+    return typeof mergeProps === 'function' ? wrapMergePropsFunc(mergeProps) : undefined;
+}
+function whenMergePropsIsOmitted(mergeProps) {
+    return !mergeProps ? function() {
+        return defaultMergeProps;
+    } : undefined;
+}
+exports.default = [
+    whenMergePropsIsFunction,
+    whenMergePropsIsOmitted
+];
+
+},{"@babel/runtime/helpers/esm/extends":"5inYT","../utils/verifyPlainObject":"b9vFS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6ourf":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "impureFinalPropsSelectorFactory", ()=>impureFinalPropsSelectorFactory
+);
+parcelHelpers.export(exports, "pureFinalPropsSelectorFactory", ()=>pureFinalPropsSelectorFactory
+) // TODO: Add more comments
+;
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _verifySubselectors = require("./verifySubselectors");
+var _verifySubselectorsDefault = parcelHelpers.interopDefault(_verifySubselectors);
+var _excluded = [
+    "initMapStateToProps",
+    "initMapDispatchToProps",
+    "initMergeProps"
+];
+function impureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch) {
+    return function impureFinalPropsSelector(state, ownProps) {
+        return mergeProps(mapStateToProps(state, ownProps), mapDispatchToProps(dispatch, ownProps), ownProps);
+    };
+}
+function pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, _ref) {
+    var areStatesEqual = _ref.areStatesEqual, areOwnPropsEqual = _ref.areOwnPropsEqual, areStatePropsEqual = _ref.areStatePropsEqual;
+    var hasRunAtLeastOnce = false;
+    var state;
+    var ownProps;
+    var stateProps;
+    var dispatchProps;
+    var mergedProps;
+    function handleFirstCall(firstState, firstOwnProps) {
+        state = firstState;
+        ownProps = firstOwnProps;
+        stateProps = mapStateToProps(state, ownProps);
+        dispatchProps = mapDispatchToProps(dispatch, ownProps);
+        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        hasRunAtLeastOnce = true;
+        return mergedProps;
+    }
+    function handleNewPropsAndNewState() {
+        stateProps = mapStateToProps(state, ownProps);
+        if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        return mergedProps;
+    }
+    function handleNewProps() {
+        if (mapStateToProps.dependsOnOwnProps) stateProps = mapStateToProps(state, ownProps);
+        if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        return mergedProps;
+    }
+    function handleNewState() {
+        var nextStateProps = mapStateToProps(state, ownProps);
+        var statePropsChanged = !areStatePropsEqual(nextStateProps, stateProps);
+        stateProps = nextStateProps;
+        if (statePropsChanged) mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        return mergedProps;
+    }
+    function handleSubsequentCalls(nextState, nextOwnProps) {
+        var propsChanged = !areOwnPropsEqual(nextOwnProps, ownProps);
+        var stateChanged = !areStatesEqual(nextState, state);
+        state = nextState;
+        ownProps = nextOwnProps;
+        if (propsChanged && stateChanged) return handleNewPropsAndNewState();
+        if (propsChanged) return handleNewProps();
+        if (stateChanged) return handleNewState();
+        return mergedProps;
+    }
+    return function pureFinalPropsSelector(nextState, nextOwnProps) {
+        return hasRunAtLeastOnce ? handleSubsequentCalls(nextState, nextOwnProps) : handleFirstCall(nextState, nextOwnProps);
+    };
+}
+function finalPropsSelectorFactory(dispatch, _ref2) {
+    var initMapStateToProps = _ref2.initMapStateToProps, initMapDispatchToProps = _ref2.initMapDispatchToProps, initMergeProps = _ref2.initMergeProps, options = _objectWithoutPropertiesLooseDefault.default(_ref2, _excluded);
+    var mapStateToProps = initMapStateToProps(dispatch, options);
+    var mapDispatchToProps = initMapDispatchToProps(dispatch, options);
+    var mergeProps = initMergeProps(dispatch, options);
+    _verifySubselectorsDefault.default(mapStateToProps, mapDispatchToProps, mergeProps, options.displayName);
+    var selectorFactory = options.pure ? pureFinalPropsSelectorFactory : impureFinalPropsSelectorFactory;
+    return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
+}
+exports.default = finalPropsSelectorFactory;
+
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","./verifySubselectors":"3QLcj","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3QLcj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _warning = require("../utils/warning");
+var _warningDefault = parcelHelpers.interopDefault(_warning);
+function verify(selector, methodName, displayName) {
+    if (!selector) throw new Error("Unexpected value for " + methodName + " in " + displayName + ".");
+    else if (methodName === 'mapStateToProps' || methodName === 'mapDispatchToProps') {
+        if (!Object.prototype.hasOwnProperty.call(selector, 'dependsOnOwnProps')) _warningDefault.default("The selector for " + methodName + " of " + displayName + " did not specify a value for dependsOnOwnProps.");
+    }
+}
+function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, displayName) {
+    verify(mapStateToProps, 'mapStateToProps', displayName);
+    verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
+    verify(mergeProps, 'mergeProps', displayName);
+}
+exports.default = verifySubselectors;
+
+},{"../utils/warning":"4gc0J","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c9JDK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Hook factory, which creates a `useDispatch` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useDispatch` hook bound to the specified context.
+ */ parcelHelpers.export(exports, "createDispatchHook", ()=>createDispatchHook
+);
+parcelHelpers.export(exports, "useDispatch", ()=>useDispatch
+);
+var _context = require("../components/Context");
+var _useStore = require("./useStore");
+function createDispatchHook(context) {
+    if (context === void 0) context = _context.ReactReduxContext;
+    var useStore = context === _context.ReactReduxContext ? _useStore.useStore : _useStore.createStoreHook(context);
+    return function useDispatch() {
+        var store = useStore();
+        return store.dispatch;
+    };
+}
+var useDispatch = /*#__PURE__*/ createDispatchHook();
+
+},{"../components/Context":"aaKgS","./useStore":"8fCzH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8fCzH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Hook factory, which creates a `useStore` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useStore` hook bound to the specified context.
+ */ parcelHelpers.export(exports, "createStoreHook", ()=>createStoreHook
+);
+parcelHelpers.export(exports, "useStore", ()=>useStore
+);
+var _react = require("react");
+var _context = require("../components/Context");
+var _useReduxContext = require("./useReduxContext");
+function createStoreHook(context) {
+    if (context === void 0) context = _context.ReactReduxContext;
+    var useReduxContext = context === _context.ReactReduxContext ? _useReduxContext.useReduxContext : function() {
+        return _react.useContext(context);
+    };
+    return function useStore() {
+        var _useReduxContext = useReduxContext(), store = _useReduxContext.store;
+        return store;
+    };
+}
+var useStore = /*#__PURE__*/ createStoreHook();
+
+},{"react":"4mchR","../components/Context":"aaKgS","./useReduxContext":"7W7sr","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7W7sr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * A hook to access the value of the `ReactReduxContext`. This is a low-level
+ * hook that you should usually not need to call directly.
+ *
+ * @returns {any} the value of the `ReactReduxContext`
+ *
+ * @example
+ *
+ * import React from 'react'
+ * import { useReduxContext } from 'react-redux'
+ *
+ * export const CounterComponent = ({ value }) => {
+ *   const { store } = useReduxContext()
+ *   return <div>{store.getState()}</div>
+ * }
+ */ parcelHelpers.export(exports, "useReduxContext", ()=>useReduxContext
+);
+var _react = require("react");
+var _context = require("../components/Context");
+function useReduxContext() {
+    var contextValue = _react.useContext(_context.ReactReduxContext);
+    if (!contextValue) throw new Error('could not find react-redux context value; please ensure the component is wrapped in a <Provider>');
+    return contextValue;
+}
+
+},{"react":"4mchR","../components/Context":"aaKgS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iL9Et":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Hook factory, which creates a `useSelector` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useSelector` hook bound to the specified context.
+ */ parcelHelpers.export(exports, "createSelectorHook", ()=>createSelectorHook
+);
+parcelHelpers.export(exports, "useSelector", ()=>useSelector
+);
+var _react = require("react");
+var _useReduxContext = require("./useReduxContext");
+var _subscription = require("../utils/Subscription");
+var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
+var _context = require("../components/Context");
+var refEquality = function refEquality(a, b) {
+    return a === b;
+};
+function useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub) {
+    var _useReducer = _react.useReducer(function(s) {
+        return s + 1;
+    }, 0), forceRender = _useReducer[1];
+    var subscription = _react.useMemo(function() {
+        return _subscription.createSubscription(store, contextSub);
+    }, [
+        store,
+        contextSub
+    ]);
+    var latestSubscriptionCallbackError = _react.useRef();
+    var latestSelector = _react.useRef();
+    var latestStoreState = _react.useRef();
+    var latestSelectedState = _react.useRef();
+    var storeState = store.getState();
+    var selectedState;
+    try {
+        if (selector !== latestSelector.current || storeState !== latestStoreState.current || latestSubscriptionCallbackError.current) {
+            var newSelectedState = selector(storeState); // ensure latest selected state is reused so that a custom equality function can result in identical references
+            if (latestSelectedState.current === undefined || !equalityFn(newSelectedState, latestSelectedState.current)) selectedState = newSelectedState;
+            else selectedState = latestSelectedState.current;
+        } else selectedState = latestSelectedState.current;
+    } catch (err) {
+        if (latestSubscriptionCallbackError.current) err.message += "\nThe error may be correlated with this previous error:\n" + latestSubscriptionCallbackError.current.stack + "\n\n";
+        throw err;
+    }
+    _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect(function() {
+        latestSelector.current = selector;
+        latestStoreState.current = storeState;
+        latestSelectedState.current = selectedState;
+        latestSubscriptionCallbackError.current = undefined;
+    });
+    _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect(function() {
+        function checkForUpdates() {
+            try {
+                var newStoreState = store.getState(); // Avoid calling selector multiple times if the store's state has not changed
+                if (newStoreState === latestStoreState.current) return;
+                var _newSelectedState = latestSelector.current(newStoreState);
+                if (equalityFn(_newSelectedState, latestSelectedState.current)) return;
+                latestSelectedState.current = _newSelectedState;
+                latestStoreState.current = newStoreState;
+            } catch (err) {
+                // we ignore all errors here, since when the component
+                // is re-rendered, the selectors are called again, and
+                // will throw again, if neither props nor store state
+                // changed
+                latestSubscriptionCallbackError.current = err;
+            }
+            forceRender();
+        }
+        subscription.onStateChange = checkForUpdates;
+        subscription.trySubscribe();
+        checkForUpdates();
+        return function() {
+            return subscription.tryUnsubscribe();
+        };
+    }, [
+        store,
+        subscription
+    ]);
+    return selectedState;
+}
+function createSelectorHook(context) {
+    if (context === void 0) context = _context.ReactReduxContext;
+    var useReduxContext = context === _context.ReactReduxContext ? _useReduxContext.useReduxContext : function() {
+        return _react.useContext(context);
+    };
+    return function useSelector(selector, equalityFn) {
+        if (equalityFn === void 0) equalityFn = refEquality;
+        if (!selector) throw new Error("You must pass a selector to useSelector");
+        if (typeof selector !== 'function') throw new Error("You must pass a function as a selector to useSelector");
+        if (typeof equalityFn !== 'function') throw new Error("You must pass a function as an equality function to useSelector");
+        var _useReduxContext = useReduxContext(), store = _useReduxContext.store, contextSub = _useReduxContext.subscription;
+        var selectedState = useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub);
+        _react.useDebugValue(selectedState);
+        return selectedState;
+    };
+}
+var useSelector = /*#__PURE__*/ createSelectorHook();
+
+},{"react":"4mchR","./useReduxContext":"7W7sr","../utils/Subscription":"3J8F7","../utils/useIsomorphicLayoutEffect":"8GKWv","../components/Context":"aaKgS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4YO5h":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/* eslint-disable import/no-unresolved */ parcelHelpers.export(exports, "unstable_batchedUpdates", ()=>_reactDom.unstable_batchedUpdates
+);
+var _reactDom = require("react-dom");
+
+},{"react-dom":"afyCw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"04zIX":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6989 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6989.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _reactRouterDom = require("react-router-dom");
+var _movieCardScss = require("./movie-card.scss");
+class MovieCard extends _reactDefault.default.Component {
+    render() {
+        const { movie  } = this.props;
+        return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
+            className: "m-5",
+            style: {
+                height: '300px'
+            },
+            __source: {
+                fileName: "src/components/movie-card/movie-card.jsx",
+                lineNumber: 16
+            },
+            __self: this,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
+                    src: movie.ImagePath,
+                    __source: {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 17
+                    },
+                    __self: this
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.ImgOverlay, {
+                    className: "movieCardBody p-0",
+                    style: {
+                        overflow: "overlay"
+                    },
+                    __source: {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 18
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
+                        className: "bt-5",
+                        __source: {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 20
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
+                                __source: {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 21
+                                },
+                                __self: this,
+                                children: movie.Title
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
+                                __source: {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 22
+                                },
+                                __self: this,
+                                children: movie.Description
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                to: `/movies/${movie._id}`,
+                                __source: {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 23
+                                },
+                                __self: this,
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                    variant: "outline-light",
+                                    __source: {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 24
+                                    },
+                                    __self: this,
+                                    children: "Open"
+                                })
+                            })
+                        ]
+                    })
+                })
+            ]
+        }));
+    }
+}
+MovieCard.prototype = {
+    movie: _propTypesDefault.default.shape({
+        Title: _propTypesDefault.default.string.isRequired
+    }).isRequired,
+    onMovieClick: _propTypesDefault.default.func.isRequired
+};
+
+  $parcel$ReactRefreshHelpers$6989.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","./movie-card.scss":"8rKa8","react-bootstrap/Button":"64Pgd","react-bootstrap/Card":"jeXXJ","react-router-dom":"etVME"}],"8rKa8":[function() {},{}],"dyllb":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d805 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d805.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _actions = require("../../actions/actions");
+function VisibilityFilterInput(props) {
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+        onChange: (e)=>props.setFilter(e.target.value)
+        ,
+        value: props.visibilityFilter,
+        placeholder: "Filter...",
+        __source: {
+            fileName: "src/components/visibility-filter-input/visibility-filter-input.jsx",
+            lineNumber: 9
+        },
+        __self: this
+    }));
+}
+_c = VisibilityFilterInput;
+exports.default = _reactRedux.connect(null, {
+    setFilter: _actions.setFilter
+})(VisibilityFilterInput);
+var _c;
+$RefreshReg$(_c, "VisibilityFilterInput");
+
+  $parcel$ReactRefreshHelpers$d805.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-redux":"lT3ms","../../actions/actions":"6dgbZ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-bootstrap/Form":"PeiIB"}],"5dhe6":[function() {},{}],"fbbZr":[function(require,module,exports) {
+'use strict';
+var compose = require('redux').compose;
+exports.__esModule = true;
+exports.composeWithDevTools = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : function() {
+    if (arguments.length === 0) return undefined;
+    if (typeof arguments[0] === 'object') return compose;
+    return compose.apply(null, arguments);
+};
+exports.devToolsEnhancer = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ : function() {
+    return function(noop) {
+        return noop;
+    };
+};
+
+},{"redux":"ifMRI"}],"ifMRI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__DO_NOT_USE__ActionTypes", ()=>ActionTypes
+);
+parcelHelpers.export(exports, "applyMiddleware", ()=>applyMiddleware
+);
+parcelHelpers.export(exports, "bindActionCreators", ()=>bindActionCreators
+);
+parcelHelpers.export(exports, "combineReducers", ()=>combineReducers
+);
+parcelHelpers.export(exports, "compose", ()=>compose
+);
+parcelHelpers.export(exports, "createStore", ()=>createStore
+);
+var _objectSpread2 = require("@babel/runtime/helpers/esm/objectSpread2");
+var _objectSpread2Default = parcelHelpers.interopDefault(_objectSpread2);
+/**
+ * Adapted from React: https://github.com/facebook/react/blob/master/packages/shared/formatProdErrorMessage.js
+ *
+ * Do not require this module directly! Use normal throw error calls. These messages will be replaced with error codes
+ * during build.
+ * @param {number} code
+ */ function formatProdErrorMessage(code) {
+    return "Minified Redux error #" + code + "; visit https://redux.js.org/Errors?code=" + code + " for the full message or " + 'use the non-minified dev environment for full errors. ';
+}
+// Inlined version of the `symbol-observable` polyfill
+var $$observable = function() {
+    return typeof Symbol === 'function' && Symbol.observable || '@@observable';
+}();
+/**
+ * These are private action types reserved by Redux.
+ * For any unknown actions, you must return the current state.
+ * If the current state is undefined, you must return the initial state.
+ * Do not reference these action types directly in your code.
+ */ var randomString = function randomString() {
+    return Math.random().toString(36).substring(7).split('').join('.');
+};
+var ActionTypes = {
+    INIT: "@@redux/INIT" + randomString(),
+    REPLACE: "@@redux/REPLACE" + randomString(),
+    PROBE_UNKNOWN_ACTION: function PROBE_UNKNOWN_ACTION() {
+        return "@@redux/PROBE_UNKNOWN_ACTION" + randomString();
+    }
+};
+/**
+ * @param {any} obj The object to inspect.
+ * @returns {boolean} True if the argument appears to be a plain object.
+ */ function isPlainObject(obj) {
+    if (typeof obj !== 'object' || obj === null) return false;
+    var proto = obj;
+    while(Object.getPrototypeOf(proto) !== null)proto = Object.getPrototypeOf(proto);
+    return Object.getPrototypeOf(obj) === proto;
+}
+// Inlined / shortened version of `kindOf` from https://github.com/jonschlinkert/kind-of
+function miniKindOf(val) {
+    if (val === void 0) return 'undefined';
+    if (val === null) return 'null';
+    var type = typeof val;
+    switch(type){
+        case 'boolean':
+        case 'string':
+        case 'number':
+        case 'symbol':
+        case 'function':
+            return type;
+    }
+    if (Array.isArray(val)) return 'array';
+    if (isDate(val)) return 'date';
+    if (isError(val)) return 'error';
+    var constructorName = ctorName(val);
+    switch(constructorName){
+        case 'Symbol':
+        case 'Promise':
+        case 'WeakMap':
+        case 'WeakSet':
+        case 'Map':
+        case 'Set':
+            return constructorName;
+    } // other
+    return type.slice(8, -1).toLowerCase().replace(/\s/g, '');
+}
+function ctorName(val) {
+    return typeof val.constructor === 'function' ? val.constructor.name : null;
+}
+function isError(val) {
+    return val instanceof Error || typeof val.message === 'string' && val.constructor && typeof val.constructor.stackTraceLimit === 'number';
+}
+function isDate(val) {
+    if (val instanceof Date) return true;
+    return typeof val.toDateString === 'function' && typeof val.getDate === 'function' && typeof val.setDate === 'function';
+}
+function kindOf(val) {
+    var typeOfVal = typeof val;
+    typeOfVal = miniKindOf(val);
+    return typeOfVal;
+}
+/**
+ * Creates a Redux store that holds the state tree.
+ * The only way to change the data in the store is to call `dispatch()` on it.
+ *
+ * There should only be a single store in your app. To specify how different
+ * parts of the state tree respond to actions, you may combine several reducers
+ * into a single reducer function by using `combineReducers`.
+ *
+ * @param {Function} reducer A function that returns the next state tree, given
+ * the current state tree and the action to handle.
+ *
+ * @param {any} [preloadedState] The initial state. You may optionally specify it
+ * to hydrate the state from the server in universal apps, or to restore a
+ * previously serialized user session.
+ * If you use `combineReducers` to produce the root reducer function, this must be
+ * an object with the same shape as `combineReducers` keys.
+ *
+ * @param {Function} [enhancer] The store enhancer. You may optionally specify it
+ * to enhance the store with third-party capabilities such as middleware,
+ * time travel, persistence, etc. The only store enhancer that ships with Redux
+ * is `applyMiddleware()`.
+ *
+ * @returns {Store} A Redux store that lets you read the state, dispatch actions
+ * and subscribe to changes.
+ */ function createStore(reducer, preloadedState, enhancer) {
+    var _ref2;
+    if (typeof preloadedState === 'function' && typeof enhancer === 'function' || typeof enhancer === 'function' && typeof arguments[3] === 'function') throw new Error("It looks like you are passing several store enhancers to createStore(). This is not supported. Instead, compose them together to a single function. See https://redux.js.org/tutorials/fundamentals/part-4-store#creating-a-store-with-enhancers for an example.");
+    if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+        enhancer = preloadedState;
+        preloadedState = undefined;
+    }
+    if (typeof enhancer !== 'undefined') {
+        if (typeof enhancer !== 'function') throw new Error("Expected the enhancer to be a function. Instead, received: '" + kindOf(enhancer) + "'");
+        return enhancer(createStore)(reducer, preloadedState);
+    }
+    if (typeof reducer !== 'function') throw new Error("Expected the root reducer to be a function. Instead, received: '" + kindOf(reducer) + "'");
+    var currentReducer = reducer;
+    var currentState = preloadedState;
+    var currentListeners = [];
+    var nextListeners = currentListeners;
+    var isDispatching = false;
+    /**
+   * This makes a shallow copy of currentListeners so we can use
+   * nextListeners as a temporary list while dispatching.
+   *
+   * This prevents any bugs around consumers calling
+   * subscribe/unsubscribe in the middle of a dispatch.
+   */ function ensureCanMutateNextListeners() {
+        if (nextListeners === currentListeners) nextListeners = currentListeners.slice();
+    }
+    /**
+   * Reads the state tree managed by the store.
+   *
+   * @returns {any} The current state tree of your application.
+   */ function getState() {
+        if (isDispatching) throw new Error("You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.");
+        return currentState;
+    }
+    /**
+   * Adds a change listener. It will be called any time an action is dispatched,
+   * and some part of the state tree may potentially have changed. You may then
+   * call `getState()` to read the current state tree inside the callback.
+   *
+   * You may call `dispatch()` from a change listener, with the following
+   * caveats:
+   *
+   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+   * If you subscribe or unsubscribe while the listeners are being invoked, this
+   * will not have any effect on the `dispatch()` that is currently in progress.
+   * However, the next `dispatch()` call, whether nested or not, will use a more
+   * recent snapshot of the subscription list.
+   *
+   * 2. The listener should not expect to see all state changes, as the state
+   * might have been updated multiple times during a nested `dispatch()` before
+   * the listener is called. It is, however, guaranteed that all subscribers
+   * registered before the `dispatch()` started will be called with the latest
+   * state by the time it exits.
+   *
+   * @param {Function} listener A callback to be invoked on every dispatch.
+   * @returns {Function} A function to remove this change listener.
+   */ function subscribe(listener) {
+        if (typeof listener !== 'function') throw new Error("Expected the listener to be a function. Instead, received: '" + kindOf(listener) + "'");
+        if (isDispatching) throw new Error("You may not call store.subscribe() while the reducer is executing. If you would like to be notified after the store has been updated, subscribe from a component and invoke store.getState() in the callback to access the latest state. See https://redux.js.org/api/store#subscribelistener for more details.");
+        var isSubscribed = true;
+        ensureCanMutateNextListeners();
+        nextListeners.push(listener);
+        return function unsubscribe() {
+            if (!isSubscribed) return;
+            if (isDispatching) throw new Error("You may not unsubscribe from a store listener while the reducer is executing. See https://redux.js.org/api/store#subscribelistener for more details.");
+            isSubscribed = false;
+            ensureCanMutateNextListeners();
+            var index = nextListeners.indexOf(listener);
+            nextListeners.splice(index, 1);
+            currentListeners = null;
+        };
+    }
+    /**
+   * Dispatches an action. It is the only way to trigger a state change.
+   *
+   * The `reducer` function, used to create the store, will be called with the
+   * current state tree and the given `action`. Its return value will
+   * be considered the **next** state of the tree, and the change listeners
+   * will be notified.
+   *
+   * The base implementation only supports plain object actions. If you want to
+   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+   * wrap your store creating function into the corresponding middleware. For
+   * example, see the documentation for the `redux-thunk` package. Even the
+   * middleware will eventually dispatch plain object actions using this method.
+   *
+   * @param {Object} action A plain object representing “what changed”. It is
+   * a good idea to keep actions serializable so you can record and replay user
+   * sessions, or use the time travelling `redux-devtools`. An action must have
+   * a `type` property which may not be `undefined`. It is a good idea to use
+   * string constants for action types.
+   *
+   * @returns {Object} For convenience, the same action object you dispatched.
+   *
+   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+   * return something else (for example, a Promise you can await).
+   */ function dispatch(action) {
+        if (!isPlainObject(action)) throw new Error("Actions must be plain objects. Instead, the actual type was: '" + kindOf(action) + "'. You may need to add middleware to your store setup to handle dispatching other values, such as 'redux-thunk' to handle dispatching functions. See https://redux.js.org/tutorials/fundamentals/part-4-store#middleware and https://redux.js.org/tutorials/fundamentals/part-6-async-logic#using-the-redux-thunk-middleware for examples.");
+        if (typeof action.type === 'undefined') throw new Error('Actions may not have an undefined "type" property. You may have misspelled an action type string constant.');
+        if (isDispatching) throw new Error('Reducers may not dispatch actions.');
+        try {
+            isDispatching = true;
+            currentState = currentReducer(currentState, action);
+        } finally{
+            isDispatching = false;
+        }
+        var listeners = currentListeners = nextListeners;
+        for(var i = 0; i < listeners.length; i++){
+            var listener = listeners[i];
+            listener();
+        }
+        return action;
+    }
+    /**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */ function replaceReducer(nextReducer) {
+        if (typeof nextReducer !== 'function') throw new Error("Expected the nextReducer to be a function. Instead, received: '" + kindOf(nextReducer));
+        currentReducer = nextReducer; // This action has a similiar effect to ActionTypes.INIT.
+        // Any reducers that existed in both the new and old rootReducer
+        // will receive the previous state. This effectively populates
+        // the new state tree with any relevant data from the old one.
+        dispatch({
+            type: ActionTypes.REPLACE
+        });
+    }
+    /**
+   * Interoperability point for observable/reactive libraries.
+   * @returns {observable} A minimal observable of state changes.
+   * For more information, see the observable proposal:
+   * https://github.com/tc39/proposal-observable
+   */ function observable() {
+        var _ref;
+        var outerSubscribe = subscribe;
+        return _ref = {
+            /**
+       * The minimal observable subscription method.
+       * @param {Object} observer Any object that can be used as an observer.
+       * The observer object should have a `next` method.
+       * @returns {subscription} An object with an `unsubscribe` method that can
+       * be used to unsubscribe the observable from the store, and prevent further
+       * emission of values from the observable.
+       */ subscribe: function subscribe(observer) {
+                if (typeof observer !== 'object' || observer === null) throw new Error("Expected the observer to be an object. Instead, received: '" + kindOf(observer) + "'");
+                function observeState() {
+                    if (observer.next) observer.next(getState());
+                }
+                observeState();
+                var unsubscribe = outerSubscribe(observeState);
+                return {
+                    unsubscribe: unsubscribe
+                };
+            }
+        }, _ref[$$observable] = function() {
+            return this;
+        }, _ref;
+    } // When a store is created, an "INIT" action is dispatched so that every
+    // reducer returns their initial state. This effectively populates
+    // the initial state tree.
+    dispatch({
+        type: ActionTypes.INIT
+    });
+    return _ref2 = {
+        dispatch: dispatch,
+        subscribe: subscribe,
+        getState: getState,
+        replaceReducer: replaceReducer
+    }, _ref2[$$observable] = observable, _ref2;
+}
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */ function warning(message) {
+    /* eslint-disable no-console */ if (typeof console !== 'undefined' && typeof console.error === 'function') console.error(message);
+    /* eslint-enable no-console */ try {
+        // This error was thrown as a convenience so that if you enable
+        // "break on all exceptions" in your console,
+        // it would pause the execution at this line.
+        throw new Error(message);
+    } catch (e) {
+    } // eslint-disable-line no-empty
+}
+function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
+    var reducerKeys = Object.keys(reducers);
+    var argumentName = action && action.type === ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
+    if (reducerKeys.length === 0) return "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.";
+    if (!isPlainObject(inputState)) return "The " + argumentName + " has unexpected type of \"" + kindOf(inputState) + "\". Expected argument to be an object with the following " + ("keys: \"" + reducerKeys.join('", "') + "\"");
+    var unexpectedKeys = Object.keys(inputState).filter(function(key) {
+        return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
+    });
+    unexpectedKeys.forEach(function(key) {
+        unexpectedKeyCache[key] = true;
+    });
+    if (action && action.type === ActionTypes.REPLACE) return;
+    if (unexpectedKeys.length > 0) return "Unexpected " + (unexpectedKeys.length > 1 ? 'keys' : 'key') + " " + ("\"" + unexpectedKeys.join('", "') + "\" found in " + argumentName + ". ") + "Expected to find one of the known reducer keys instead: " + ("\"" + reducerKeys.join('", "') + "\". Unexpected keys will be ignored.");
+}
+function assertReducerShape(reducers) {
+    Object.keys(reducers).forEach(function(key) {
+        var reducer = reducers[key];
+        var initialState = reducer(undefined, {
+            type: ActionTypes.INIT
+        });
+        if (typeof initialState === 'undefined') throw new Error("The slice reducer for key \"" + key + "\" returned undefined during initialization. " + "If the state passed to the reducer is undefined, you must " + "explicitly return the initial state. The initial state may " + "not be undefined. If you don't want to set a value for this reducer, " + "you can use null instead of undefined.");
+        if (typeof reducer(undefined, {
+            type: ActionTypes.PROBE_UNKNOWN_ACTION()
+        }) === 'undefined') throw new Error("The slice reducer for key \"" + key + "\" returned undefined when probed with a random type. " + ("Don't try to handle '" + ActionTypes.INIT + "' or other actions in \"redux/*\" ") + "namespace. They are considered private. Instead, you must return the " + "current state for any unknown actions, unless it is undefined, " + "in which case you must return the initial state, regardless of the " + "action type. The initial state may not be undefined, but can be null.");
+    });
+}
+/**
+ * Turns an object whose values are different reducer functions, into a single
+ * reducer function. It will call every child reducer, and gather their results
+ * into a single state object, whose keys correspond to the keys of the passed
+ * reducer functions.
+ *
+ * @param {Object} reducers An object whose values correspond to different
+ * reducer functions that need to be combined into one. One handy way to obtain
+ * it is to use ES6 `import * as reducers` syntax. The reducers may never return
+ * undefined for any action. Instead, they should return their initial state
+ * if the state passed to them was undefined, and the current state for any
+ * unrecognized action.
+ *
+ * @returns {Function} A reducer function that invokes every reducer inside the
+ * passed object, and builds a state object with the same shape.
+ */ function combineReducers(reducers) {
+    var reducerKeys = Object.keys(reducers);
+    var finalReducers = {
+    };
+    for(var i = 0; i < reducerKeys.length; i++){
+        var key = reducerKeys[i];
+        if (typeof reducers[key] === 'undefined') warning("No reducer provided for key \"" + key + "\"");
+        if (typeof reducers[key] === 'function') finalReducers[key] = reducers[key];
+    }
+    var finalReducerKeys = Object.keys(finalReducers); // This is used to make sure we don't warn about the same
+    // keys multiple times.
+    var unexpectedKeyCache;
+    unexpectedKeyCache = {
+    };
+    var shapeAssertionError;
+    try {
+        assertReducerShape(finalReducers);
+    } catch (e) {
+        shapeAssertionError = e;
+    }
+    return function combination(state, action) {
+        if (state === void 0) state = {
+        };
+        if (shapeAssertionError) throw shapeAssertionError;
+        var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
+        if (warningMessage) warning(warningMessage);
+        var hasChanged = false;
+        var nextState = {
+        };
+        for(var _i = 0; _i < finalReducerKeys.length; _i++){
+            var _key = finalReducerKeys[_i];
+            var reducer = finalReducers[_key];
+            var previousStateForKey = state[_key];
+            var nextStateForKey = reducer(previousStateForKey, action);
+            if (typeof nextStateForKey === 'undefined') {
+                var actionType = action && action.type;
+                throw new Error("When called with an action of type " + (actionType ? "\"" + String(actionType) + "\"" : '(unknown type)') + ", the slice reducer for key \"" + _key + "\" returned undefined. " + "To ignore an action, you must explicitly return the previous state. " + "If you want this reducer to hold no value, you can return null instead of undefined.");
+            }
+            nextState[_key] = nextStateForKey;
+            hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+        }
+        hasChanged = hasChanged || finalReducerKeys.length !== Object.keys(state).length;
+        return hasChanged ? nextState : state;
+    };
+}
+function bindActionCreator(actionCreator, dispatch) {
+    return function() {
+        return dispatch(actionCreator.apply(this, arguments));
+    };
+}
+/**
+ * Turns an object whose values are action creators, into an object with the
+ * same keys, but with every function wrapped into a `dispatch` call so they
+ * may be invoked directly. This is just a convenience method, as you can call
+ * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
+ *
+ * For convenience, you can also pass an action creator as the first argument,
+ * and get a dispatch wrapped function in return.
+ *
+ * @param {Function|Object} actionCreators An object whose values are action
+ * creator functions. One handy way to obtain it is to use ES6 `import * as`
+ * syntax. You may also pass a single function.
+ *
+ * @param {Function} dispatch The `dispatch` function available on your Redux
+ * store.
+ *
+ * @returns {Function|Object} The object mimicking the original object, but with
+ * every action creator wrapped into the `dispatch` call. If you passed a
+ * function as `actionCreators`, the return value will also be a single
+ * function.
+ */ function bindActionCreators(actionCreators, dispatch) {
+    if (typeof actionCreators === 'function') return bindActionCreator(actionCreators, dispatch);
+    if (typeof actionCreators !== 'object' || actionCreators === null) throw new Error("bindActionCreators expected an object or a function, but instead received: '" + kindOf(actionCreators) + "'. " + "Did you write \"import ActionCreators from\" instead of \"import * as ActionCreators from\"?");
+    var boundActionCreators = {
+    };
+    for(var key in actionCreators){
+        var actionCreator = actionCreators[key];
+        if (typeof actionCreator === 'function') boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
+    }
+    return boundActionCreators;
+}
+/**
+ * Composes single-argument functions from right to left. The rightmost
+ * function can take multiple arguments as it provides the signature for
+ * the resulting composite function.
+ *
+ * @param {...Function} funcs The functions to compose.
+ * @returns {Function} A function obtained by composing the argument functions
+ * from right to left. For example, compose(f, g, h) is identical to doing
+ * (...args) => f(g(h(...args))).
+ */ function compose() {
+    for(var _len = arguments.length, funcs = new Array(_len), _key = 0; _key < _len; _key++)funcs[_key] = arguments[_key];
+    if (funcs.length === 0) return function(arg) {
+        return arg;
+    };
+    if (funcs.length === 1) return funcs[0];
+    return funcs.reduce(function(a, b) {
+        return function() {
+            return a(b.apply(void 0, arguments));
+        };
+    });
+}
+/**
+ * Creates a store enhancer that applies middleware to the dispatch method
+ * of the Redux store. This is handy for a variety of tasks, such as expressing
+ * asynchronous actions in a concise manner, or logging every action payload.
+ *
+ * See `redux-thunk` package as an example of the Redux middleware.
+ *
+ * Because middleware is potentially asynchronous, this should be the first
+ * store enhancer in the composition chain.
+ *
+ * Note that each middleware will be given the `dispatch` and `getState` functions
+ * as named arguments.
+ *
+ * @param {...Function} middlewares The middleware chain to be applied.
+ * @returns {Function} A store enhancer applying the middleware.
+ */ function applyMiddleware() {
+    for(var _len = arguments.length, middlewares = new Array(_len), _key = 0; _key < _len; _key++)middlewares[_key] = arguments[_key];
+    return function(createStore) {
+        return function() {
+            var store = createStore.apply(void 0, arguments);
+            var _dispatch = function dispatch() {
+                throw new Error("Dispatching while constructing your middleware is not allowed. Other middleware would not be applied to this dispatch.");
+            };
+            var middlewareAPI = {
+                getState: store.getState,
+                dispatch: function dispatch() {
+                    return _dispatch.apply(void 0, arguments);
+                }
+            };
+            var chain = middlewares.map(function(middleware) {
+                return middleware(middlewareAPI);
+            });
+            _dispatch = compose.apply(void 0, chain)(store.dispatch);
+            return _objectSpread2Default.default(_objectSpread2Default.default({
+            }, store), {
+            }, {
+                dispatch: _dispatch
+            });
+        };
+    };
+}
+/*
+ * This is a dummy function to check if the function name has been altered by minification.
+ * If the function has been minified and NODE_ENV !== 'production', warn the user.
+ */ function isCrushed() {
+}
+if (typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') warning("You are currently using minified code outside of NODE_ENV === \"production\". This means that you are running a slower development build of Redux. You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify or setting mode to production in webpack (https://webpack.js.org/concepts/mode/) to ensure you have the correct code for your production build.");
+
+},{"@babel/runtime/helpers/esm/objectSpread2":"1LUOm","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1LUOm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _definePropertyJs = require("./defineProperty.js");
+var _definePropertyJsDefault = parcelHelpers.interopDefault(_definePropertyJs);
+function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        if (enumerableOnly) symbols = symbols.filter(function(sym) {
+            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+        keys.push.apply(keys, symbols);
+    }
+    return keys;
+}
+function _objectSpread2(target) {
+    for(var i = 1; i < arguments.length; i++){
+        var source = arguments[i] != null ? arguments[i] : {
+        };
+        if (i % 2) ownKeys(Object(source), true).forEach(function(key) {
+            _definePropertyJsDefault.default(target, key, source[key]);
+        });
+        else if (Object.getOwnPropertyDescriptors) Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+        else ownKeys(Object(source)).forEach(function(key) {
+            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+    }
+    return target;
+}
+exports.default = _objectSpread2;
+
+},{"./defineProperty.js":"6QWaj","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6QWaj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _defineProperty(obj, key, value) {
+    if (key in obj) Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+    });
+    else obj[key] = value;
+    return obj;
+}
+exports.default = _defineProperty;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dSmu3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _redux = require("redux");
+var _actions = require("../actions/actions");
+//reducers
+function visibilityFilter(state = '', action) {
+    switch(action.type){
+        case _actions.SET_FILTER:
+            return action.value;
+        default:
+            return state;
+    }
+}
+function movies(state = [], action) {
+    switch(action.type){
+        case _actions.SET_MOVIES:
+            return action.value;
+        default:
+            return state;
+    }
+}
+//combine-reducer
+const moviesApp = _redux.combineReducers({
+    visibilityFilter,
+    movies
+});
+exports.default = moviesApp;
+
+},{"redux":"ifMRI","../actions/actions":"6dgbZ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequireaec4")
 
 //# sourceMappingURL=index.e1b27ffe.js.map

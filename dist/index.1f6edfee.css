@@ -1,7 +1,4 @@
 
-.movieCardBody {
-  background-color: #303f52;
-}
 
 
 .regi-info {
@@ -40,6 +37,9 @@ a, p, .nav-item {
 
 .navbar-brand {
   align-self: auto;
+}
+.movieCardBody {
+  background-color: #303f52;
 }
 @charset "UTF-8";/*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
