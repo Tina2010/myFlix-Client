@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 import Link from 'react-router-dom/Link';
+import { connect } from 'react-redux';
 
 import './login-view.scss';
 
@@ -57,10 +57,8 @@ export function LoginView(props) {
   );
 }
 
-LoginView.prototype = {
-    login: PropTypes.shape({
-      username: PropTypes.string.isRequired,
-      password: PropTypes.string.isRequired
-    }).isRequired,
-    onLoggedIn: PropTypes.func.isRequired
-  };
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (username, password) => dispatch(handleSubmit(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);
