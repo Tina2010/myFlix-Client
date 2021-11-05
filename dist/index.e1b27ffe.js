@@ -31365,7 +31365,7 @@ class GenreView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"4mchR","./genre-view.scss":"hKWHe","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-bootstrap/Button":"64Pgd","react/jsx-runtime":"6Ds2u","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp"}],"hKWHe":[function() {},{}],"47DIu":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","./genre-view.scss":"hKWHe","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp","react-bootstrap/Button":"64Pgd"}],"hKWHe":[function() {},{}],"47DIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$da2a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -32121,7 +32121,7 @@ exports.default = _reactRedux.connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","react-bootstrap":"9qMdX","./profile-view.scss":"z96SM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../../actions/actions":"6dgbZ","react-redux":"lT3ms"}],"9qMdX":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","react-bootstrap":"9qMdX","./profile-view.scss":"z96SM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-redux":"lT3ms","../../actions/actions":"6dgbZ"}],"9qMdX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -42940,8 +42940,6 @@ parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
 );
 parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER
 );
-parcelHelpers.export(exports, "DELETE_USER", ()=>DELETE_USER
-);
 // action creators
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
@@ -42951,13 +42949,10 @@ parcelHelpers.export(exports, "setUser", ()=>setUser
 );
 parcelHelpers.export(exports, "updateUser", ()=>updateUser
 );
-parcelHelpers.export(exports, "deleteUser", ()=>deleteUser
-);
 const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
 const SET_USER = 'SET_USER';
 const UPDATE_USER = 'UPDATE_USER';
-const DELETE_USER = 'DELETE_USER';
 function setMovies(value) {
     return {
         type: SET_MOVIES,
@@ -42979,12 +42974,6 @@ function setUser(value) {
 function updateUser(value) {
     return {
         type: UPDATE_USER,
-        value
-    };
-}
-function deleteUser(value) {
-    return {
-        type: DELETE_USER,
         value
     };
 }
@@ -43987,21 +43976,12 @@ function updateUsers(state = [], action) {
             return state;
     }
 }
-function deleteUsers(state = [], action) {
-    switch(action.type){
-        case _actions.DELETE_USER:
-            return action.value;
-        default:
-            return state;
-    }
-}
 //combine-reducer
 const moviesApp = _redux.combineReducers({
     visibilityFilter,
     movies,
     users,
-    updateUsers,
-    deleteUsers
+    updateUsers
 });
 exports.default = moviesApp;
 
