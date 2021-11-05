@@ -26,10 +26,20 @@ export function NavBarView() {
             
           </Nav>
           <NavItem>
-            <p style={{'color':'grey'}}>Logged in as:</p></NavItem>         
-          <NavItem style={{'color':'black'}}> &nbsp; {Username}</NavItem>
+            {/* Only show "Logged in as:" when user is logged in */}
+          {Username && (
+                    <div>
+                      <p style={{'color':'grey'}}>Logged in as:</p>
+                    </div>
+                  )}              
+              </NavItem>         
+          <NavItem style={{'color':'black'}}>
+             &nbsp; {Username}</NavItem>
           <Nav.Link className="d-flex">
-          <Button variant="danger" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+            {/* only show logout button, when user is logged in */}
+            {Username && (
+              <Button variant="danger" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+            )}
           </Nav.Link>
         </Navbar.Collapse>
       </Container>

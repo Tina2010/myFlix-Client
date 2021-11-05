@@ -4,11 +4,13 @@ import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Image } from 'react-bootstrap';
 
 import Link from "react-router-dom/Link";
 
 
 import './movie-view.scss';
+import { Image } from 'react-bootstrap';
 
 export class MovieView extends React.Component {
 
@@ -44,7 +46,7 @@ export class MovieView extends React.Component {
         console.log(movie);
         return (
           <div className="movie-view">
-            <Row className="mt-5 pt-5">
+            <Row className="mt-5 pt-4">
               <Col>
                 <Row className="movie-title">
                   <Col className="value pb-5" style={{fontSize:"40px"}}>{movie.Title}&nbsp;
@@ -58,13 +60,12 @@ export class MovieView extends React.Component {
                     <Button variant="link" >{movie.Genre[0].Name}</Button>
                     </Link>
                   </Col>
-                  <Col className="value">{movie.ImagePath}</Col>
                 </Row>
                 <Row className="movie-director">
                   <Col className="label"md={2}>Director: </Col>
                   <Col className="value">
                   <Link to={`/${movie._id}/director`}>
-                    <Button variant="link">{movie.Director[0].Name},</Button>
+                    <Button variant="link">{movie.Director[0].Name}</Button>
                   </Link>
                   </Col>
                 </Row>
@@ -76,7 +77,9 @@ export class MovieView extends React.Component {
                 </Row>
                 <Button className="mt-3" variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
               </Col>
+              <Col><Image src={movie.ImagePath}></Image></Col>
             </Row>
+            
            </div>
            
         );
