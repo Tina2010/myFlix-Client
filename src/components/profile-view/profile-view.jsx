@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { Form, Button, Container, Row, Col, Card, ListGroup, CardGroup,  ListGroupItem } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 import './profile-view.scss';
 
+import { setUser, updateUser } from '../../actions/actions';
+
 export class ProfileView extends React.Component {
 
-    constructor(props) {
+    constructor() {
       super();
        this.state = {
         Username: null,
         Password: null,
         Email: null,
         Birthday: null,
-        FavoriteMovies: [], 
+        FavoriteMovies: []
       };
     }
   
@@ -47,11 +49,12 @@ export class ProfileView extends React.Component {
           console.log(error);
         });
     }
+
+    
   
-    removeFavMovies() {
+    removeFavMovies(movie) {
       const token = localStorage.getItem("token");
       const Username = localStorage.getItem("user");
-  
       axios
         .delete(
           `https://obscure-castle-33842.herokuapp.com/users/${Username}/movies/${movie._id}`,
@@ -60,72 +63,47 @@ export class ProfileView extends React.Component {
           }
         )
         .then(() => {
-          alert("Movie was removed");
+          alert('Movie was removed');
           this.componentDidMount();
         })
         .catch(function (error) {
           console.log(error);
-        });
+          console.log(movie);
+        })
     }
   
-    handleUpdate( e, Username, Password, Email, Birthday) {
-      this.setState({
-        validated: null,
-      });
-  
-      const form = e.currentTarget;
-      if (form.checkValidity() === false) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.setState({
-          validated: true,
-        });
-        return;
-      }
+    handleUpdate(e) {
       e.preventDefault();
-  
-      const token = localStorage.getItem("token");
-      console.log(token);
+    const username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
       axios
-        .put(`https://obscure-castle-33842.herokuapp.com/users/${Username}`, {
-          headers: {Authorization: `Bearer ${token}`},
-          data: {
-            Username: this.state.Username,
-            Password: this.state.Password,
-            Email: this.state.Email,
-            Birthday: this.state.Birthday,
-          },
+        .put(`https://obscure-castle-33842.herokuapp.com/users/${username}`, {
+          Username: this.state.Username,
+          Password: this.state.Password,
+          Email: this.state.Email,
+          Birthday: this.state.Birthday
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` }
         })
         .then((response) => {
-          alert("Saved Changes");
           this.setState({
             Username: response.data.Username,
             Password: response.data.Password,
             Email: response.data.Email,
-            Birthday: response.data.Birthday,
+            Birthday: response.data.Birthday
           });
-          localStorage.setItem("user", this.state.Username);
-          window.open(`/users/${Username}`, "_self");
+          localStorage.setItem('user', response.data.Username);
+          const data = response.data;
+          console.log(data);
+          console.log(response.data.Username);
+          alert("Profile updated.");
+          window.open(`/profile`, '_self');
         })
         .catch(function (error) {
           console.log(error);
-        });
-    }
-  
-    setUsername(input) {
-      this.Username = input;
-    }
-  
-    setPassword(input) {
-      this.Password = input;
-    }
-  
-    setEmail(input) {
-      this.Email = input;
-    }
-  
-    setBirthdate(input) {
-      this.Birthday = input;
+        })
     }
 
     handleDeleteUser(e) {
@@ -149,10 +127,26 @@ export class ProfileView extends React.Component {
         });
     }
   
-    render() {
-      const { FavoriteMovies, validated, Username, Email, Birthday } = this.state;
-      const { movies } = this.props;
+    setUsername(value) {
+      this.state.Username = value;
+    }
   
+    setPassword(value) {
+      this.state.Password = value;
+    }
+  
+    setEmail(value) {
+      this.state.Email = value;
+    }
+  
+    setBirthday(value) {
+      this.state.Birthday = value;
+    }
+
+    render() {
+      const { FavoriteMovies, validated, Username, Email, Birthday, user } = this.state;
+      const { movies } = this.props;
+
       return (
         <Container className="mt-5">
           <Row>
@@ -228,6 +222,17 @@ export class ProfileView extends React.Component {
                                     placeholder="Change your email"
                                   />
                                 </Form.Group>
+
+                                <Form.Group controlId="formBirthday">
+                                  <Form.Label>Birthday:</Form.Label>
+                                  <Form.Control
+                                    type="date"
+                                    onChange={(e) =>
+                                      this.setBirthday(e.target.value)
+                                    }
+                                    placeholder="Change your birthday"
+                                  />
+                                </Form.Group>
                                 <Button variant="primary" type="submit">
                                   Update
                                 </Button>
@@ -286,8 +291,9 @@ export class ProfileView extends React.Component {
                                     className="profile-button remove-favorite"
                                     variant="danger"
                                     value={movie._id}
-                                    onClick={(e) =>
-                                      this.removeFavMovies(e, movie)
+                                    onClick={() =>
+                                      this.removeFavMovies(movie)
+
                                     }
                                   >
                                     Remove
@@ -302,7 +308,7 @@ export class ProfileView extends React.Component {
   
                 <Button
                   variant="secondary"
-                  onClick={() => handleDeleteUser(e, user)}
+                  onClick={(e) => this.handleDeleteUser(e, user)}
                 >
                   Delete Account
                 </Button>
@@ -313,3 +319,12 @@ export class ProfileView extends React.Component {
       );
     }
   }
+
+  let mapStateToProps = state => {
+    return {
+      user: state.user,
+      movies: state.movies
+    }
+  }
+  
+  export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
