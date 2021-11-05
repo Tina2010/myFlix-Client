@@ -57,12 +57,12 @@ class MainView extends React.Component {
         })
         .then(response => {
           this.props.setMovies(response.data);
+          console.log(response.data)
         })
         .catch(function (error) {
           console.log(error);
         });
       }
-
 
       onLoggedOut() {
         localStorage.removeItem('token');
@@ -106,7 +106,7 @@ class MainView extends React.Component {
                   <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
                 </Col>
               }} />
-              <Route path="/directors/:Name" render={({ history }) => {
+              <Route path="/:movieId/director/" render={({ match, history }) => {
                 if (!user) 
                 return 
                 <Col>
@@ -115,10 +115,11 @@ class MainView extends React.Component {
                 if (movies.length === 0) return <div className="main-view" />;
                 return <Col md={8}>
                   {/* The directors info is embedded in a separate document and referenced in the movie document with their ID */}
-                  <DirectorView history={history} movies={movies} />
+                  <DirectorView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => 
+                    history.goBack()}/>
                 </Col>
               }} />
-              <Route path="/genres/:Name" render={({ match, history }) => {
+              <Route path="/:movieId/genre" render={({ match, history }) => {
                 if (!user) 
                 return 
                 <Col>
@@ -127,11 +128,13 @@ class MainView extends React.Component {
                 if (movies.length === 0) return <div className="main-view" />;
                 return <Col md={8}>
                   {/* The genres info is embedded in a separate document and referenced in the movie document with their ID */}
-                  <GenreView genre={movies.find(m => m.Genre._id === match.params.genreId).Genre} onBackClick={() => history.goBack()} />
+                  <GenreView 
+                    movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => 
+                    history.goBack()} />
                 </Col>
               }
               } />
-              <Route path="/profile" render={({ history }) => {
+              <Route path="/profile" render={({ match, history }) => {
                 if (!user) 
                 return 
                 <Col>
@@ -139,7 +142,7 @@ class MainView extends React.Component {
                 </Col>
                 if (movies.length === 0) return <div className="main-view" />;
                 return <Col md={8}>
-                  <ProfileView history={history} movies={movies} />
+                  <ProfileView history={history} movies={movies} movie={movies.find(m => m._id === match.params.movieId)} />
                 </Col>
               }} />
             </Row>
