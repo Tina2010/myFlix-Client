@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 import Link from 'react-router-dom/Link';
+import Col from 'react-bootstrap/Col';
 import { connect } from 'react-redux';
 
 import './login-view.scss';
@@ -31,9 +32,10 @@ export function LoginView(props) {
 
   return (
     <div className="login-view mt-5">
-      <Stack gap={2} className="col-sm-5 col-md-5 mx-auto">
+      <Stack gap={2}>
         <h2 style={{ 'textAlign': "center"}}>Login</h2>
         <Form>
+          <Col className="mx-auto" xs={8} sm={4} lg={3} xl={2}>
           <Form.Group controlId="formUsername">
             <Form.Label className="mt-3">Username:</Form.Label>
             <Form.Control className="mb-3" type="text" onChange={e => setUsername(e.target.value)} />
@@ -44,17 +46,18 @@ export function LoginView(props) {
             <Form.Control className="mb-3" type="password" onChange={e => setPassword(e.target.value)} />
           </Form.Group>
           <Button variant="outline-light" type="submit" onClick={handleSubmit}>
-            Submit
+            Login
           </Button>
+          </Col>
         </Form>
-        <p className="mt-5">
+        <p className="mt-5 mx-auto">
           New here? Feel free to &nbsp;
           <Link to="/register" className="btn btn-warning">register</Link>
           &nbsp; today!
         </p>
       </Stack>
     </div>
-  );
+  )
 }
 
 const mapDispatchToProps = (dispatch) => ({

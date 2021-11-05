@@ -151,7 +151,7 @@ export class ProfileView extends React.Component {
         <Container className="mt-5">
           <Row>
             <Col xs={12} sm={4} className="mb-5">
-              <Card>
+              <Card style={{'border-color':'#303f52'}}>
                 <Card.Body>
                   <Card.Title>Profile Info</Card.Title>
                 </Card.Body>
@@ -165,15 +165,9 @@ export class ProfileView extends React.Component {
             </Col>
   
             <Col xs={12} sm={8} className="mb-5">
-              <Card>
-                <Card.Body>
-                  <Container>
-                    <Row className="justify-content-md-center">
-                      <Col md={8}>
-                        <CardGroup>
-                          <Card>
-                            <Card.Body>
-                              <Card.Title>Update</Card.Title>
+                    <Card style={{'border-color':'#303f52'}}>
+                       <Card.Body>
+                          <Card.Title>Update</Card.Title>
   
                               <Form
                                 noValidate
@@ -223,7 +217,7 @@ export class ProfileView extends React.Component {
                                   />
                                 </Form.Group>
 
-                                <Form.Group controlId="formBirthday">
+                                <Form.Group controlId="formBirthday" className="mb-2">
                                   <Form.Label>Birthday:</Form.Label>
                                   <Form.Control
                                     type="date"
@@ -237,18 +231,12 @@ export class ProfileView extends React.Component {
                                   Update
                                 </Button>
                               </Form>
-                            </Card.Body>
-                          </Card>
-                        </CardGroup>
-                      </Col>
-                    </Row>
-                  </Container>
-                </Card.Body>
-              </Card>
+                        </Card.Body>
+                    </Card>
             </Col>
           </Row>
   
-          <Card>
+          <Card className="mb-2">
             <Row>
               <Col xs={12}>
                 <h4>Favorite Movies</h4>
@@ -263,7 +251,7 @@ export class ProfileView extends React.Component {
                       You have no favorite movies.
                     </div>
                   )}
-                  <Row className="favorites-movies ">
+                  <Row style={{'border-color':'#303f52'}}>
                     {FavoriteMovies.length > 0 &&
                       movies.map((movie) => {
                         if (
@@ -272,8 +260,7 @@ export class ProfileView extends React.Component {
                         ) {
                           return (
                               <Card
-                                className="favorites-item card-content"
-                                style={{ width: "16rem" }}
+                                style={{ 'width': '16rem', 'border-color':'#303f52'}}
                                 key={movie._id}
                               >
                                 <Card.Img
@@ -282,8 +269,8 @@ export class ProfileView extends React.Component {
                                   variant="top"
                                   src={movie.ImageURL}
                                 />
-                                <Card.Body>
-                                  <Card.Title className="movie-card-title">
+                                <Card.Body style={{ 'background-color': 'white'}}>
+                                  <Card.Title className="movie-card-title" style={{ 'color': 'black'}}>
                                     {movie.Title}
                                   </Card.Title>
                                   <Button
@@ -293,7 +280,6 @@ export class ProfileView extends React.Component {
                                     value={movie._id}
                                     onClick={() =>
                                       this.removeFavMovies(movie)
-
                                     }
                                   >
                                     Remove
@@ -305,16 +291,15 @@ export class ProfileView extends React.Component {
                       })}
                   </Row>
                 </Card.Body>
-  
-                <Button
+              </Col>
+            </Row>
+          </Card>
+          <Button
                   variant="secondary"
                   onClick={(e) => this.handleDeleteUser(e, user)}
                 >
                   Delete Account
                 </Button>
-              </Col>
-            </Row>
-          </Card>
         </Container>
       );
     }

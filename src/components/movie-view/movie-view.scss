@@ -1,0 +1,30 @@
+$bright-textcolor: rgb(211 191 160 / 97%);
+$dark-backgroundblue: #303f52;
+
+.movie-view {
+    max-height: 500px;
+}
+
+button.btn.btn-link {
+    text-decoration: none;
+    color:$bright-textcolor;
+    padding: 0;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+button.btn.btn-link:hover {
+    color:$dark-backgroundblue;
+    text-shadow: 
+    -1px 1px 0 $bright-textcolor,
+    1px 1px 0 $bright-textcolor,
+   1px -1px 0 $bright-textcolor,
+  -1px -1px 0 $bright-textcolor;
+}
+
+img {
+    margin-right: 0;
+    margin-left: auto;
+    display: flex;
+    overflow: hidden;
+}

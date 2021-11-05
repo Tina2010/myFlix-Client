@@ -1,7 +1,7 @@
 $bright-textcolor: rgb(211 191 160 / 97%);
-$dark-backgroundblue: #303f52;
+$dark-backgroundblue: #303f52a2;
 
-.movieCardBody{
-    background-color:$dark-backgroundblue;
+.cropText {
+    max-height: 200px;
+    text-overflow: ellipsis;
 }
-
