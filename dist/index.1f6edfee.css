@@ -1,5 +1,27 @@
 
+.movie-view {
+  max-height: 500px;
+}
 
+button.btn.btn-link {
+  text-decoration: none;
+  color: rgba(211, 191, 160, 0.97);
+  padding: 0;
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+button.btn.btn-link:hover {
+  color: #303f52;
+  text-shadow: -1px 1px 0 rgba(211, 191, 160, 0.97), 1px 1px 0 rgba(211, 191, 160, 0.97), 1px -1px 0 rgba(211, 191, 160, 0.97), -1px -1px 0 rgba(211, 191, 160, 0.97);
+}
+
+img {
+  margin-right: 0;
+  margin-left: auto;
+  display: flex;
+  overflow: hidden;
+}
 
 .regi-info {
   display: grid;
@@ -15,17 +37,9 @@ html,
 }
 
 
-.list-group-flush > .list-group-item,
-.card-body,
-.row,
-.card {
+.row, .card-body, .listitem, .updateCard {
   background-color: #303f52;
-  font-family: sans-serif;
-  color: rgba(211, 191, 160, 0.97);
-}
-
-.card {
-  border: unset;
+  border-color: #303f52;
 }
 .navbar {
   box-shadow: 5px 5px 5px black;
@@ -38,8 +52,9 @@ a, p, .nav-item {
 .navbar-brand {
   align-self: auto;
 }
-.movieCardBody {
-  background-color: #303f52;
+.cropText {
+  max-height: 200px;
+  text-overflow: ellipsis;
 }
 @charset "UTF-8";/*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
