@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,33 +7,64 @@ import Button from 'react-bootstrap/Button';
 
 import Link from "react-router-dom/Link";
 
+
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      isFavorite: 'Mark as Favorite'
+    };
+  }
+
+  onFavorite() {
+    const token = localStorage.getItem('token');
+    const Username = localStorage.getItem('user');
+
+    this.setState({
+      isFavorite: 'Added a favorite!'
+    });
+
+    axios.post(`https://obscure-castle-33842.herokuapp.com/users/${Username}/movies/` + this.props.movie._id, {}, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+
     render() {
         const { movie, onBackClick } = this.props;
-    
+        console.log(movie);
         return (
           <div className="movie-view">
             <Row className="mt-5 pt-5">
               <Col>
                 <Row className="movie-title">
-                  <Col className="value pb-5" style={{fontSize:"40px"}}>{movie.Title}</Col>
+                  <Col className="value pb-5" style={{fontSize:"40px"}}>{movie.Title}&nbsp;
+                  <Button variant='warning' size="sm" onClick={() => this.onFavorite()} >{this.state.isFavorite}</Button>
+                  </Col>
                 </Row>
                 <Row className="movie-genre">
                   <Col className="label" md={2}>Genre: </Col>
                   <Col className="value">
-                  <Link to={`/genres/${movie.Genre}`}>
-                    <Button variant="link">{movie.Genre}</Button>
-                  </Link>
+                    <Link to={`/${movie._id}/genre`}>
+                    <Button variant="link" >{movie.Genre[0].Name}</Button>
+                    </Link>
                   </Col>
                   <Col className="value">{movie.ImagePath}</Col>
                 </Row>
                 <Row className="movie-director">
                   <Col className="label"md={2}>Director: </Col>
                   <Col className="value">
-                  <Link to={`/directors/${movie.Director}`}>
-                    <Button variant="link">{movie.Director}</Button>
+                  <Link to={`/${movie._id}/director`}>
+                    <Button variant="link">{movie.Director[0].Name},</Button>
                   </Link>
                   </Col>
                 </Row>
@@ -51,14 +82,3 @@ export class MovieView extends React.Component {
         );
       }
 }
-
-MovieView.prototype = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Descripton: PropTypes.string,
-    ImagePath: PropTypes.string.isRequired,
-    Genre: PropTypes.array,
-    Director: PropTypes.array
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
-};
