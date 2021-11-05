@@ -1,103 +1,35 @@
 import React from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 import './director-view.scss';
 
 export class DirectorView extends React.Component {
 
-    constructor(props) {
-      super();
-       this.state = {
-         movie: this.state,
-         Director: [], 
-      };
-    }
-  
-    componentDidMount() {
-      let accessToken = localStorage.getItem('token');
-        if (accessToken !== null) {
-          this.setState({
-            user: localStorage.getItem('user')
-          });
-          this.getDirector(accessToken);
-        }
-    }
-  
-    
-
-    getDirector(token) {
-      const movie = this.state;
-      const Director = movie.Director;
-      axios
-        .get(`https://obscure-castle-33842.herokuapp.com/directors/${Director._id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((response) => {
-          this.setState({
-            Diretor: response.data.Director,
-          });
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-  
-    render() {
-      const { Director } = this.state;
-      const { directors } = this.props;
-  
-      return (
-        <Container className="mt-5">  
-          <Card>
-            <Row>
-              <Col xs={12}>
-                <h4>Director</h4>
-              </Col>
+  render() {
+    const { movie, onBackClick } = this.props;
+    console.log(this.state);
+    console.log(movie);
+    return (
+      <div className="director-view">
+        <Row className="mt-5 pt-5">
+          <Col>
+            <Row className="director-title">
+              <Col className="value pb-5" style={{fontSize:"40px"}}>{movie.Director[0].Name}</Col>
             </Row>
-  
-            <Row>
-              <Col>
-                <Card.Body>
-                  <Row className="director-body ">
-                  {Director.length > 0 &&
-                      directors.map((director) => {
-                        if (
-                          director._id ===
-                          Directors.find((dir) => dir === movie.Director)
-                        ) {
-                          return (
-                              <Card>
-                                <Row
-                                className="director-item card-content"
-                                style={{ width: "16rem" }}
-                                key={Director.Name}>
-                                </Row>
-                                <Row
-                                className="director-item card-content"
-                                style={{ width: "16rem" }}
-                                key={Director.Bio}>
-                                </Row>
-                              </Card>
-                          );
-                          }
-                        }
-                      )
-                      }
-                  </Row>
-                </Card.Body>
-              </Col>
+            <Row className="director-description">
+              <Col className="label pt-5"md={2}>Description: </Col>
             </Row>
-          </Card>
-        </Container>
-      );
-    }
+            <Row className="director-description">
+              <Col className="value">{movie.Director[0].Bio}</Col>
+            </Row>
+            <Button className="mt-3" variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
+          </Col>
+        </Row>
+       </div>
+       
+    );
   }
-
-  DirectorView.prototype = {
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string
-    }).isRequired
-  };
+}
