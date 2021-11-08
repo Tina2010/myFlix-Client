@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Form, Button, Container, Row, Col, Card, ListGroup, CardGroup,  ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
+import Moment from 'react-moment';
+
 import './profile-view.scss';
 
 import { setUser, updateUser } from '../../actions/actions';
@@ -159,7 +161,7 @@ export class ProfileView extends React.Component {
                   <ListGroupItem className="listitem">Username: {Username} </ListGroupItem>
                   <ListGroupItem className="listitem">Password: *** </ListGroupItem>
                   <ListGroupItem className="listitem">Email: {Email} </ListGroupItem>
-                  <ListGroupItem className="listitem">Birthday: {Birthday} </ListGroupItem>
+                  <ListGroupItem className="listitem">Birthday:<Moment format=' DD.MM.YYYY'>{Birthday}</Moment></ListGroupItem>
                 </ListGroup>
               </Card>
             </Col>

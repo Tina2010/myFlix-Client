@@ -6,7 +6,7 @@ import './navbar-view.scss';
 export function NavBarView() {
   const Username = localStorage.getItem("user");
 
-  onLoggedOut = () => {
+const onLoggedOut = () => {
     localStorage.clear();
     window.open("/", "_self");
   }
@@ -38,7 +38,7 @@ export function NavBarView() {
           <Nav.Link className="d-flex">
             {/* only show logout button, when user is logged in */}
             {Username && (
-              <Button variant="danger" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+              <Button variant="danger" onClick={() => { onLoggedOut() }}>Logout</Button>
             )}
           </Nav.Link>
         </Navbar.Collapse>
