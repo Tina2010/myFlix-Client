@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Image } from 'react-bootstrap';
 
-import Link from "react-router-dom/Link";
+import {Link} from "react-router-dom";
 
 
 import './movie-view.scss';

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Button, Container, Row, Col, Card, ListGroup, CardGroup,  ListGroupItem } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import Moment from 'react-moment';
@@ -153,7 +153,7 @@ export class ProfileView extends React.Component {
         <Container className="mt-5">
           <Row>
             <Col xs={12} sm={4} className="mb-5">
-              <Card style={{'border-color':'#303f52'}}>
+              <Card style={{'borderColor':'#303f52'}}>
                 <Card.Body>
                   <Card.Title>Profile Info</Card.Title>
                 </Card.Body>
@@ -167,7 +167,7 @@ export class ProfileView extends React.Component {
             </Col>
   
             <Col xs={12} sm={8} className="mb-5">
-                    <Card style={{'border-color':'#303f52'}}>
+                    <Card style={{'borderColor':'#303f52'}}>
                        <Card.Body>
                           <Card.Title>Update</Card.Title>
   
@@ -253,7 +253,7 @@ export class ProfileView extends React.Component {
                       You have no favorite movies.
                     </div>
                   )}
-                  <Row style={{'border-color':'#303f52'}}>
+                  <Row style={{'borderColor':'#303f52'}}>
                     {FavoriteMovies.length > 0 &&
                       movies.map((movie) => {
                         if (
@@ -262,7 +262,7 @@ export class ProfileView extends React.Component {
                         ) {
                           return (
                               <Card
-                                style={{ 'width': '16rem', 'border-color':'#303f52'}}
+                                style={{ 'width': '16rem', 'borderColor':'#303f52'}}
                                 key={movie._id}
                               >
                                 <Card.Img
@@ -271,7 +271,7 @@ export class ProfileView extends React.Component {
                                   variant="top"
                                   src={movie.ImageURL}
                                 />
-                                <Card.Body style={{ 'background-color': 'white'}}>
+                                <Card.Body style={{ 'backgroundColor': 'white'}}>
                                   <Card.Title className="movie-card-title" style={{ 'color': 'black'}}>
                                     {movie.Title}
                                   </Card.Title>
