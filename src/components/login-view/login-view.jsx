@@ -15,7 +15,7 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://obscure-castle-33842.herokuapp.com/login/', {
+    axios.post('https://obscure-castle-33842.herokuapp.com/login/', {
       Username: username,
       Password: password
     })
