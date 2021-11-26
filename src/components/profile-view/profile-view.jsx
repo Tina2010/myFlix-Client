@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Button, Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Card, ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import Moment from 'react-moment';
@@ -302,13 +302,16 @@ export class ProfileView extends React.Component {
               </Col>
             </Row>
           </Card>
-          Please note that removing the account cannot be reversed!
+          <Alert variant="dark">
+          <h4>Delete Account</h4>
+          <p className="text-danger">Please note that removing the account cannot be reversed!</p>
           <Button
-                  variant="secondary"
+                  variant="warning"
                   onClick={(e) => this.handleDeleteUser(e, user)}
                 >
                   Delete Account
                 </Button>
+          </Alert>
         </Container>
       );
     }
