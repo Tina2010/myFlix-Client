@@ -4,4 +4,5 @@ $dark-backgroundblue: #303f52;
 .row, .card-body, .listitem, .updateCard {
     background-color: $dark-backgroundblue;
     border-color: $dark-backgroundblue;
+    color: hsla(36,37%,73%,.97);
 }

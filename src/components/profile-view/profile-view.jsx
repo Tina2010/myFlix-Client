@@ -271,7 +271,13 @@ export class ProfileView extends React.Component {
                                   variant="top"
                                   src={movie.ImageURL}
                                 />
-                                <Card.Body style={{ 'backgroundColor': 'white'}}>
+                                <Card.Body style={{ 
+                                  'background-color': 'antiquewhite',
+                                  'display': 'flex',
+                                  'justify-content': 'space-between',
+                                  'border': '1px solid #ced4da',
+                                  'border-radius': '0.25rem',
+                                  }}>
                                   <Card.Title className="movie-card-title" style={{ 'color': 'black'}}>
                                     {movie.Title}
                                   </Card.Title>
@@ -296,6 +302,7 @@ export class ProfileView extends React.Component {
               </Col>
             </Row>
           </Card>
+          Please note that removing the account cannot be reversed!
           <Button
                   variant="secondary"
                   onClick={(e) => this.handleDeleteUser(e, user)}
