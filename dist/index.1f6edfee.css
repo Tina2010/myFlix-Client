@@ -40,6 +40,7 @@ html,
 .row, .card-body, .listitem, .updateCard {
   background-color: #303f52;
   border-color: #303f52;
+  color: rgba(212, 191, 161, 0.97);
 }
 .navbar {
   box-shadow: 5px 5px 5px black;
