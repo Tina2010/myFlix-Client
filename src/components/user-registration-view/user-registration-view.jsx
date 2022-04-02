@@ -10,7 +10,7 @@ import Stack from 'react-bootstrap/Stack';
 
 import './user-registration-view.scss';
 
-export function RegiView(props) {
+export function RegiView() {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');

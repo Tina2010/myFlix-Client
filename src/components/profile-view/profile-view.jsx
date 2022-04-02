@@ -70,7 +70,6 @@ export class ProfileView extends React.Component {
         })
         .catch(function (error) {
           console.log(error);
-          console.log(movie);
         })
     }
   
@@ -97,9 +96,6 @@ export class ProfileView extends React.Component {
             Birthday: response.data.Birthday
           });
           localStorage.setItem('user', response.data.Username);
-          const data = response.data;
-          console.log(data);
-          console.log(response.data.Username);
           alert("Profile updated.");
           window.open(`/profile`, '_self');
         })

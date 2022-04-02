@@ -10,8 +10,6 @@ export class DirectorView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
-    console.log(this.state);
-    console.log(movie);
     return (
       <div className="director-view">
         <Row className="mt-5 pt-5">

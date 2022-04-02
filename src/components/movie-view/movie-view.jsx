@@ -43,7 +43,6 @@ export class MovieView extends React.Component {
 
     render() {
         const { movie, onBackClick } = this.props;
-        console.log(movie);
         return (
           <div className="movie-view">
             <Row className="mt-5 pt-4">
